@@ -53,7 +53,25 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /** @var Form $form */
+        $form = FormBuilder::create(UserForm::class);
+
+    /*    if(!$form->isValid()){
+            return redirect()
+                ->back()
+                ->withErrors($form->getErrors())
+                ->withInput();
+        }
+*/
+        $data = $form->getFieldValues();
+
+//        dd($data);
+
+        $this->repository->add($data);
+
+        $request->session()->flash('message','Usuário criado com sucesso.');
+
+        return redirect()->route('users.index');
     }
 
     /**
