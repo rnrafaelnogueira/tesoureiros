@@ -1,8 +1,7 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
-
     <div class="row">
         <h3>Novo usuário</h3>
         <?php $icon = Icon::create('floppy-disk');?>

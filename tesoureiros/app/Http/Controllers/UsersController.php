@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Forms\UserForm;
 use App\User;
+use FormBuilder;
 use Illuminate\Http\Request;
 use App\Repositories\UserRepository;
+use Kris\LaravelFormBuilder\Form;
+
+
 
 class UsersController extends Controller
 {
@@ -32,7 +37,12 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        $form = FormBuilder::create(UserForm::class,[
+            'url' => route('users.store'),
+            'method' => 'POST'
+        ]);
+
+        return view('users.create', compact('form'));
     }
 
     /**
