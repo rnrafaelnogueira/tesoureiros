@@ -160,7 +160,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
-
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        Irazasyed\JwtAuthGuard\JwtAuthGuardServiceProvider::class,
     ],
 
     /*
@@ -216,6 +217,9 @@ return [
         'Navbar' => Bootstrapper\Facades\Navbar::class,
         'Navigate' => Bootstrapper\Facades\Navigation::class,
         'MediaObject' => \Bootstrapper\Facades\MediaObject::class,
+        'ApiRoute' => \Dingo\Api\Facade\Route::class,
+        'JWTAuth' => \Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => \Tymon\JWTAuth\Facades\JWTFactory::class,
     ],
 
 ];
