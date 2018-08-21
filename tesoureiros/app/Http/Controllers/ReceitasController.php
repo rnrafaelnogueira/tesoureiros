@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dizimos;
+use App\Repositories\ReceitaRepository;
 use Illuminate\Http\Request;
 
-class DizimosController extends Controller
+class ReceitasController extends Controller
 {
+    public function __construct(ReceitaRepository $repository)
+    {
+        $this->repository = $repository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,8 @@ class DizimosController extends Controller
      */
     public function index()
     {
-        //
+        $receitas =  $this->repository->paginate(10,'name', 'ASC');
+        return view('receita.index', compact('receitas'));
     }
 
     /**
@@ -24,7 +29,12 @@ class DizimosController extends Controller
      */
     public function create()
     {
-        //
+        $form = FormBuilder::create(ReceitaForm::class,[
+            'url' => route('users.store'),
+            'method' => 'POST'
+        ]);
+
+        return view('users.create', compact('form'));
     }
 
     /**
@@ -41,10 +51,10 @@ class DizimosController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\\Dizimos  $dizimos
+     * @param  \App\Models\\Receita  $dizimos
      * @return \Illuminate\Http\Response
      */
-    public function show(Dizimos $dizimos)
+    public function show(Receita $dizimos)
     {
         //
     }
@@ -52,10 +62,10 @@ class DizimosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\\Dizimos  $dizimos
+     * @param  \App\Models\\Receita  $dizimos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dizimos $dizimos)
+    public function edit(Receita $dizimos)
     {
         //
     }
@@ -64,10 +74,10 @@ class DizimosController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\\Dizimos  $dizimos
+     * @param  \App\Models\\Receita  $dizimos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dizimos $dizimos)
+    public function update(Request $request, Receita $dizimos)
     {
         //
     }
@@ -75,10 +85,10 @@ class DizimosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\\Dizimos  $dizimos
+     * @param  \App\Models\\Receita  $dizimos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dizimos $dizimos)
+    public function destroy(Receita $dizimos)
     {
         //
     }
