@@ -43,11 +43,13 @@ class BaseRepository
     public function add($data)
     {
         try {
+
             $object = new $this->model($data);
             $object->save();
 
             return TRUE;
         } catch(Exception $e) {
+            dd($e->getMessage());
             return $e->getMessage();
         }
     }

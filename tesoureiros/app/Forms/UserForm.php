@@ -17,13 +17,17 @@ class UserForm extends Form
         $id = $this->getData('id');
 
         $this
-            ->add('nome', 'text', [
+            ->add('name', 'text', [
                 'label' => 'Nome',
                 'rules' => 'required|max:255'
             ])
             ->add('email', 'email', [
                 'label' => 'E-mail',
                 'rules' => "required|max:255|unique:users,email,$id"
+            ])
+            ->add('password', 'text', [
+                'label' => 'Senha',
+                'rules' => "required"
             ]);
     }
 }

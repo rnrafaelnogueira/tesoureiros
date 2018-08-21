@@ -6,6 +6,7 @@ use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Notifications\DefaultResetPasswordNotification;
 
 class User extends Authenticatable implements TableInterface,JWTSubject
 {
@@ -81,5 +82,20 @@ class User extends Authenticatable implements TableInterface,JWTSubject
                 'email' => $this->email
             ]
         ];
+    }
+
+    public static function generatePassword($password = null){
+        return !$password ? bcrypt(str_random(8)): bcrypt($password);
+
+    }
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new DefaultResetPasswordNotification($token));
     }
 }

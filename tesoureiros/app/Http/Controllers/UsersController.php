@@ -65,11 +65,12 @@ class UsersController extends Controller
 */
         $data = $form->getFieldValues();
 
-//        dd($data);
+       // dd($data);
+        $data['password'] = bcrypt($data['password']);
 
         $this->repository->add($data);
 
-        $request->session()->flash('message','Usuário criado com sucesso.');
+        $request->session()->flash('message','Membro adicionado com sucesso.');
 
         return redirect()->route('users.index');
     }
