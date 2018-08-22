@@ -9,6 +9,9 @@
 namespace App\Forms;
 
 use Kris\LaravelFormBuilder\Form;
+use App\Models\TipoReceita;
+use App\Models\Mes;
+use App\User;
 
 class ReceitaForm extends Form
 {
@@ -17,17 +20,30 @@ class ReceitaForm extends Form
         $id = $this->getData('id');
 
         $this
-            ->add('name', 'text', [
-                'label' => 'Nome',
+            ->add('id_user', 'entity',[
+                'class' => User::class,
+                'property' => 'name',
+                'empty_value' => 'Selecione o membro',
+                'label' => 'Membro',
+                'rules' => 'nullable|exists:user,id'
+            ])
+            ->add('valor', 'text', [
+                'label' => 'Valor',
                 'rules' => 'required|max:255'
             ])
-            ->add('email', 'email', [
-                'label' => 'E-mail',
-                'rules' => "required|max:255|unique:users,email,$id"
+            ->add('tipo_receita', 'entity',[
+                'class' => TipoReceita::class,
+                'property' => 'descricao',
+                'empty_value' => 'Selecione o tipo de receita',
+                'label' => 'Tipo Receita',
+                'rules' => 'nullable|exists:tipo_receita,id'
             ])
-            ->add('password', 'text', [
-                'label' => 'Senha',
-                'rules' => "required"
-            ]);
+            ->add('mes', 'entity',[
+                'class' => Mes::class,
+                'property' => 'descricao',
+                'empty_value' => 'Selecione o mês',
+                'label' => 'Mês',
+                'rules' => 'nullable|exists:mes,id'
+            ]);;
     }
 }

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Forms\ReceitaForm;
 use App\Repositories\ReceitaRepository;
 use Illuminate\Http\Request;
+use Kris\LaravelFormBuilder\Form;
+use FormBuilder;
 
 class ReceitasController extends Controller
 {
@@ -18,8 +21,10 @@ class ReceitasController extends Controller
      */
     public function index()
     {
-        $receitas =  $this->repository->paginate(10,'name', 'ASC');
-        return view('receita.index', compact('receitas'));
+
+        $receita =  $this->repository->paginate(10,'id_user', 'ASC');
+
+        return view('receita.index', compact('receita'));
     }
 
     /**
@@ -30,11 +35,11 @@ class ReceitasController extends Controller
     public function create()
     {
         $form = FormBuilder::create(ReceitaForm::class,[
-            'url' => route('users.store'),
+            'url' => route('receita.store'),
             'method' => 'POST'
         ]);
 
-        return view('users.create', compact('form'));
+        return view('receita.create', compact('form'));
     }
 
     /**
@@ -45,7 +50,22 @@ class ReceitasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form = FormBuilder::create(ReceitaForm::class);
+
+        /*    if(!$form->isValid()){
+                return redirect()
+                    ->back()
+                    ->withErrors($form->getErrors())
+                    ->withInput();
+            }
+    */
+        $data = $form->getFieldValues();
+
+        $this->repository->add($data);
+
+        $request->session()->flash('message','Receita adicionado com sucesso.');
+
+        return redirect()->route('receita.index');
     }
 
     /**

@@ -4,10 +4,12 @@ namespace App\Repositories;
 use Exception;
 use DB;
 use Carbon\Carbon;
+use Bootstrapper\Interfaces\TableInterface;
 
-class BaseRepository
+class BaseRepository implements TableInterface
 {
     protected $model;
+
 
     public function paginate($paginate = 10, $orderBy, $sort)
     {
@@ -117,5 +119,27 @@ class BaseRepository
             DB::rollBack();
             return $e->getMessage();
         }
+    }
+
+    /**
+     * A list of headers to be used when a table is displayed
+     *
+     * @return array
+     */
+    public function getTableHeaders()
+    {
+        // TODO: Implement getTableHeaders() method.
+    }
+
+    /**
+     * Get the value for a given header. Note that this will be the value
+     * passed to any callback functions that are being used.
+     *
+     * @param string $header
+     * @return mixed
+     */
+    public function getValueForHeader($header)
+    {
+        // TODO: Implement getValueForHeader() method.
     }
 }
