@@ -4,7 +4,7 @@
 <div class="container">
 
     <div class="row">
-        <h3>Editar membro</h3>
+        <h3>Editar receita</h3>
         <?php $icon = Icon::create('pencil');?>
         {!! form($form->add('salve', 'submit', [
           'attr' =>['class' => 'btn btn-primary btn-block'],

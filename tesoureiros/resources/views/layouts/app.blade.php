@@ -19,7 +19,7 @@ $navbar =  Navbar::withBrand(config('app.name'), url('/admin/dashboard'))->inver
 if(Auth::check()){
     $arrayLinks = [
         ['link' => route('users.index'), 'title' => 'Membros'],
-        ['link' => route('receita.index'), 'title' => 'Entradas'],
+        ['link' => route('receitas.index'), 'title' => 'Entradas'],
     ];
 
     $menuRight = Bootstrapper\Facades\Navigation::links([

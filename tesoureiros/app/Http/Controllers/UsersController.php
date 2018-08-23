@@ -84,7 +84,7 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('users.show', compact('user'));
     }
 
     /**
@@ -95,7 +95,13 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $form = FormBuilder::create(UserForm::class,[
+            'url' => route('users.update', ['user'=> $user->id]),
+            'method' => 'PUT',
+            'model' => $user
+        ]);
+
+        return view('users.edit', compact('form'));
     }
 
     /**
@@ -105,9 +111,27 @@ class UsersController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request,  $id)
     {
-        //
+
+        /** @var Form $form */
+        $form = FormBuilder::create(UserForm::class,[
+            'data' => ['id'=>$id]
+        ]);
+
+        if(!$form->isValid()){
+            return redirect()
+                ->back()
+                ->withErrors($form->getErrors())
+                ->withInput();
+        }
+
+        $data = array_except($form->getFieldValues(), ['password','role']);
+        $this->repository->edit($id,$data);
+
+        $request->session()->flash('message','Membro alterado com sucesso.');
+
+        return redirect()->route('users.index');
     }
 
     /**
@@ -116,8 +140,12 @@ class UsersController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Request $request,$id)
     {
-        //
+        $this->repository->delete($id);
+
+        $request->session()->flash('message','Membro excluído com sucesso.');
+
+        return redirect()->route('users.index');
     }
 }

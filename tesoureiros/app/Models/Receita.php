@@ -32,6 +32,18 @@ class Receita extends Model implements TableInterface
         return ['#', 'Membro', 'Valor', 'Mês', 'Tipo Receita'];
     }
 
+    public function mes_join()
+    {
+        return $this->belongsTo(Mes::class, 'mes');
+    }
+    public function user_join()
+    {
+        return $this->belongsTo(\App\User::class, 'id_user');
+    }
+    public function tipo_receita_join()
+    {
+        return $this->belongsTo(TipoReceita::class, 'tipo_receita');
+    }
     /**
      * Get the value for a given header. Note that this will be the value
      * passed to any callback functions that are being used.
@@ -45,13 +57,13 @@ class Receita extends Model implements TableInterface
             case '#':
                 return $this->id;
             case 'Membro':
-                return $this->id_user;
+                return $this->user_join()->first()->name;
             case 'Valor':
                 return $this->valor;
             case 'Mês':
-                return $this->mes;
+                return $this->mes_join()->first()->descricao;
             case 'Tipo Receita':
-                return $this->tipo_receita;
+                return $this->tipo_receita_join()->first()->descricao;
         }
     }
 }

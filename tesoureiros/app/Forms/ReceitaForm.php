@@ -25,7 +25,7 @@ class ReceitaForm extends Form
                 'property' => 'name',
                 'empty_value' => 'Selecione o membro',
                 'label' => 'Membro',
-                'rules' => 'nullable|exists:user,id'
+                'rules' => 'nullable|exists:users,id'
             ])
             ->add('valor', 'text', [
                 'label' => 'Valor',

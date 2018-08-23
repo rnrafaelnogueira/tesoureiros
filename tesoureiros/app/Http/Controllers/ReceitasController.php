@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Forms\ReceitaForm;
+use App\Models\Receita;
 use App\Repositories\ReceitaRepository;
 use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\Form;
@@ -22,9 +23,9 @@ class ReceitasController extends Controller
     public function index()
     {
 
-        $receita =  $this->repository->paginate(10,'id_user', 'ASC');
+        $receitas =  $this->repository->paginate(10,'id_user', 'ASC');
 
-        return view('receita.index', compact('receita'));
+        return view('receita.index', compact('receitas'));
     }
 
     /**
@@ -74,9 +75,9 @@ class ReceitasController extends Controller
      * @param  \App\Models\\Receita  $dizimos
      * @return \Illuminate\Http\Response
      */
-    public function show(Receita $dizimos)
+    public function show(Receita $receita)
     {
-        //
+        return view('receita.show', compact('receita'));
     }
 
     /**
@@ -85,9 +86,16 @@ class ReceitasController extends Controller
      * @param  \App\Models\\Receita  $dizimos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Receita $dizimos)
+    public function edit(Receita $receita)
     {
-        //
+
+        $form = FormBuilder::create(ReceitaForm::class,[
+            'url' => route('receitas.update', ['receita'=> $receita->id]),
+            'method' => 'PUT',
+            'model' => $receita
+        ]);
+
+        return view('receita.edit', compact('form'));
     }
 
     /**
@@ -97,9 +105,26 @@ class ReceitasController extends Controller
      * @param  \App\Models\\Receita  $dizimos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Receita $dizimos)
+    public function update(Request $request, $id)
     {
-        //
+        /** @var Form $form */
+        $form = FormBuilder::create(ReceitaForm::class,[
+            'data' => ['id'=>$id]
+        ]);
+
+        if(!$form->isValid()){
+            return redirect()
+                ->back()
+                ->withErrors($form->getErrors())
+                ->withInput();
+        }
+
+        $data = $form->getFieldValues();
+        $this->repository->edit($id,$data);
+
+        $request->session()->flash('message','Receita alterada com sucesso.');
+
+        return redirect()->route('receitas.index');
     }
 
     /**
@@ -108,8 +133,12 @@ class ReceitasController extends Controller
      * @param  \App\Models\\Receita  $dizimos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Receita $dizimos)
+    public function destroy(Request $request,$id)
     {
-        //
+        $this->repository->delete($id);
+
+        $request->session()->flash('message','Receita excluída com sucesso.');
+
+        return redirect()->route('receitas.index');
     }
 }
