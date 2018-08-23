@@ -11,7 +11,11 @@ class VerifyCsrfToken extends Middleware
      *
      * @var array
      */
+
     protected $except = [
-        //
+        'http://notifygrace.herokuapp.com/public/*',
+        'https://notifygrace.herokuapp.com/public/*',
+        'http://notifygrace.herokuapp.com/*',
+        'https://notifygrace.herokuapp.com/*',
     ];
 }
