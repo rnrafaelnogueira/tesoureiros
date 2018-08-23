@@ -162,6 +162,7 @@ return [
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Irazasyed\JwtAuthGuard\JwtAuthGuardServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
 
     /*
@@ -220,6 +221,7 @@ return [
         'ApiRoute' => \Dingo\Api\Facade\Route::class,
         'JWTAuth' => \Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => \Tymon\JWTAuth\Facades\JWTFactory::class,
+        'Excel' => \Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

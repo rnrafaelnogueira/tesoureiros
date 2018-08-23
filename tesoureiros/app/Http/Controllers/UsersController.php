@@ -148,4 +148,10 @@ class UsersController extends Controller
 
         return redirect()->route('users.index');
     }
+
+    public function importxls(){
+        \Excel::load('Teste.xlsx', function($reader) {
+            dd($reader->select()->toArray());
+        });
+    }
 }

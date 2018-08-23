@@ -26,5 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('users', 'UsersController');
 Route::resource('receitas', 'ReceitasController');
 
+Route::name('importxlsusers')->get('importxlsusers', 'UsersController@importxls');
+
 Route::name('login')->get('login', 'Auth\LoginController@showLoginForm');
 Route::post('login', 'Auth\LoginController@login');
