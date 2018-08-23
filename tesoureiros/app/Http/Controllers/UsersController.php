@@ -54,6 +54,18 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+        $file = $request->file('file');
+
+        if (empty($file)) {
+            abort(400, 'Nenhum arquivo foi enviado.');
+        }
+
+        $path = $file->store('uploads');
+
+        \Excel::load('storage\app\\'.$path, function($reader) {
+            dd($reader->select()->toArray());
+        });
+
         /** @var Form $form */
         $form = FormBuilder::create(UserForm::class);
 
@@ -113,6 +125,8 @@ class UsersController extends Controller
      */
     public function update(Request $request,  $id)
     {
+
+
 
         /** @var Form $form */
         $form = FormBuilder::create(UserForm::class,[

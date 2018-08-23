@@ -32,6 +32,9 @@ class UserForm extends Form
             ->add('password', 'text', [
                 'label' => 'Senha',
                 'rules' => "required"
+            ])
+            ->add('file', 'file', [
+                'label' => 'Importar XLS'
             ]);
     }
 }
