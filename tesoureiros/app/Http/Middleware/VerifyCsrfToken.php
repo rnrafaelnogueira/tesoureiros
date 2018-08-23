@@ -13,7 +13,9 @@ class VerifyCsrfToken extends Middleware
      */
 
     protected $except = [
-        'stripe/*',
         'http://notifygrace.herokuapp.com/public/*',
+        'https://notifygrace.herokuapp.com/public/*',
+        'http://notifygrace.herokuapp.com/*',
+        'https://notifygrace.herokuapp.com/*',
     ];
 }
