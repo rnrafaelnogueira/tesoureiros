@@ -27,6 +27,7 @@ class UsersController extends Controller
     public function index()
     {
         $users =  $this->repository->paginate(10,'name', 'ASC');
+
         return view('users.index', compact('users'));
     }
 

@@ -42,6 +42,19 @@ class BaseRepository implements TableInterface
         }
     }
 
+    public function where($column,$valor)
+    {
+        try {
+            $query = $this->model->query();
+
+            $query->where($column,'=', $valor);
+
+            return $query->get();
+        } catch(Exception $e) {
+            return [''=>$e->getMessage()];
+        }
+    }
+
     public function add($data)
     {
         try {

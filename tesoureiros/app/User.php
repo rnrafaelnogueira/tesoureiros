@@ -19,7 +19,7 @@ class User extends Authenticatable implements TableInterface,JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','cpf'
     ];
 
     /**
@@ -39,7 +39,7 @@ class User extends Authenticatable implements TableInterface,JWTSubject
      */
     public function getTableHeaders()
     {
-        return ['#', 'E-mail'];
+        return ['#', 'Nome','E-mail', 'Cpf'];
     }
 
     /**
@@ -54,8 +54,12 @@ class User extends Authenticatable implements TableInterface,JWTSubject
         switch ($header){
             case '#':
                 return $this->id;
+            case 'Nome':
+                return $this->name;
             case 'E-mail':
                 return $this->email;
+            case 'Cpf':
+                return $this->cpf;
         }
     }
      /**

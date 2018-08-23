@@ -25,6 +25,10 @@ class UserForm extends Form
                 'label' => 'E-mail',
                 'rules' => "required|max:255|unique:users,email,$id"
             ])
+            ->add('cpf', 'text', [
+                'label' => 'Cpf',
+                'rules' => "required|max:255|unique:users,cpf,$id"
+            ])
             ->add('password', 'text', [
                 'label' => 'Senha',
                 'rules' => "required"

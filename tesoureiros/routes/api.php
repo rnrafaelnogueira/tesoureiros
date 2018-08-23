@@ -39,7 +39,7 @@ ApiRoute::version('v1',function(){
             , 'limit' => 100
             , 'expires' =>3
         ], function(){
-            ApiRoute::post('/resultado_protocolo', 'ResultadosProtocolosController@calcularAvaliacaoProtocoloResposta');
+            ApiRoute::post('/receita', 'ReceitaController@index');
         });
     });
 });
