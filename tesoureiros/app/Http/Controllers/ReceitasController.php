@@ -36,7 +36,7 @@ class ReceitasController extends Controller
     public function create()
     {
         $form = FormBuilder::create(ReceitaForm::class,[
-            'url' => route('receita.store'),
+            'url' => route('receitas.store'),
             'method' => 'POST'
         ]);
 
@@ -66,7 +66,7 @@ class ReceitasController extends Controller
 
         $request->session()->flash('message','Receita adicionado com sucesso.');
 
-        return redirect()->route('receita.index');
+        return redirect()->route('receitas.index');
     }
 
     /**
