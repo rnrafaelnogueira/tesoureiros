@@ -29,7 +29,6 @@ class AuthController extends Controller
   
         $credentials = $this->credentials($request);
 
-dd(\Auth::guard('api')->attempt($credentials));
 
         if ($token = \Auth::guard('api')->attempt($credentials)) {
             return $this->sendLoginResponse($request, $token);

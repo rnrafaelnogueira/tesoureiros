@@ -18,5 +18,6 @@ class VerifyCsrfToken extends Middleware
         'http://notifygrace.herokuapp.com/*',
         'https://notifygrace.herokuapp.com/*',
         'http://localhost:8000/*',
+        '/webpush','/webpush/*','api/*'
     ];
 }

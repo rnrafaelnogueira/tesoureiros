@@ -17,11 +17,11 @@ ApiRoute::version('v1',function(){
     ApiRoute::group([
         'namespace' => 'App\Http\Controllers\Api' ,
         'as' => 'api' ,
-        'middleware' => 'bindings'
+        'middleware' => ['bindings']
     ], function(){
         ApiRoute::post('/access_token', [
             'uses' => 'AuthController@accessToken',
-            'middleware' => 'api.throttle',
+            'middleware' => ['api.throttle'],
             'limit' => 100,
             'expires' => 100
         ])->name('.access_token');
@@ -40,6 +40,7 @@ ApiRoute::version('v1',function(){
             , 'expires' =>3
         ], function(){
             ApiRoute::post('/receita', 'ReceitaController@index');
+            ApiRoute::get('/calendar/{day}', 'CalendarController@getEventsDay');
         });
     });
 });

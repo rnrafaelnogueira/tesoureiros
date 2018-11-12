@@ -163,6 +163,7 @@ return [
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Irazasyed\JwtAuthGuard\JwtAuthGuardServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
     ],
 
     /*
