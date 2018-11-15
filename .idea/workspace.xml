@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d16991f9-2a06-4454-9f9c-e1efeb989605" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tesoureiros/app/Http/Controllers/ReceitasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/tesoureiros/app/Http/Controllers/ReceitasController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tesoureiros/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/tesoureiros/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tesoureiros/storage/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/tesoureiros/storage/app/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tesoureiros/storage/app/public/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/tesoureiros/storage/app/public/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tesoureiros/storage/framework/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/tesoureiros/storage/framework/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tesoureiros/storage/framework/cache/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/tesoureiros/storage/framework/cache/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tesoureiros/storage/framework/sessions/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/tesoureiros/storage/framework/sessions/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tesoureiros/storage/framework/testing/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/tesoureiros/storage/framework/testing/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tesoureiros/storage/framework/views/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/tesoureiros/storage/framework/views/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tesoureiros/storage/logs/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/tesoureiros/storage/logs/.gitignore" afterDir="false" />
-    </list>
+    <list default="true" id="d16991f9-2a06-4454-9f9c-e1efeb989605" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,10 +15,11 @@
     <session id="-1627320928">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.30" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.66" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -68,8 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tesoureiros/app/Http/Controllers/ReceitasController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="61" column="6" lean-forward="true" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
+            <state relative-caret-position="840">
+              <caret line="61" column="6" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
               <folding>
                 <element signature="e#40#66#0#PHP" expanded="true" />
               </folding>
@@ -81,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/tesoureiros/.env">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="435">
-              <caret line="29" column="18" lean-forward="true" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+              <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -290,7 +276,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/guestvipapp" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -316,16 +302,17 @@
       <updated>1535125716942</updated>
       <workItem from="1535125726147" duration="281000" />
       <workItem from="1535126492085" duration="1765000" />
+      <workItem from="1541554511370" duration="24000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2046000" />
+    <option name="totallyTimeSpent" value="2070000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24355084" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24734446" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -360,6 +347,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tesoureiros/app/Http/Controllers/ReceitasController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="61" column="6" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
+          <folding>
+            <element signature="e#40#66#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tesoureiros/resources/views/receita/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -367,20 +364,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tesoureiros/app/Http/Controllers/ReceitasController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="61" column="6" lean-forward="true" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
-          <folding>
-            <element signature="e#40#66#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tesoureiros/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
-          <caret line="29" column="18" lean-forward="true" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
         </state>
       </provider>
     </entry>
