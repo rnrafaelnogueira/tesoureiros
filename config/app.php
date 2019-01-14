@@ -164,6 +164,7 @@ return [
         Irazasyed\JwtAuthGuard\JwtAuthGuardServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
+        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
     ],
 
     /*

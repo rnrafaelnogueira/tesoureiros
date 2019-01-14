@@ -30,3 +30,9 @@ Route::name('importxlsusers')->get('importxlsusers', 'UsersController@importxls'
 
 Route::name('login')->get('login', 'Auth\LoginController@showLoginForm');
 Route::post('login', 'Auth\LoginController@login');
+
+Route::get('my-theme', function () {
+
+    return view('welcome2');
+
+});
