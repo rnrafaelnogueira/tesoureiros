@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'Notify Grace',
+    'title' => 'NotifyGRACE',
 
     'title_prefix' => '',
 
@@ -32,7 +32,7 @@ return [
 
     'logo' => '<i class="fa fa-fw fa-fire"></i><b>Notify</b>GRACE',
 
-    'logo_mini' => '<img src=img/logo.png></img>',
+    'logo_mini' => '<i class="fa fa-fw fa-fire"></i>',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'blue',
+    'skin' => 'green',
 
     /*
     |--------------------------------------------------------------------------
