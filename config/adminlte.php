@@ -108,7 +108,7 @@ return [
     */
 
     'menu' => [
-        'Navegação',
+        'Tesouraria',
         [
             'text' => 'Membros',
             'url'  => 'users',
@@ -117,6 +117,21 @@ return [
         [
             'text' => 'Receitas',
             'url'  => 'receitas',
+            
+        ],
+        [
+            'text' => 'Categorias',
+            'url'  => 'categorias',
+            
+        ],
+        [
+            'text' => 'Despesas',
+            'url'  => 'despesas',
+            
+        ],
+        [
+            'text' => 'Pagamentos',
+            'url'  => 'pagamentos',
             
         ],
     ],

@@ -1,0 +1,24 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <h3>Despesas</h3><br>
+        {!! Button::primary('Novo')->asLinkTo(route('despesas.create')) !!}
+    </div>
+    <div class="row">
+        {!! Table::withContents($despesas->items())->striped()
+            ->callback('Ações', function($field, $despesa){
+                $linkEdit = route('despesas.edit', ['despesa' => $despesa->id]);
+                $linkShow = route('despesas.show', ['despesa' => $despesa->id]);
+                return Button::link(Icon::create('pencil'))->asLinkTo($linkEdit).'|'.
+                       Button::link(Icon::create('remove'))->asLinkTo($linkShow);
+            })!!}
+    </div>
+    {!! $despesas->links() !!}
+</div>
+
+@endsection
+
+
+
