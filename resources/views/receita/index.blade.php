@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
 <div class="container">
     <div class="row">
-        <h3>Entradas</h3><br>
+        <h3>Receita</h3><br>
         {!! Button::primary('Novo')->asLinkTo(route('receitas.create')) !!}
     </div>
     <div class="row">
