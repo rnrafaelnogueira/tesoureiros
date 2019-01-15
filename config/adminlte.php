@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Notify</b>GRACE',
+    'logo' => '<i class="fa fa-fw fa-fire"></i><b>Notify</b>GRACE',
 
     'logo_mini' => '<img src=img/logo.png></img>',
 
@@ -109,29 +109,33 @@ return [
 
     'menu' => [
         'Tesouraria',
+
         [
             'text' => 'Membros',
             'url'  => 'users',
-            
+            'icon' => 'user',
         ],
         [
             'text' => 'Receitas',
             'url'  => 'receitas',
+            'icon' => 'bank',
             
         ],
         [
             'text' => 'Categorias',
             'url'  => 'categorias',
+            'icon' => 'indent'
             
         ],
         [
             'text' => 'Despesas',
             'url'  => 'despesas',
-            
+            'icon' => 'area-chart'
         ],
         [
             'text' => 'Pagamentos',
             'url'  => 'pagamentos',
+            'icon' => 'credit-card'
             
         ],
     ],
