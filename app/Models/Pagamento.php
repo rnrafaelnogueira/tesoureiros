@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+https://play.google.com/apps/internaltest/4699645331209567981
 
 use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\Model;
@@ -18,7 +19,7 @@ class Pagamento extends Model implements TableInterface
      * @var array
      */
     protected $fillable = [
-        'id', 'valor', 'mes','id_despesa','data_cadastro'
+        'id','data_recibo','descricao', 'valor', 'mes','id_despesa','data_cadastro'
     ];
 
 
@@ -29,7 +30,7 @@ class Pagamento extends Model implements TableInterface
      */
     public function getTableHeaders()
     {
-        return ['#', 'Valor','Mês','Despesa','Data'];
+        return ['#','Data','Descrição','Valor', 'Mês', 'Despesa', 'Data Cadastro'];
     }
 
     public function mes_join()
@@ -40,6 +41,7 @@ class Pagamento extends Model implements TableInterface
     {
         return $this->belongsTo(Despesa::class, 'id_despesa');
     }
+    
     /**
      * Get the value for a given header. Note that this will be the value
      * passed to any callback functions that are being used.
@@ -52,13 +54,17 @@ class Pagamento extends Model implements TableInterface
         switch ($header){
             case '#':
                 return $this->id;
+            case 'Data':
+                return $this->data_recibo;
+            case 'Descrição':
+                return $this->descricao;
             case 'Valor':
                 return $this->valor;
             case 'Mês':
-                return $this->mes_join()->first()->descricao;
+                return $this->mes_join()->first()->descricao;;
             case 'Despesa':
                 return $this->despesa_join()->first()->nome;
-            case 'Data':
+            case 'Data Cadastro':
                 return $this->data_cadastro;
         }
     }

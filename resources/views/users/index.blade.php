@@ -6,7 +6,6 @@
     <div class="row">
         <h2>Dizimistas/Ofertantes</h2><br>
         {!! Button::success('Novo')->asLinkTo(route('users.create')) !!}
-        {!! Button::success('Importar XLS')->asLinkTo(route('importxlsusers')) !!}
     </div>
     <div class="row">
         {!! Table::withContents($users->items())->striped()->bordered()->condensed()

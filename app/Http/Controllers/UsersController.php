@@ -7,6 +7,7 @@ use App\User;
 use FormBuilder;
 use Illuminate\Http\Request;
 use App\Repositories\UserRepository;
+use App\Repositories\PagamentoRepository;
 use Kris\LaravelFormBuilder\Form;
 
 
@@ -14,9 +15,10 @@ use Kris\LaravelFormBuilder\Form;
 class UsersController extends Controller
 {
 
-    public function __construct(UserRepository $repository)
+    public function __construct(UserRepository $repository,PagamentoRepository $repository_pagamento )
     {
         $this->repository = $repository;
+        $this->repository_pagamento = $repository_pagamento;
     }
 
     /**
@@ -164,8 +166,12 @@ class UsersController extends Controller
     }
 
     public function importxls(){
-        \Excel::load('Teste.xlsx', function($reader) {
-            dd($reader->select()->toArray());
+        \Excel::load('Saidas.xlsx', function($reader) {
+             $saidas = $reader->select()->toArray();
+
+             foreach ($saidas as $key => $value) {
+                 $this->repository_pagamento->add($value);
+             }
         });
     }
 }

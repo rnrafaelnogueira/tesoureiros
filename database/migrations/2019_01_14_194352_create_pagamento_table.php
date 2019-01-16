@@ -16,9 +16,11 @@ class CreatePagamentoTable extends Migration
         Schema::create('pagamento', function (Blueprint $table) {
             $table->increments('id');
             $table->float('valor');
+            $table->text('descricao')->nullable();
+            $table->dateTime('data_recibo');
             $table->text('recibo')->nullable();
-            $table->integer('id_despesa');
-            $table->integer('mes');
+            $table->integer('id_despesa')->nullable();
+            $table->integer('mes')->nullable();
             $table->foreign('id_despesa')->references('id')->on('despesa');      
             $table->foreign('mes')->references('id')->on('mes');
             $table->dateTime('data_cadastro')->default(DB::raw('CURRENT_TIMESTAMP'))->nullable();
