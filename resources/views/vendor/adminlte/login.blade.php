@@ -53,6 +53,12 @@
                                 class="btn btn-success btn-block btn-flat">Entrar</button>
                     </div>
                     <!-- /.col -->
+                     <div class="auth-links">
+                <br><br>
+                @if (config('adminlte.register_url', 'register'))
+                    <a href="{{ url(config('adminlte.register_url', 'register')) }}" class="text-center">Cadastrar</a>
+                @endif
+            </div>
                 </div>
             </form>
          
