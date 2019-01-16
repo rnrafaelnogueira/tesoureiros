@@ -60,11 +60,6 @@
                    class="text-center"
                 >Esqueceu sua senha?</a>
                 <br>
-                @if (config('adminlte.register_url', 'register'))
-                    <a href="{{ url(config('adminlte.register_url', 'register')) }}"
-                       class="text-center"
-                    >Cadastrar</a>
-                @endif
             </div>
         </div>
         <!-- /.login-box-body -->

@@ -5,12 +5,11 @@
     @yield('css')
 @stop
 
-@section('body_class', 'register-page')
 
 @section('body')
     <div class="register-box">
         <div class="register-logo">
-            <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
+            <a style="color: green !important;" href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
         </div>
 
         <div class="register-box-body">
@@ -59,7 +58,7 @@
                     @endif
                 </div>
                 <button type="submit"
-                        class="btn btn-primary btn-block btn-flat"
+                        class="btn btn-success btn-block btn-flat"
                 >{{ trans('adminlte::adminlte.register') }}</button>
             </form>
             <div class="auth-links">
