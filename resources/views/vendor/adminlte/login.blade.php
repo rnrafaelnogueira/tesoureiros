@@ -6,16 +6,16 @@
     @yield('css')
 @stop
 
-@section('body_class', 'login-page')
+@section('body_class')
 
 @section('body')
     <div class="login-box">
-        <div class="login-logo">
-            <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
+        <div class="login-logo" >
+            <a style="color: green !important;" href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
-            <p class="login-box-msg">{{ trans('adminlte::adminlte.login_message') }}</p>
+            
             <form action="{{ url(config('adminlte.login_url', 'login')) }}" method="post">
                 {!! csrf_field() !!}
 
@@ -43,14 +43,14 @@
                     <div class="col-xs-8">
                         <div class="checkbox icheck">
                             <label>
-                                <input type="checkbox" name="remember"> {{ trans('adminlte::adminlte.remember_me') }}
+                                <input type="checkbox" name="remember"> Lembrar senha
                             </label>
                         </div>
                     </div>
                     <!-- /.col -->
                     <div class="col-xs-4">
                         <button type="submit"
-                                class="btn btn-primary btn-block btn-flat">{{ trans('adminlte::adminlte.sign_in') }}</button>
+                                class="btn btn-success btn-block btn-flat">Entrar</button>
                     </div>
                     <!-- /.col -->
                 </div>
@@ -58,12 +58,12 @@
             <div class="auth-links">
                 <a href="{{ url(config('adminlte.password_reset_url', 'password/reset')) }}"
                    class="text-center"
-                >{{ trans('adminlte::adminlte.i_forgot_my_password') }}</a>
+                >Esqueceu sua senha?</a>
                 <br>
                 @if (config('adminlte.register_url', 'register'))
                     <a href="{{ url(config('adminlte.register_url', 'register')) }}"
                        class="text-center"
-                    >{{ trans('adminlte::adminlte.register_a_new_membership') }}</a>
+                    >Cadastrar</a>
                 @endif
             </div>
         </div>
