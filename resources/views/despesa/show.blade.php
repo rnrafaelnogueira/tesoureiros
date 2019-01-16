@@ -4,7 +4,7 @@
 <div class="container">
 
     <div class="row">
-        <h3>Ver Despesa</h3>
+        
 
         <?php $iconEdit = Icon::create('pencil'); ?>
         {!! Button::primary($iconEdit)->asLinkTo(route('despesas.edit',['despesa' => $despesa->id])) !!}

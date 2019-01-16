@@ -111,33 +111,39 @@ return [
         'Tesouraria',
 
         [
-            'text' => 'Membros',
+            'text' => 'Dizimistas/Ofertantes',
             'url'  => 'users',
             'icon' => 'user',
         ],
         [
-            'text' => 'Receitas',
-            'url'  => 'receitas',
-            'icon' => 'bank',
-            
+            'text' => 'Movimentações',
+            'icon' => 'usd',
+            'submenu' => [
+                [
+                    'text' => 'Entradas',
+                    'url'  => 'receitas',
+                    'icon' => 'bank',
+                ],[
+                    'text' => 'Saidas',
+                    'url'  => 'pagamentos',
+                    'icon' => 'credit-card'
+                    
+                ]
+            ],
         ],
+        
         [
-            'text' => 'Categorias',
+            'text' => 'Tipos de pagamento',
             'url'  => 'categorias',
             'icon' => 'indent'
             
         ],
         [
-            'text' => 'Despesas',
+            'text' => 'Contas a pagar',
             'url'  => 'despesas',
             'icon' => 'area-chart'
         ],
-        [
-            'text' => 'Pagamentos',
-            'url'  => 'pagamentos',
-            'icon' => 'credit-card'
-            
-        ],
+       
     ],
 
     /*

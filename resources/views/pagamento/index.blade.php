@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <h2>Pagamentos</h2><br>
+        <h2>Saídas</h2><br>
         {!! Button::success('Novo')->asLinkTo(route('pagamentos.create')) !!}
     </div>
     <div class="row">

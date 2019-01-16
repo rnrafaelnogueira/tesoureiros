@@ -4,7 +4,7 @@
 <div class="container">
 
     <div class="row">
-        <h3>Ver membro</h3>
+        
 
         <?php $iconEdit = Icon::create('pencil'); ?>
         {!! Button::primary($iconEdit)->asLinkTo(route('users.edit',['user' => $user->id])) !!}

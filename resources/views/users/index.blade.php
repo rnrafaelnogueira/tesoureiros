@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <h2>Membros</h2><br>
+        <h2>Dizimistas/Ofertantes</h2><br>
         {!! Button::success('Novo')->asLinkTo(route('users.create')) !!}
         {!! Button::success('Importar XLS')->asLinkTo(route('importxlsusers')) !!}
     </div>
