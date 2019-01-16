@@ -8,6 +8,8 @@ use FormBuilder;
 use Illuminate\Http\Request;
 use App\Repositories\UserRepository;
 use App\Repositories\PagamentoRepository;
+use App\Repositories\CategoriaRepository;
+use App\Repositories\DespesaRepository;
 use Kris\LaravelFormBuilder\Form;
 
 
@@ -15,10 +17,12 @@ use Kris\LaravelFormBuilder\Form;
 class UsersController extends Controller
 {
 
-    public function __construct(UserRepository $repository,PagamentoRepository $repository_pagamento )
+    public function __construct(UserRepository $repository,PagamentoRepository $repository_pagamento ,CategoriaRepository $repository_categoria,DespesaRepository $repository_despesa)
     {
         $this->repository = $repository;
         $this->repository_pagamento = $repository_pagamento;
+        $this->repository_categoria = $repository_categoria;
+        $this->repository_despesa = $repository_despesa;
     }
 
     /**
@@ -166,6 +170,22 @@ class UsersController extends Controller
     }
 
     public function importxls(){
+         \Excel::load('TipoSaida.xlsx', function($reader) {
+             $tipo_saidas = $reader->select()->toArray();
+ 
+             foreach ($tipo_saidas as $key => $value) {
+                 $this->repository_categoria->add($value);
+             }
+        });
+
+        \Excel::load('ContasaPagar.xlsx', function($reader) {
+             $contas_pagar = $reader->select()->toArray();
+             
+             foreach ($contas_pagar as $key => $value) {
+                 $this->repository_despesa->add($value);
+             }
+        });
+
         \Excel::load('Saidas.xlsx', function($reader) {
              $saidas = $reader->select()->toArray();
 
