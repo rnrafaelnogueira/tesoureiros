@@ -21,6 +21,7 @@ class CreatePagamentoTable extends Migration
             $table->text('recibo')->nullable();
             $table->integer('id_despesa')->nullable();
             $table->integer('mes')->nullable();
+            $table->integer('ano')->nullable();
             $table->foreign('id_despesa')->references('id')->on('despesa');      
             $table->foreign('mes')->references('id')->on('mes');
             $table->dateTime('data_cadastro')->default(DB::raw('CURRENT_TIMESTAMP'))->nullable();
