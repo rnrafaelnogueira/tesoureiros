@@ -169,7 +169,7 @@ class UsersController extends Controller
         return redirect()->route('users.index');
     }
 
-    public function importxls(){
+    public function importxls($arquivo){
          \Excel::load('TipoSaida.xlsx', function($reader) {
              $tipo_saidas = $reader->select()->toArray();
  
@@ -186,7 +186,7 @@ class UsersController extends Controller
              }
         });
 
-        \Excel::load('Saidas.xlsx', function($reader) {
+        \Excel::load($arquivo.'.xlsx', function($reader) {
              $saidas = $reader->select()->toArray();
 
              foreach ($saidas as $key => $value) {
