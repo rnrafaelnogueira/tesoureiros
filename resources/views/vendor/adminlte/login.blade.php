@@ -43,7 +43,7 @@
                     <div class="col-xs-8">
                         <div class="checkbox icheck">
                             <label>
-                                <input type="checkbox" name="remember"> Lembrar senhas
+                                <input type="checkbox" name="remember"> Lembrar senha
                             </label>
                         </div>
                     </div>
