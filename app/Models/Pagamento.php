@@ -19,7 +19,7 @@ class Pagamento extends Model implements TableInterface
      * @var array
      */
     protected $fillable = [
-        'id','data_recibo','descricao', 'valor', 'mes','id_despesa','data_cadastro'
+        'id','data_recibo','descricao', 'valor', 'mes','id_despesa','data_cadastro','ano'
     ];
 
 
@@ -42,6 +42,14 @@ class Pagamento extends Model implements TableInterface
         return $this->belongsTo(Despesa::class, 'id_despesa');
     }
     
+    public function sum_valor_mes($mes,$ano){
+        return number_format( Pagamento::where('ano', $ano)->where('mes', $mes)->sum('valor') , 2, ',', '.');
+    }
+
+    public function sum_valor_ano($ano){
+        return Pagamento::where('ano', $ano)->sum('valor');
+    }
+
     /**
      * Get the value for a given header. Note that this will be the value
      * passed to any callback functions that are being used.

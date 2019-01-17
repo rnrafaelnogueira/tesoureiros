@@ -2,132 +2,206 @@
 
 @section('content')
 <div class="container">
+
+
+
     <section class="content">
       <!-- Info boxes -->
       <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+            <span class="info-box-icon bg-aqua"><h4>NOV/2017<br>a<br>DEZ/2018</h4></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">CPU Traffic</span>
-              <span class="info-box-number">90<small>%</small></span>
+              <span class="info-box-text">Receita <br><strong>R$ {!! $total_financeiro['total_receita_anual'] !!}</strong></span>
+              <span class="info-box-text">Despesa <br> <strong>R$ {!! $total_financeiro['total_despesa_anual'] !!}</strong></span>
             </div>
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
         </div>
         <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="col-md-3 col-sm-6 col-xs-16">
           <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
-
+            <span class="info-box-icon bg-aqua"><h3>NOV<br>2017</h3></span>
             <div class="info-box-content">
-              <span class="info-box-text">Likes</span>
-              <span class="info-box-number">41,410</span>
+              <span class="info-box-text">Receita  <br><strong>R$ {!! $total_financeiro['total_receita_nov_2017'] !!}</strong></span>
+              <span class="info-box-text">Despesa  <br> <strong>R$ {!! $total_financeiro['total_despesa_nov_2017'] !!}</strong></span>
             </div>
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
         </div>
-        <!-- /.col -->
-
-        <!-- fix for small devices only -->
-        <div class="clearfix visible-sm-block"></div>
-
-        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="col-md-3 col-sm-6 col-xs-16">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
-
+            <span class="info-box-icon bg-aqua"><h3>DEZ<br>2017</h3></span>
             <div class="info-box-content">
-              <span class="info-box-text">Sales</span>
-              <span class="info-box-number">760</span>
+              <span class="info-box-text">Receita  <br> <strong>R$ {!! $total_financeiro['total_receita_dez_2017'] !!}</strong></span>
+              <span class="info-box-text">Despesa  <br> <strong>R$ {!! $total_financeiro['total_despesa_dez_2017'] !!}</strong></span>
             </div>
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
         </div>
-        <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="col-md-3 col-sm-6 col-xs-16">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
-
+            <span class="info-box-icon bg-aqua"><h3>JAN<br>2018</h3></span>
             <div class="info-box-content">
-              <span class="info-box-text">New Members</span>
-              <span class="info-box-number">2,000</span>
+              <span class="info-box-text">Receita  <br> <strong>R$ {!! $total_financeiro['total_receita_jan_2018'] !!}</strong></span>
+              <span class="info-box-text">Despesa  <br> <strong>R$ {!! $total_financeiro['total_despesa_jan_2018'] !!}</strong></span>
             </div>
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
         </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="box">
-            
-            <!-- ./box-body -->
-            <div class="box-footer">
-              <div class="row">
-                <div class="col-sm-3 col-xs-6">
-                  <div class="description-block border-right">
-                    <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
-                    <h5 class="description-header">$35,210.43</h5>
-                    <span class="description-text">TOTAL REVENUE</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-3 col-xs-6">
-                  <div class="description-block border-right">
-                    <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
-                    <h5 class="description-header">$10,390.90</h5>
-                    <span class="description-text">TOTAL COST</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-3 col-xs-6">
-                  <div class="description-block border-right">
-                    <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>
-                    <h5 class="description-header">$24,813.53</h5>
-                    <span class="description-text">TOTAL PROFIT</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-3 col-xs-6">
-                  <div class="description-block">
-                    <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>
-                    <h5 class="description-header">1200</h5>
-                    <span class="description-text">GOAL COMPLETIONS</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-              </div>
-              <!-- /.row -->
+        <div class="col-md-3 col-sm-6 col-xs-16">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><h3>FEV<br>2018</h3></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Receita  <br> <strong>R$ {!! $total_financeiro['total_receita_fev_2018'] !!}</strong></span>
+              <span class="info-box-text">Despesa  <br> <strong>R$ {!! $total_financeiro['total_despesa_fev_2018'] !!}</strong></span>
             </div>
-            <!-- /.box-footer -->
+            <!-- /.info-box-content -->
           </div>
-          <!-- /.box -->
+          <!-- /.info-box -->
         </div>
+        <div class="col-md-3 col-sm-6 col-xs-16">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><h3>MAR<br>2018</h3></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Receita  <br> <strong>R$ {!! $total_financeiro['total_receita_mar_2018'] !!}</strong></span>
+              <span class="info-box-text">Despesa  <br> <strong>R$ {!! $total_financeiro['total_despesa_mar_2018'] !!}</strong></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-16">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><h3>ABR<br>2018</h3></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Receita  <br> <strong>R$ {!! $total_financeiro['total_receita_abr_2018'] !!}</strong></span>
+              <span class="info-box-text">Despesa  <br> <strong>R$ {!! $total_financeiro['total_despesa_abr_2018'] !!}</strong></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+
+
+        <div class="col-md-3 col-sm-6 col-xs-16">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><h3>MAI<br>2018</h3></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Receita  <br> <strong>R$ {!! $total_financeiro['total_receita_mai_2018'] !!}</strong></span>
+              <span class="info-box-text">Despesa  <br> <strong>R$ {!! $total_financeiro['total_despesa_mai_2018'] !!}</strong></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-16">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><h3>JUN<br>2018</h3></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Receita  <br> <strong>R$ {!! $total_financeiro['total_receita_jun_2018'] !!}</strong></span>
+              <span class="info-box-text">Despesa  <br> <strong>R$ {!! $total_financeiro['total_despesa_jun_2018'] !!}</strong></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-16">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><h3>JUL<br>2018</h3></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Receita  <br> <strong>R$ {!! $total_financeiro['total_receita_jul_2018'] !!}</strong></span>
+              <span class="info-box-text">Despesa  <br> <strong>R$ {!! $total_financeiro['total_despesa_jul_2018'] !!}</strong></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-16">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><h3>AGO<br>2018</h3></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Receita  <br> <strong>R$ {!! $total_financeiro['total_receita_ago_2018'] !!}</strong></span>
+              <span class="info-box-text">Despesa  <br> <strong>R$ {!! $total_financeiro['total_despesa_ago_2018'] !!}</strong></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-16">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><h3>SET<br>2018</h3></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Receita  <br> <strong>R$ {!! $total_financeiro['total_receita_set_2018'] !!}</strong></span>
+              <span class="info-box-text">Despesa  <br> <strong>R$ {!! $total_financeiro['total_despesa_set_2018'] !!}</strong></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-16">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><h3>OUT<br>2018</h3></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Receita  <br> <strong>R$ {!! $total_financeiro['total_receita_out_2018'] !!}</strong></span>
+              <span class="info-box-text">Despesa  <br> <strong>R$ {!! $total_financeiro['total_despesa_out_2018'] !!}</strong></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-16">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><h3>NOV<br>2018</h3></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Receita  <br> <strong>R$ {!! $total_financeiro['total_receita_nov_2018'] !!}</strong></span>
+              <span class="info-box-text">Despesa  <br> <strong>R$ {!! $total_financeiro['total_despesa_nov_2018'] !!}</strong></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-16">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><h3>DEZ<br>2018</h3></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Receita  <br> <strong>R$ 0</strong></span>
+              <span class="info-box-text">Despesa  <br> <strong>R$ 0</strong></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+
         <!-- /.col -->
+
       </div>
       <!-- /.row -->
 
       <!-- Main row -->
       <div class="row">
         <!-- Left col -->
-        <div class="col-md-8">
+        <div class="col-md-12">
           <!-- MAP & BOX PANE -->
           
          
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Latest Orders</h3>
+              <h3 class="box-title">Total por categoria - Nov 2017 e Dez 2017</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -141,158 +215,136 @@
                 <table class="table no-margin">
                   <thead>
                   <tr>
-                    <th>Order ID</th>
-                    <th>Item</th>
-                    <th>Status</th>
-                    <th>Popularity</th>
+                    <th>Categoria</th>
+                    <th>Novembro</th>
+                    <th>Dezembro</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    <td>Call of Duty IV</td>
-                    <td><span class="label label-success">Shipped</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
+                    <td>Salarios</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
                   </tr>
                   <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-warning">Pending</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>iPhone 6 Plus</td>
-                    <td><span class="label label-danger">Delivered</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-info">Processing</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00c0ef" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-warning">Pending</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>iPhone 6 Plus</td>
-                    <td><span class="label label-danger">Delivered</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    <td>Call of Duty IV</td>
-                    <td><span class="label label-success">Shipped</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
+                    <td>Materiais de Lipeza</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
                   </tr>
                   </tbody>
                 </table>
               </div>
               <!-- /.table-responsive -->
+
             </div>
-            <!-- /.box-body -->
-            <div class="box-footer clearfix">
-              <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>
-              <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
+           
+           <!-- TABLE: LATEST ORDERS -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Total por categoria - 1º Semestre 2018</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
             </div>
-            <!-- /.box-footer -->
+            <!-- /.box-header -->
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="table-responsive">
+                <table class="table no-margin">
+                  <thead>
+                  <tr>
+                    <th>Categoria</th>
+                    <th>JAN</th>
+                    <th>FEV</th>
+                    <th>MAR</th>
+                    <th>ABR</th>
+                    <th>MAI</th>
+                    <th>JUN</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Salarios</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                  </tr>
+                  <tr>
+                    <td>Materiais de Lipeza</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+              
+            </div>
+
+            <!-- TABLE: LATEST ORDERS -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Total por categoria - 2º Semestre 2018</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="table-responsive">
+                <table class="table no-margin">
+                  <thead>
+                  <tr>
+                    <th>Categoria</th>
+                    <th>JUL</th>
+                    <th>AGO</th>
+                    <th>SET</th>
+                    <th>OUT</th>
+                    <th>NOV</th>
+                    <th>DEZ</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Salarios</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                  </tr>
+                  <tr>
+                    <td>Materiais de Lipeza</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                    <td>R$ 0</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+              
+            </div>
+
           </div>
           <!-- /.box -->
-        </div>
-        <!-- /.col -->
-
-        <div class="col-md-4">
-          <!-- Info Boxes Style 2 -->
-          <div class="info-box bg-yellow">
-            <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Inventory</span>
-              <span class="info-box-number">5,200</span>
-
-              <div class="progress">
-                <div class="progress-bar" style="width: 50%"></div>
-              </div>
-              <span class="progress-description">
-                    50% Increase in 30 Days
-                  </span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-          <div class="info-box bg-green">
-            <span class="info-box-icon"><i class="ion ion-ios-heart-outline"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Mentions</span>
-              <span class="info-box-number">92,050</span>
-
-              <div class="progress">
-                <div class="progress-bar" style="width: 20%"></div>
-              </div>
-              <span class="progress-description">
-                    20% Increase in 30 Days
-                  </span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-          <div class="info-box bg-red">
-            <span class="info-box-icon"><i class="ion ion-ios-cloud-download-outline"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Downloads</span>
-              <span class="info-box-number">114,381</span>
-
-              <div class="progress">
-                <div class="progress-bar" style="width: 70%"></div>
-              </div>
-              <span class="progress-description">
-                    70% Increase in 30 Days
-                  </span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-          <div class="info-box bg-aqua">
-            <span class="info-box-icon"><i class="ion-ios-chatbubble-outline"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Direct Messages</span>
-              <span class="info-box-number">163,921</span>
-
-              <div class="progress">
-                <div class="progress-bar" style="width: 40%"></div>
-              </div>
-              <span class="progress-description">
-                    40% Increase in 30 Days
-                  </span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-
-          
-
         </div>
         <!-- /.col -->
       </div>
