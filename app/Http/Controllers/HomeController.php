@@ -80,7 +80,38 @@ class HomeController extends Controller
             //    'total_receita_dez_2017'=> 0
             ];
 
-        return view('home', compact('total_financeiro'));
+
+$categorias = [
+'MATERIAL DE USO PERMANENTE',
+'CAGECE',
+'COELCE',
+'CONTA SALÁRIO',
+'CONTRATOS',
+'CONTRIBUIÇÃO PRESBITÉRIO',
+'DECORAÇÃO',
+'DEPTO.  DIACONAL',
+'DESPESA CARTÓRIO',
+'DESPESA COM SEMINARISTA',
+'DESPESAS ALIMENTAÇÃO',
+'DESPESAS EBD',
+'EVENTOS',
+'HOMENAGENS',
+'IMPRESSÕES e CÓPIAS',
+'INVESTIMENTO CONVIVENCIA/VIGILIA',
+'INVESTIMENTO EM MISSÕES',
+'INVESTIMENTO MINISTÉRIOS',
+'MANUTENÇÃO PREDIAL',
+'MANUTENÇÃO E CONCERTO DE EQUIPAMENTOS ELETRICOS E ELETRONICOS',
+'MATERIAL DE ESCRITORIO',
+'MATERIAL DE LIMPEZA',
+'ELEMENTOS PARA SANTA CEIA',
+'GARRAFÃO DE ÁGUA',
+'SERVIÇO PRESTADOS A IGREJA',
+'TELEFONE E INTERNET',
+'TRANSPORTE/COMBUSTIVEL'];
+
+
+        return view('home', compact('total_financeiro', 'categorias'));
     }
 }
 

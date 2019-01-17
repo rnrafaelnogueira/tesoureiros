@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-aqua"><h4>NOV/2017<br>a<br>DEZ/2018</h4></span>
+            <span class="info-box-icon bg-aqua"><h4>NOV/2017<br>DEZ/2018</h4></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Receita <br><strong>R$ {!! $total_financeiro['total_receita_anual'] !!}</strong></span>
@@ -221,16 +221,13 @@
                   </tr>
                   </thead>
                   <tbody>
+                  @foreach ($categorias as $categoria)
                   <tr>
-                    <td>Salarios</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
+                      <td>{{ $categoria }}</td>
+                      <td>R$ 0</td>
+                      <td>R$ 0</td>
                   </tr>
-                  <tr>
-                    <td>Materiais de Lipeza</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                  </tr>
+                  @endforeach
                   </tbody>
                 </table>
               </div>
@@ -266,24 +263,17 @@
                   </tr>
                   </thead>
                   <tbody>
+                  @foreach ($categorias as $categoria)
                   <tr>
-                    <td>Salarios</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
+                      <td>{{ $categoria }}</td>
+                      <td>R$ 0</td>
+                      <td>R$ 0</td>
+                      <td>R$ 0</td>
+                      <td>R$ 0</td>
+                      <td>R$ 0</td>
+                      <td>R$ 0</td>
                   </tr>
-                  <tr>
-                    <td>Materiais de Lipeza</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                  </tr>
+                  @endforeach
                   </tbody>
                 </table>
               </div>
@@ -318,24 +308,18 @@
                   </tr>
                   </thead>
                   <tbody>
+                   @foreach ($categorias as $categoria)
                   <tr>
-                    <td>Salarios</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
+                      <td>{{ $categoria }}</td>
+                      <td>R$ 0</td>
+                      <td>R$ 0</td>
+                      <td>R$ 0</td>
+                      <td>R$ 0</td>
+                      <td>R$ 0</td>
+                      <td>R$ 0</td>
                   </tr>
-                  <tr>
-                    <td>Materiais de Lipeza</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                    <td>R$ 0</td>
-                  </tr>
+                  @endforeach
+
                   </tbody>
                 </table>
               </div>
