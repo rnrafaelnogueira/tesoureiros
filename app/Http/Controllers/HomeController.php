@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pagamento;
+use App\Models\Despesa;
+use App\Models\Categoria;
 use App\Repositories\PagamentoRepository;
 use DB;
 
@@ -81,37 +83,46 @@ class HomeController extends Controller
             ];
 
 
-$categorias = [
-'MATERIAL DE USO PERMANENTE',
-'CAGECE',
-'COELCE',
-'CONTA SALÁRIO',
-'CONTRATOS',
-'CONTRIBUIÇÃO PRESBITÉRIO',
-'DECORAÇÃO',
-'DEPTO.  DIACONAL',
-'DESPESA CARTÓRIO',
-'DESPESA COM SEMINARISTA',
-'DESPESAS ALIMENTAÇÃO',
-'DESPESAS EBD',
-'EVENTOS',
-'HOMENAGENS',
-'IMPRESSÕES e CÓPIAS',
-'INVESTIMENTO CONVIVENCIA/VIGILIA',
-'INVESTIMENTO EM MISSÕES',
-'INVESTIMENTO MINISTÉRIOS',
-'MANUTENÇÃO PREDIAL',
-'MANUTENÇÃO E CONCERTO DE EQUIPAMENTOS ELETRICOS E ELETRONICOS',
-'MATERIAL DE ESCRITORIO',
-'MATERIAL DE LIMPEZA',
-'ELEMENTOS PARA SANTA CEIA',
-'GARRAFÃO DE ÁGUA',
-'SERVIÇO PRESTADOS A IGREJA',
-'TELEFONE E INTERNET',
-'TRANSPORTE/COMBUSTIVEL'];
+
+$categorias_bd = new Categoria;
+$categorias = $categorias_bd::all()->toArray();
+
+$meses_2017 = [11,12];
+$meses_2018_1semestre = [1,2,3,4,5,6];
+$meses_2018_2semestre =[7,8,9,10,11,12];
+
+        $despesa = new Despesa();
+
+        foreach ($meses_2017 as $key => $mes2017) {
+
+            # code...
+            foreach ($categorias as $key => $categoria) {
+                $total_por_categoria_2017[$categoria['nome']][0] = $categoria['nome'];
+                $total_por_categoria_2017[$categoria['nome']][$mes2017] = $despesa->sum_valor_categoria($categoria['id'], $mes2017, '2017');
+            }
+        }
+
+        foreach ($meses_2018_1semestre as $key => $mes20181semestre) {
+
+            # code...
+            foreach ($categorias as $key => $categoria) {
+                $total_por_categoria_20181[$categoria['nome']][0] = $categoria['nome'];
+                $total_por_categoria_20181[$categoria['nome']][$mes20181semestre] = $despesa->sum_valor_categoria($categoria['id'], $mes20181semestre, '2018');
+            }
+        }
+        
 
 
-        return view('home', compact('total_financeiro', 'categorias'));
+        foreach ($meses_2018_2semestre as $key => $mes20182semestre) {
+
+            # code...
+            foreach ($categorias as $key => $categoria) {
+                $total_por_categoria_20182[$categoria['nome']][0] = $categoria['nome'];
+                $total_por_categoria_20182[$categoria['nome']][$mes20182semestre] = $despesa->sum_valor_categoria($categoria['id'], $mes20182semestre, '2018');
+            }
+        }
+
+        return view('home', compact('total_financeiro', 'total_por_categoria_2017','total_por_categoria_20181', 'total_por_categoria_20182'));
     }
 }
 

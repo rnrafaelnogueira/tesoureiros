@@ -221,12 +221,14 @@
                   </tr>
                   </thead>
                   <tbody>
-                  @foreach ($categorias as $categoria)
+                  @foreach ($total_por_categoria_2017 as $categorias_2017)
+                  
                   <tr>
-                      <td>{{ $categoria }}</td>
-                      <td>R$ 0</td>
-                      <td>R$ 0</td>
+                      <td>{{ $categorias_2017[0]}}</td>
+                      <td>{{ $categorias_2017[11]}} </td>
+                      <td>{{ $categorias_2017[12]}} </td>
                   </tr>
+                  
                   @endforeach
                   </tbody>
                 </table>
@@ -263,16 +265,18 @@
                   </tr>
                   </thead>
                   <tbody>
-                  @foreach ($categorias as $categoria)
+                  @foreach ($total_por_categoria_20181 as $categorias_20181)
+                  
                   <tr>
-                      <td>{{ $categoria }}</td>
-                      <td>R$ 0</td>
-                      <td>R$ 0</td>
-                      <td>R$ 0</td>
-                      <td>R$ 0</td>
-                      <td>R$ 0</td>
-                      <td>R$ 0</td>
+                      <td>{{ $categorias_20181[0]}}</td>
+                      <td>{{ $categorias_20181[1]}} </td>
+                      <td>{{ $categorias_20181[2]}} </td>
+                      <td>{{ $categorias_20181[3]}}</td>
+                      <td>{{ $categorias_20181[4]}} </td>
+                      <td>{{ $categorias_20181[5]}} </td>
+                      <td>{{ $categorias_20181[6]}} </td>
                   </tr>
+                  
                   @endforeach
                   </tbody>
                 </table>
@@ -308,16 +312,18 @@
                   </tr>
                   </thead>
                   <tbody>
-                   @foreach ($categorias as $categoria)
+                   @foreach ($total_por_categoria_20182 as $categorias_20182)
+                  
                   <tr>
-                      <td>{{ $categoria }}</td>
-                      <td>R$ 0</td>
-                      <td>R$ 0</td>
-                      <td>R$ 0</td>
-                      <td>R$ 0</td>
-                      <td>R$ 0</td>
-                      <td>R$ 0</td>
+                      <td>{{ $categorias_20182[0]}}</td>
+                      <td>{{ $categorias_20182[7]}} </td>
+                      <td>{{ $categorias_20182[8]}} </td>
+                      <td>{{ $categorias_20182[9]}}</td>
+                      <td>{{ $categorias_20182[10]}} </td>
+                      <td>{{ $categorias_20182[11]}} </td>
+                      <td>{{ $categorias_20182[12]}} </td>
                   </tr>
+                  
                   @endforeach
 
                   </tbody>
