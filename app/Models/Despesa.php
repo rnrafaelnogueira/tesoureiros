@@ -29,7 +29,7 @@ class Despesa extends Model implements TableInterface
      */
     public function getTableHeaders()
     {
-        return ['#','Data Recibo', 'Nome', 'Membro', 'Categoria', 'Valor Fixo'];
+        return ['Data Recibo', 'Nome', 'Categoria', 'Valor Fixo'];
     }
 
     public function user_join()
