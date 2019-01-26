@@ -171,7 +171,7 @@ class UsersController extends Controller
 
     public function importxls($arquivo){
 
-        if ($arquivo = 'TipoSaida'){
+        if ($arquivo == 'TipoSaida'){
              \Excel::load('TipoSaida.xlsx', function($reader) {
                  $tipo_saidas = $reader->select()->toArray();
      
