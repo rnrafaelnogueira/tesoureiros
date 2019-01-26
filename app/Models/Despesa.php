@@ -50,14 +50,10 @@ class Despesa extends Model implements TableInterface
     public function getValueForHeader($header)
     {
         switch ($header){
-            case '#':
-                return $this->id;
             case 'Data Recibo':
                 return $this->data_recibo;
             case 'Nome':
                 return $this->nome;
-            case 'Membro':
-                return $this->user_join()->first()->name;
             case 'Categoria':
                 return $this->categoria_join()->first()->nome;
             case 'Valor Fixo':
