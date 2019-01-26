@@ -29,7 +29,7 @@ class Despesa extends Model implements TableInterface
      */
     public function getTableHeaders()
     {
-        return ['#', 'Nome', 'Membro', 'Categoria', 'Valor Fixo'];
+        return ['#','Data Recibo', 'Nome', 'Membro', 'Categoria', 'Valor Fixo'];
     }
 
     public function user_join()
@@ -52,6 +52,8 @@ class Despesa extends Model implements TableInterface
         switch ($header){
             case '#':
                 return $this->id;
+            case 'Data Recibo':
+                return $this->data_recibo;
             case 'Nome':
                 return $this->nome;
             case 'Membro':
