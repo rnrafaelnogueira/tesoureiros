@@ -177,9 +177,9 @@
         <div class="col-md-3 col-sm-6 col-xs-16">
           <div class="info-box">
             <span class="info-box-icon bg-aqua"><h3>DEZ<br>2018</h3></span>
-            <div class="info-box-content">
-              <span class="info-box-text">Receita  <br> <strong>R$ 0</strong></span>
-              <span class="info-box-text">Despesa  <br> <strong>R$ 0</strong></span>
+             <div class="info-box-content">
+              <span class="info-box-text">Receita  <br> <strong>R$ {!! $total_financeiro['total_receita_dez_2018'] !!}</strong></span>
+              <span class="info-box-text">Despesa  <br> <strong>R$ {!! $total_financeiro['total_despesa_dez_2018'] !!}</strong></span>
             </div>
             <!-- /.info-box-content -->
           </div>

@@ -170,7 +170,7 @@ class UsersController extends Controller
     }
 
     public function importxls($arquivo){
-      /*   \Excel::load('TipoSaida.xlsx', function($reader) {
+    /*   \Excel::load('TipoSaida.xlsx', function($reader) {
              $tipo_saidas = $reader->select()->toArray();
  
              foreach ($tipo_saidas as $key => $value) {
@@ -185,7 +185,7 @@ class UsersController extends Controller
                  $this->repository_despesa->add($value);
              }
         });
-*/
+    */
         \Excel::load('Saidasdez2018.xlsx', function($reader) {
              $saidas = $reader->select()->toArray();
 

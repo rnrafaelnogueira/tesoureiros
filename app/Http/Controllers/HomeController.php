@@ -45,7 +45,7 @@ class HomeController extends Controller
         $valor_set_2018 = $pagamentos->sum_valor_mes(9,2018);
         $valor_out_2018 = $pagamentos->sum_valor_mes(10,2018);
         $valor_nov_2018 = $pagamentos->sum_valor_mes(11,2018);
-//        $valor_dez_2018 = $pagamentos->sum_valor_mes(12,2018);
+        $valor_dez_2018 = $pagamentos->sum_valor_mes(12,2018);
 
         $total_financeiro = [
                 'total_despesa_anual'=> $valor_anual,
@@ -62,7 +62,7 @@ class HomeController extends Controller
                 'total_despesa_set_2018'=> $valor_set_2018,
                 'total_despesa_out_2018'=> $valor_out_2018,
                 'total_despesa_nov_2018'=> $valor_nov_2018,
-              //  'total_despesa_dez_2018'=> $valor_dez_2018,
+                'total_despesa_dez_2018'=> $valor_dez_2018,
                 'total_receita_anual'=> '0',
                 'total_receita_nov_2017'=> '0',
                 'total_receita_dez_2017'=> 0,
