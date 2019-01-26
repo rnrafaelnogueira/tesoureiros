@@ -185,14 +185,14 @@ class UsersController extends Controller
                  $this->repository_despesa->add($value);
              }
         });
-
-        \Excel::load($arquivo.'.xlsx', function($reader) {
+*/
+        \Excel::load('Saidasdez2018.xlsx', function($reader) {
              $saidas = $reader->select()->toArray();
 
              foreach ($saidas as $key => $value) {
                  $this->repository_pagamento->add($value);
              }
         });
-        */
+        
     }
 }
