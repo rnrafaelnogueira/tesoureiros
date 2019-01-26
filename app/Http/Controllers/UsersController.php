@@ -190,6 +190,8 @@ class UsersController extends Controller
                     $despesa['id_user']= 1;
                     $despesa['valor_fixo']= $value['valor'];
                     $despesa['data_recibo']= $value['data_recibo'];
+                    $despesa['mes']= $value['mes'];
+                    $despesa['ano']= $value['ano'];
 
                     $id_despesa = $this->repository_despesa->add($despesa);
 

@@ -20,6 +20,8 @@ class CreateDespesaTable extends Migration
             $table->integer('id_user');
             $table->float('valor_fixo');
             $table->dateTime('data_recibo');
+            $table->integer('mes')->nullable();
+            $table->integer('ano')->nullable();
             $table->foreign('id_categoria')->references('id')->on('categoria');
             $table->foreign('id_user')->references('id')->on('users');            
             $table->timestamps();
