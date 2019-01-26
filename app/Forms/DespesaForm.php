@@ -39,6 +39,9 @@ class DespesaForm extends Form
             ])->add('valor_fixo', 'text', [
                 'label' => 'Valor',
                 'rules' => 'required|max:255'
-            ]);
+            ])->add('data_recibo', 'text', [
+                'label' => 'Data Recibo',
+                'rules' => 'required|max:255'
+            ]);;
     }
 }
