@@ -77,7 +77,7 @@ class HomeController extends Controller
                 'total_receita_set_2018'=> 0,
                 'total_receita_out_2018'=> 0,
                 'total_receita_nov_2018'=> 0,
-                'total_receita_dez_2017'=> 0
+                'total_receita_dez_2018'=> 0
             ];
 
 
