@@ -18,7 +18,7 @@ class Despesa extends Model implements TableInterface
      * @var array
      */
     protected $fillable = [
-        'id','nome','id_user','id_categoria','valor_fixo'
+        'id','nome','id_user','id_categoria','valor_fixo', 'data_recibo'
     ];
 
 

@@ -170,29 +170,34 @@ class UsersController extends Controller
     }
 
     public function importxls($arquivo){
-    /*   \Excel::load('TipoSaida.xlsx', function($reader) {
-             $tipo_saidas = $reader->select()->toArray();
- 
-             foreach ($tipo_saidas as $key => $value) {
-                 $this->repository_categoria->add($value);
-             }
-        });
 
-        \Excel::load('ContasaPagar.xlsx', function($reader) {
-             $contas_pagar = $reader->select()->toArray();
-             
-             foreach ($contas_pagar as $key => $value) {
-                 $this->repository_despesa->add($value);
-             }
-        });
-    */
-        \Excel::load('Saidasdez2018.xlsx', function($reader) {
-             $saidas = $reader->select()->toArray();
+        if ($arquivo = 'TipoSaida'){
+             \Excel::load('TipoSaida.xlsx', function($reader) {
+                 $tipo_saidas = $reader->select()->toArray();
+     
+                 foreach ($tipo_saidas as $key => $value) {
+                     $this->repository_categoria->add($value);
+                 }
+            });     
+        }else{
+            \Excel::load($arquivo.'.xlsx', function($reader) {
+                 $saidas = $reader->select()->toArray();
 
-             foreach ($saidas as $key => $value) {
-                 $this->repository_pagamento->add($value);
-             }
-        });
-        
+                 foreach ($saidas as $key => $value) {
+
+                    $despesa['nome']= $value['descricao'];
+                    $despesa['id_categoria']= 1;
+                    $despesa['id_user']= 1;
+                    $despesa['valor_fixo']= $value['valor'];
+                    $despesa['data_recibo']= $value['data_recibo'];
+
+                    $id_despesa = $this->repository_despesa->add($despesa);
+
+                    $value['id_despesa'] = $id_despesa;
+
+                    $this->repository_pagamento->add($value);
+                 }
+            });    
+        }        
     }
 }
