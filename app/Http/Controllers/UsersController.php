@@ -172,7 +172,7 @@ class UsersController extends Controller
     }
 
     public function importxls($arquivo){
-
+/*
             \Excel::load('Entradas.xlsx', function($reader) {
                  $entrada = $reader->select()->toArray();
      
@@ -181,9 +181,9 @@ class UsersController extends Controller
                  }
             });     
 
-        
-/*
-        if ($arquivo == 'TipoSaida'){
+        */
+
+      //  if ($arquivo == 'TipoSaida'){
              \Excel::load('TipoSaida.xlsx', function($reader) {
                  $tipo_saidas = $reader->select()->toArray();
      
@@ -191,7 +191,7 @@ class UsersController extends Controller
                      $this->repository_categoria->add($value);
                  }
             });     
-        }else{
+        /*}else{
             \Excel::load($arquivo.'.xlsx', function($reader) {
                  $saidas = $reader->select()->toArray();
 
@@ -212,7 +212,7 @@ class UsersController extends Controller
                     $this->repository_pagamento->add($value);
                  }
             });    
-        }        
-        */
+        }        */
+        
     }
 }
