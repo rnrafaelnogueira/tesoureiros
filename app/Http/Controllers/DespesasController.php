@@ -23,7 +23,7 @@ class DespesasController extends Controller
     public function index()
     {
 
-        $despesas =  $this->repository->paginate(10,'nome', 'ASC');
+        $despesas =  $this->repository->paginate(800,'updated_at', 'ASC');
 
         return view('despesa.index', compact('despesas'));
     }

@@ -18,7 +18,7 @@ class Receita extends Model implements TableInterface
      * @var array
      */
     protected $fillable = [
-        'id','id_user', 'valor', 'mes','tipo_receita'
+        'id','id_user', 'valor', 'mes','ano','nome','data_recibo', 'tipo_receita'
     ];
 
 
@@ -44,6 +44,14 @@ class Receita extends Model implements TableInterface
     {
         return $this->belongsTo(TipoReceita::class, 'tipo_receita');
     }
+    public function sum_valor_ano($ano){
+        return Receita::where('ano', $ano)->sum('valor');
+    }
+
+    public function sum_valor_mes($mes,$ano){
+        return number_format( Receita::where('ano', $ano)->where('mes', $mes)->sum('valor') , 2, ',', '.');
+    }
+    
     /**
      * Get the value for a given header. Note that this will be the value
      * passed to any callback functions that are being used.
