@@ -15,7 +15,7 @@ class AltertableReceita extends Migration
     {
         Schema::table('receita', function (Blueprint $table) {
             $table->integer('ano')->nullable();
-            $table->integer('nome')->nullable();
+            $table->text('nome')->nullable();
         });
     }
 
@@ -26,8 +26,6 @@ class AltertableReceita extends Migration
      */
     public function down()
     {
-        Schema::table('receita', function (Blueprint $table) {
-            //
-        });
+        
     }
 }

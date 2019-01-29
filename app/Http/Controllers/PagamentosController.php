@@ -20,10 +20,14 @@ class PagamentosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
-        $pagamentos =  $this->repository->paginate(10,'data_cadastro', 'ASC');
+        if (count($request->all()) > 0) {
+            $pagamentos = $this->repository->paginateWhere(10,'data_cadastro','ASC',$request->except(['_token','page']));
+        } else {
+            $pagamentos = $this->repository->paginate(10,'data_cadastro','ASC');
+        }
 
         return view('pagamento.index', compact('pagamentos'));
     }

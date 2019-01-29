@@ -13,9 +13,7 @@ class AlterTableReceitaValor extends Migration
      */
     public function up()
     {
-         Schema::table('receita', function (Blueprint $table) {
-             $table->text('nome')->nullable();
-        });
+       
     }
 
     /**
@@ -25,6 +23,6 @@ class AlterTableReceitaValor extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('receita');
+      
     }
 }

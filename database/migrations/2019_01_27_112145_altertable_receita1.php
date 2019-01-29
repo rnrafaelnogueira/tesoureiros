@@ -25,8 +25,6 @@ class AltertableReceita1 extends Migration
      */
     public function down()
     {
-       /* Schema::table('receita', function (Blueprint $table) {
-            //
-        });*/
+      
     }
 }
