@@ -24,11 +24,15 @@ class PagamentosController extends Controller
     {
 
         if (count($request->all()) > 0) {
-            $pagamentos = $this->repository->paginateWhere(10,'data_cadastro','ASC',$request->except(['_token','page']));
+            $pagamentos = $this->repository->paginateWhere(10,'data_cadastro','ASC',$request->except(['_token','page','flag_download']));
         } else {
             $pagamentos = $this->repository->paginate(10,'data_cadastro','ASC');
         }
 
+        if ($request->flag_download == 'Excel'){
+            $this->excelPagamentos($request);
+        }
+        
         return view('pagamento.index', compact('pagamentos'));
     }
 
@@ -144,5 +148,20 @@ class PagamentosController extends Controller
         $request->session()->flash('message','Pagamento excluído com sucesso.');
 
         return redirect()->route('pagamentos.index');
+    }
+
+    public function excelPagamentos($request)
+    {
+        try {
+            $resultado = $this->repository->paginateWhere(9999999,'name','ASC',$request->except(['_token','page','flag_download']));
+
+            \Excel::create('saidas', function($excel) use ($resultado) {
+                $excel->sheet('saidas', function($sheet) use ($resultado) {
+                    $sheet->loadView('pagamento.excel',['saidas'=>$resultado]);
+                });
+            })->download('xls');
+        } catch (Exception $e) {
+            $request->session()->flash('message',['title'=>'Erro','msg'=>'Erro ao realizar download do excell. '.$resultado,'color'=>'error']);
+        }
     }
 }

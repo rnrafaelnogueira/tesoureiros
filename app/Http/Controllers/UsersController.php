@@ -36,12 +36,14 @@ class UsersController extends Controller
     {
 
         if (count($request->all()) > 0) {
-            $users = $this->repository->paginateWhere(10,'name','ASC',$request->except(['_token','page']));
+            $users = $this->repository->paginateWhere(10,'name','ASC',$request->except(['_token','page','flag_download']));
         } else {
             $users = $this->repository->paginate(10,'name','ASC');
-            
         }
      
+        if ($request->flag_download == 'Excel'){
+            $this->excelUsers($request);
+        }
         
         return view('users.index', compact('users'));
     }
@@ -222,4 +224,20 @@ class UsersController extends Controller
        /* }        */
         
     }
+
+    public function excelUsers($request)
+    {
+        try {
+            $resultado = $this->repository->paginateWhere(9999999,'name','ASC',$request->except(['_token','page','flag_download']));
+
+            \Excel::create('usuarios', function($excel) use ($resultado) {
+                $excel->sheet('Dizimistas', function($sheet) use ($resultado) {
+                    $sheet->loadView('users.excel',['users'=>$resultado]);
+                });
+            })->download('xls');
+        } catch (Exception $e) {
+            $request->session()->flash('message',['title'=>'Erro','msg'=>'Erro ao realizar download do excell','color'=>'error']);
+        }
+    }
+
 }

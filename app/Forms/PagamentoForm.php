@@ -37,6 +37,9 @@ class PagamentoForm extends Form
                 'empty_value' => 'Selecione o mês',
                 'label' => 'Mês',
                 'rules' => 'nullable|exists:mes,id'
-            ]);;
+            ])
+            ->add('flag_download', 'text', [
+                'label' => 'Download Excel'
+            ]);
     }
 }

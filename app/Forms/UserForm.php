@@ -33,6 +33,9 @@ class UserForm extends Form
                 'label' => 'Senha',
                 'rules' => "required"
             ])
+            ->add('flag_download', 'text', [
+                'label' => 'Download Excel'
+            ])
             ->add('file', 'file', [
                 'label' => 'Importar XLS'
             ]);
