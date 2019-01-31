@@ -21,7 +21,8 @@
                             {!! Form::text('name','',['name'=>'name','class'=>'form-control']) !!}
                             <span class="help-block text-danger">{{ $errors->first('name') }}</span>
                             <label>Download</label>
-                            {!! Form::text('flag_download','',['flag_download'=>'flag_download','class'=>'form-control']) !!}                          
+                            {!! Form::text('flag_download','',['flag_download'=>'flag_download','class'=>'form-control']) !!}         
+                             <span class="help-block text-danger">{{ $errors->first('flag_download') }}</span>                 
                             <button type="submit" class="btn btn-lg font-medium-1 mb-1 block-page"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
