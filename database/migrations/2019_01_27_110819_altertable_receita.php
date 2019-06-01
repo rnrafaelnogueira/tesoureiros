@@ -16,6 +16,7 @@ class AltertableReceita extends Migration
         Schema::table('receita', function (Blueprint $table) {
             $table->integer('ano')->nullable();
             $table->integer('nome')->nullable();
+            $table->dateTime('data_recibo')->nullable();
         });
     }
 
