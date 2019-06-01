@@ -20,10 +20,15 @@ class ReceitasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
-        $receitas =  $this->repository->paginate(10,'id_user', 'ASC');
+
+        if (count($request->all()) > 0) {
+            $receitas = $this->repository->paginateWhere(10,'data_recibo','ASC',$request->except(['_token','page']));
+        } else {
+            $receitas = $this->repository->paginate(10,'data_recibo','ASC');
+        }
 
         return view('receita.index', compact('receitas'));
     }

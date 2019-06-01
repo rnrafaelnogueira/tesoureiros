@@ -32,10 +32,19 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users =  $this->repository->paginate(10,'name', 'ASC');
 
+        if (count($request->all()) > 0) {
+            $users = $this->repository->paginateWhere(10,'name','ASC',$request->except(['_token','page','flag_download']));
+        } else {
+            $users = $this->repository->paginate(10,'name','ASC');
+        }
+     
+        if ($request->flag_download == 'Excel'){
+            $this->excelUsers($request);
+        }
+        
         return view('users.index', compact('users'));
     }
 
@@ -172,7 +181,7 @@ class UsersController extends Controller
     }
 
     public function importxls($arquivo){
-
+/*   
             \Excel::load('Entradas.xlsx', function($reader) {
                  $entrada = $reader->select()->toArray();
      
@@ -182,16 +191,16 @@ class UsersController extends Controller
             });     
 
         
-/*
-        if ($arquivo == 'TipoSaida'){
-             \Excel::load('TipoSaida.xlsx', function($reader) {
+*/
+      //  if ($arquivo == 'TipoSaida'){
+/*             \Excel::load('TipoSaida.xlsx', function($reader) {
                  $tipo_saidas = $reader->select()->toArray();
      
                  foreach ($tipo_saidas as $key => $value) {
                      $this->repository_categoria->add($value);
                  }
-            });     
-        }else{
+            });     */
+        /*}else{*/
             \Excel::load($arquivo.'.xlsx', function($reader) {
                  $saidas = $reader->select()->toArray();
 
@@ -212,7 +221,23 @@ class UsersController extends Controller
                     $this->repository_pagamento->add($value);
                  }
             });    
-        }        
-        */
+       /* }        */
+        
     }
+
+    public function excelUsers($request)
+    {
+        try {
+            $resultado = $this->repository->paginateWhere(9999999,'name','ASC',$request->except(['_token','page','flag_download']));
+
+            \Excel::create('usuarios', function($excel) use ($resultado) {
+                $excel->sheet('Dizimistas', function($sheet) use ($resultado) {
+                    $sheet->loadView('users.excel',['users'=>$resultado]);
+                });
+            })->download('xls');
+        } catch (Exception $e) {
+            $request->session()->flash('message',['title'=>'Erro','msg'=>'Erro ao realizar download do excell','color'=>'error']);
+        }
+    }
+
 }

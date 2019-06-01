@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AltertableReceita extends Migration
+class AlterTableReceitaValor extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,7 @@ class AltertableReceita extends Migration
      */
     public function up()
     {
-        Schema::table('receita', function (Blueprint $table) {
-            $table->integer('ano')->nullable();
-            $table->integer('nome')->nullable();
-            $table->dateTime('data_recibo')->nullable();
-        });
+       
     }
 
     /**
@@ -27,6 +23,6 @@ class AltertableReceita extends Migration
      */
     public function down()
     {
-        
+      
     }
 }

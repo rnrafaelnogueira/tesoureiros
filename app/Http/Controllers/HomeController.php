@@ -54,20 +54,20 @@ class HomeController extends Controller
         $receita = new Receita();
 
         $valor_anual_receita = number_format($receita->sum_valor_ano(2017)+$receita->sum_valor_ano(2018), 2, ',', '.');
-        $valor_nov_2017_receita = $receita->sum_valor_mes(11,2017);
-        $valor_dez_2017_receita = $receita->sum_valor_mes(12,2017);
-        $valor_jan_2018_receita = $receita->sum_valor_mes(1,2018);
-        $valor_fev_2018_receita = $receita->sum_valor_mes(2,2018);
-        $valor_mar_2018_receita = $receita->sum_valor_mes(3,2018);
-        $valor_abr_2018_receita = $receita->sum_valor_mes(4,2018);
-        $valor_mai_2018_receita = $receita->sum_valor_mes(5,2018);
-        $valor_jun_2018_receita = $receita->sum_valor_mes(6,2018);
-        $valor_jul_2018_receita = $receita->sum_valor_mes(7,2018);
-        $valor_ago_2018_receita = $receita->sum_valor_mes(8,2018);
-        $valor_set_2018_receita = $receita->sum_valor_mes(9,2018);
-        $valor_out_2018_receita = $receita->sum_valor_mes(10,2018);
-        $valor_nov_2018_receita = $receita->sum_valor_mes(11,2018);
-        $valor_dez_2018_receita = $receita->sum_valor_mes(12,2018);
+        $valor_nov_2017_receita = 0; /*$receita->sum_valor_mes(11,2017);*/
+        $valor_dez_2017_receita = 0; /*$receita->sum_valor_mes(12,2017);*/
+        $valor_jan_2018_receita = 0; /*$receita->sum_valor_mes(1,2018);*/
+        $valor_fev_2018_receita = 0; /*$receita->sum_valor_mes(2,2018);*/
+        $valor_mar_2018_receita = 0; /*$receita->sum_valor_mes(3,2018);*/
+        $valor_abr_2018_receita = 0; /*$receita->sum_valor_mes(4,2018);*/
+        $valor_mai_2018_receita = 0; /*$receita->sum_valor_mes(5,2018);*/
+        $valor_jun_2018_receita = 0; /*$receita->sum_valor_mes(6,2018);*/
+        $valor_jul_2018_receita = 0; /*$receita->sum_valor_mes(7,2018);*/
+        $valor_ago_2018_receita = 0; /*$receita->sum_valor_mes(8,2018);*/
+        $valor_set_2018_receita = 0; /*$receita->sum_valor_mes(9,2018);*/
+        $valor_out_2018_receita = 0; /*$receita->sum_valor_mes(10,2018);*/
+        $valor_nov_2018_receita = 0; /*$receita->sum_valor_mes(11,2018);*/
+        $valor_dez_2018_receita = 0; /*$receita->sum_valor_mes(12,2018);*/
 
         $total_financeiro = [
                 'total_despesa_anual'=> $valor_anual,
@@ -142,7 +142,19 @@ $meses_2018_2semestre =[7,8,9,10,11,12];
             }
         }
 
-        return view('home', compact('total_financeiro', 'total_por_categoria_2017','total_por_categoria_20181', 'total_por_categoria_20182'));
+
+         $anos = [2017,2018];
+
+         foreach ($anos as $key => $ano) {
+
+            # code...
+            foreach ($categorias as $key => $categoria) {
+                $total_por_categoria_anual[$categoria['nome']][0] = $categoria['nome'];
+                $total_por_categoria_anual[$categoria['nome']][$ano] = $despesa->sum_valor_categoria_anual($categoria['id'], $ano);
+            }
+        }
+
+        return view('home', compact('total_financeiro', 'total_por_categoria_2017','total_por_categoria_20181', 'total_por_categoria_20182','total_por_categoria_anual'));
     }
 }
 

@@ -45,6 +45,11 @@ class Despesa extends Model implements TableInterface
         return number_format( Despesa::where('ano', $ano)->where('mes', $mes)->where('id_categoria',$categoria)->sum('valor_fixo') , 2, ',', '.');
     }
 
+    public function sum_valor_categoria_anual($categoria,$ano){
+        return number_format( Despesa::where('ano', $ano)->where('id_categoria',$categoria)->sum('valor_fixo') , 2, ',', '.');
+    }
+
+
     /**
      * Get the value for a given header. Note that this will be the value
      * passed to any callback functions that are being used.

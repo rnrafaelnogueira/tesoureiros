@@ -23,8 +23,6 @@ Route::resource('receitas', 'ReceitasController');
 Route::resource('categorias', 'CategoriasController');
 Route::resource('despesas', 'DespesasController');
 Route::resource('pagamentos', 'PagamentosController');
-
 Route::name('importxlsusers')->get('importxlsusers/{arquivo}', 'UsersController@importxls');
-
 Route::name('login')->get('login', 'Auth\LoginController@showLoginForm');
 Route::post('login', 'Auth\LoginController@login');

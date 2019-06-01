@@ -20,10 +20,18 @@ class DespesasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
-        $despesas =  $this->repository->paginate(800,'updated_at', 'ASC');
+        if (count($request->all()) > 0) {
+            $despesas = $this->repository->paginateWhere(10,'data_recibo','ASC',$request->except(['_token','page','flag_download']));
+        } else {
+            $despesas = $this->repository->paginate(10,'data_recibo','ASC');
+        }
+
+        if ($request->flag_download == 'Excel'){
+            $this->excelDespesas($request);
+        }
 
         return view('despesa.index', compact('despesas'));
     }
@@ -141,4 +149,20 @@ class DespesasController extends Controller
 
         return redirect()->route('despesas.index');
     }
+
+    public function excelDespesas($request)
+    {
+        try {
+            $resultado = $this->repository->paginateWhere(9999999,'name','ASC',$request->except(['_token','page','flag_download']));
+
+            \Excel::create('despesas', function($excel) use ($resultado) {
+                $excel->sheet('despesas', function($sheet) use ($resultado) {
+                    $sheet->loadView('despesa.excel',['despesas'=>$resultado]);
+                });
+            })->download('xls');
+        } catch (Exception $e) {
+            $request->session()->flash('message',['title'=>'Erro','msg'=>'Erro ao realizar download do excell. '.$resultado,'color'=>'error']);
+        }
+    }
+
 }
