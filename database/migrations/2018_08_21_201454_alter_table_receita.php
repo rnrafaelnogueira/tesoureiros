@@ -16,6 +16,9 @@ class AlterTableReceita extends Migration
         Schema::table('receita', function (Blueprint $table) {
             $table->foreign('tipo_receita')->references('id')->on('tipo_receita');
             $table->foreign('mes')->references('id')->on('mes');
+            $table->integer('ano')->nullable();
+            $table->integer('nome')->nullable();
+            $table->dateTime('data_recibo')->nullable();
         });
     }
 
