@@ -144,6 +144,41 @@ return [
             'icon' => 'area-chart'
         ],
        
+       [
+            'text' => 'Ordem de Serviço',
+            'icon' => 'usd',
+            'submenu' => [
+                [
+                    'text' => 'Cliente',
+                    'url'  => 'cliente',
+                    'icon' => 'bank',
+                ],[
+                    'text' => 'Paciente',
+                    'url'  => 'paciente',
+                    'icon' => 'bank',
+                ],[
+                    'text' => 'Cliente Serviço Valor',
+                    'url'  => 'cliente_servico_valor',
+                    'icon' => 'bank',
+                ],[
+                    'text' => 'Grupo kanban',
+                    'url'  => 'grupo_kanban',
+                    'icon' => 'bank',
+                ],[
+                    'text' => 'Situacao',
+                    'url'  => 'situacao',
+                    'icon' => 'bank',
+                ],[
+                    'text' => 'Serviço',
+                    'url'  => 'servico',
+                    'icon' => 'bank',
+                ],[
+                    'text' => 'Ordem Serviço',
+                    'url'  => 'ordem_servico',
+                    'icon' => 'bank',
+                ]
+            ],
+        ],
     ],
 
     /*
