@@ -11,6 +11,7 @@ use App\Repositories\PagamentoRepository;
 use App\Repositories\CategoriaRepository;
 use App\Repositories\DespesaRepository;
 use App\Repositories\ReceitaRepository;
+use App\Repositories\TipoReceitaRepository;
 use Kris\LaravelFormBuilder\Form;
 
 
@@ -18,12 +19,14 @@ use Kris\LaravelFormBuilder\Form;
 class UsersController extends Controller
 {
 
-    public function __construct(UserRepository $repository,PagamentoRepository $repository_pagamento ,CategoriaRepository $repository_categoria,DespesaRepository $repository_despesa,  ReceitaRepository $repository_receita)
+    public function __construct(UserRepository $repository,PagamentoRepository $repository_pagamento ,CategoriaRepository $repository_categoria,DespesaRepository $repository_despesa,  ReceitaRepository $repository_receita, TipoReceitaRepository $repository_tipo_receita)
     {
         $this->repository = $repository;
         $this->repository_pagamento = $repository_pagamento;
         $this->repository_categoria = $repository_categoria;
         $this->repository_despesa = $repository_despesa;
+        $this->repository_receita = $repository_receita;
+        $this->repository_tipo_receita = $repository_tipo_receita;
         $this->repository_receita = $repository_receita;
     }
 
@@ -181,26 +184,33 @@ class UsersController extends Controller
     }
 
     public function importxls($arquivo){
-/*   
+   
+        if ($arquivo == 'TipoEntrada'){
+            \Excel::load('TipoEntrada.xlsx', function($reader) {
+                 $tipo_receita = $reader->select()->toArray();
+     
+                 foreach ($tipo_receita as $key => $value) {
+                     $this->repository_tipo_receita->add($value);
+                 }
+            }); 
+        }
+         else if ($arquivo == 'Entradas'){
             \Excel::load('Entradas.xlsx', function($reader) {
                  $entrada = $reader->select()->toArray();
      
                  foreach ($entrada as $key => $value) {
                      $this->repository_receita->add($value);
                  }
-            });     
-
-        
-*/
-      //  if ($arquivo == 'TipoSaida'){
-/*             \Excel::load('TipoSaida.xlsx', function($reader) {
+            }); 
+        }else if ($arquivo == 'TipoSaida'){
+             \Excel::load('TipoSaida.xlsx', function($reader) {
                  $tipo_saidas = $reader->select()->toArray();
      
                  foreach ($tipo_saidas as $key => $value) {
                      $this->repository_categoria->add($value);
                  }
-            });     */
-        /*}else{*/
+            });     
+        }else{
             \Excel::load($arquivo.'.xlsx', function($reader) {
                  $saidas = $reader->select()->toArray();
 
