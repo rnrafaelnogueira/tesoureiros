@@ -11,6 +11,11 @@
 <table>
     <thead>
     <tr>
+        <th rowspan="3">Multimídia</th>
+        <th>Mês de Junho</th>
+        <th></th>
+        <th></th>
+        <th>data</th>
         <th style="text-align: center;">DESCRIÇÃO</th>
     </tr>
     </thead>
