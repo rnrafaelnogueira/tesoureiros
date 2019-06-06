@@ -22,10 +22,41 @@ class OrdemServicoController extends Controller
      */
     public function index()
     {
+        $form = FormBuilder::create(OrdemServicoForm::class,[
+            'url' => route('ordem_servico.index'),
+            'method' => 'GET'
+        ]);
 
-        $ordens_servico =   $this->repository->paginate(10,'data_entrada', 'ASC');
+        $form = FormBuilder::create(OrdemServicoForm::class);
 
-        return view('ordem_servico.index', compact('ordens_servico'));
+        $data = $form->getFieldValues();
+
+        $ordens_servico = $this->repository->paginateWhere(10,'data_entrada','ASC',$data);
+
+        if (isset($data['gerar_excel']) AND $data['gerar_excel'] == 'Sim'){
+
+            $this->exceOrdemServico($data);
+        }
+
+        return view('ordem_servico.index', compact('ordens_servico','form'));
+    }
+
+  public function exceOrdemServico($data)
+    {
+        try {
+
+            unset($data['gerar_excel']);
+
+            $resultado = $this->repository->paginateWhere(9999999,'data_entrada','ASC',$data);
+
+            \Excel::create('ordem_servico', function($excel) use ($resultado) {
+                $excel->sheet('ordem_servico', function($sheet) use ($resultado) {
+                    $sheet->loadView('ordem_servico.excel',['ordens_servico'=>$resultado]);
+                });
+            })->download('xls');
+        } catch (Exception $e) {
+            $request->session()->flash('message',['title'=>'Erro','msg'=>'Erro ao realizar download do excell. '.$resultado,'color'=>'error']);
+        }
     }
 
     /**
@@ -61,6 +92,7 @@ class OrdemServicoController extends Controller
             }
     */
         $data = $form->getFieldValues();
+        unset($data['gerar_excel']);
 
         $this->repository->add($data);
 
@@ -120,6 +152,8 @@ class OrdemServicoController extends Controller
         }
 
         $data = $form->getFieldValues();
+        unset($data['gerar_excel']);
+
         $this->repository->edit($id,$data);
 
         $request->session()->flash('message','Ordem de Serviço alterada com sucesso.');

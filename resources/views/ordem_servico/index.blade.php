@@ -7,9 +7,14 @@
         {!! Button::success('Novo')->asLinkTo(route('ordem_servico.create')) !!}
     </div>
     <div class="row">
+        {!! form($form->add('buscar', 'submit', [
+              'attr' =>['class' => 'btn btn-primary btn-block'],
+              'label' => 'Buscar'
+                ]))
+        !!}
         <div class="box-body">
               <div class="table-responsive">
-        {!! Table::withContents($ordens_servico->items())->striped()->bordered()->condensed()
+            {!! Table::withContents($ordens_servico->items())->striped()->bordered()->condensed()
  ->hover()->callback('Ações', function($field, $ordem_servico){
                 $linkEdit = route('ordem_servico.edit', ['ordem_servico'=> $ordem_servico->id]);
                 $linkShow = route('ordem_servico.show', ['ordem_servico'=> $ordem_servico->id]);

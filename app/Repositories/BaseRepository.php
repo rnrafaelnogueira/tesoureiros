@@ -31,7 +31,7 @@ class BaseRepository implements TableInterface
             if (count($columns) > 0) {
                 foreach ($columns as $key => $value) {
                     if ($value != "") {
-                        $query->where($key,'like', '%'.$value.'%');
+                        $query->where($key,'=', $value);
 
                     }
                 }
