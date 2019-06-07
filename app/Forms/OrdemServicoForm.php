@@ -70,8 +70,10 @@ class OrdemServicoForm extends Form
             ->add('quantidade', 'text', [
                 'label' => 'Quantidade'
             ])
-            ->add('gerar_excel', 'hidden', [
-                'label' => 'Gerar Excel'
+            ->add('gerar_excel', 'select', [
+                'choices' => ['S' => 'Sim', 'N' => 'Não'],
+                'label' => 'Gerar Excel',
+                'selected' => 'N',
             ]);
     }
 }

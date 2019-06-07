@@ -30,10 +30,13 @@ class OrdemServicoController extends Controller
         $form = FormBuilder::create(OrdemServicoForm::class);
 
         $data = $form->getFieldValues();
+        $flag_gerar_excel = $data['gerar_excel'];
+
+        unset($data['gerar_excel']);
 
         $ordens_servico = $this->repository->paginateWhere(10,'data_entrada','ASC',$data);
 
-        if (isset($data['gerar_excel']) AND $data['gerar_excel'] == 'Sim'){
+        if ($flag_gerar_excel == 'S'){
 
             $this->exceOrdemServico($data);
         }
@@ -44,8 +47,6 @@ class OrdemServicoController extends Controller
   public function exceOrdemServico($data)
     {
         try {
-
-            unset($data['gerar_excel']);
 
             $resultado = $this->repository->paginateWhere(9999999,'data_entrada','ASC',$data);
 

@@ -12,7 +12,7 @@ class OrdemServico extends Model implements TableInterface
     protected $table = 'ordem_servico';
     //public $timestamps = true;
     protected $guarded = [];
-
+public static $rules = array();
     /**
      * The attributes that are mass assignable.
      *
@@ -30,7 +30,7 @@ class OrdemServico extends Model implements TableInterface
      */
     public function getTableHeaders()
     {
-        return ['#', 'Cliente','Paciente','Serviço', 'Situação', 'Endereço', 'Grupo Kanban', 'Data Entrada', 'Data Previsão Entrega','Hora Previsão de Entrega','Quantidade','Cor' ];
+        return ['#', 'Cliente','Paciente','Serviço', 'Situação', 'Endereço', 'Grupo Kanban', 'Data Entrada', 'Data Previsão Entrega','Hora Previsão de Entrega','Quantidade','Valor Unitário','Valor Total','Cor'];
     }
 
     public function cliente_join()
@@ -58,6 +58,11 @@ class OrdemServico extends Model implements TableInterface
         return $this->belongsTo(GrupoKanban::class, 'id_grupo_kanban');
     }
 
+    public function cliente_servico_valor_join()
+    {
+        return $this->hasMany(ClienteServicoValor::class, 'id_cliente')->where('id_servico',$this->id_servico)->get()->pluck('valor');
+    }
+
     /**
      * Get the value for a given header. Note that this will be the value
      * passed to any callback functions that are being used.
@@ -67,6 +72,7 @@ class OrdemServico extends Model implements TableInterface
      */
     public function getValueForHeader($header)
     {
+
         switch ($header){
             case '#':
                 return $this->id;
@@ -90,6 +96,10 @@ class OrdemServico extends Model implements TableInterface
                 return $this->hora_previsao_entrega;
             case 'Quantidade':
                 return $this->quantidade;
+            case 'Valor Unitário':
+                return $this->cliente_servico_valor_join()->first();
+            case 'Valor Total':
+                return ($this->cliente_servico_valor_join()->first() * $this->quantidade);
             case 'Cor':
                 return $this->cor;
         }
