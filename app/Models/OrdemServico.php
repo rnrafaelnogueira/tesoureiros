@@ -60,7 +60,7 @@ public static $rules = array();
 
     public function cliente_servico_valor_join()
     {
-        return $this->hasMany(ClienteServicoValor::class, 'id_cliente')->where('id_servico',$this->id_servico)->get()->pluck('valor');
+        return $this->hasMany(ClienteServicoValor::class, 'id_cliente')->where('id_servico',1)->get()->pluck('valor');
     }
 
     /**

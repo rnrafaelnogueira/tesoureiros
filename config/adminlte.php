@@ -108,42 +108,7 @@ return [
     */
 
     'menu' => [
-        'Tesouraria',
-
-        [
-            'text' => 'Dizimistas/Ofertantes',
-            'url'  => 'users',
-            'icon' => 'user',
-        ],
-        [
-            'text' => 'Movimentações',
-            'icon' => 'usd',
-            'submenu' => [
-                [
-                    'text' => 'Entradas',
-                    'url'  => 'receitas',
-                    'icon' => 'bank',
-                ],[
-                    'text' => 'Saidas',
-                    'url'  => 'pagamentos',
-                    'icon' => 'credit-card'
-                    
-                ]
-            ],
-        ],
-        
-        [
-            'text' => 'Tipos de pagamento',
-            'url'  => 'categorias',
-            'icon' => 'indent'
-            
-        ],
-        [
-            'text' => 'Contas a pagar',
-            'url'  => 'despesas',
-            'icon' => 'area-chart'
-        ],
-       
+        'Tesouraria',       
        [
             'text' => 'Ordem de Serviço',
             'icon' => 'usd',
