@@ -8,11 +8,6 @@
     <meta name="author" content="sfiec">
 </head>
 <body>
-{!! Table::withContents($ordens_servico->items())->striped()->bordered()->condensed()->hover()->callback('Ações', function($field, $ordem_servico){
-                $linkEdit = route('ordem_servico.edit', ['ordem_servico'=> $ordem_servico->id]);
-                $linkShow = route('ordem_servico.show', ['ordem_servico'=> $ordem_servico->id]);
-                return Button::link(Icon::create('pencil'))->asLinkTo($linkEdit).'|'.
-                       Button::link(Icon::create('remove'))->asLinkTo($linkShow);
-            }) !!}
+{!! Table::withContents($ordens_servico->items())->striped()->bordered()->condensed()->hover()->withFooter('<tr><td>Total:</td><td>R$ '.$total.',00</td></td>');!!}
 </body>
 </html>

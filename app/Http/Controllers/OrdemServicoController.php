@@ -39,7 +39,7 @@ class OrdemServicoController extends Controller
         $ordens_servico = $this->repository->paginateWhere(10,'data_entrada','ASC',$data);
 
         $total = $ordens_servico->sum('valor_total');
-        
+
         if ($flag_gerar_excel == 'S'){
 
             $this->exceOrdemServico($data);
@@ -54,10 +54,11 @@ class OrdemServicoController extends Controller
         try {
 
             $resultado = $this->repository->paginateWhere(9999999,'data_entrada','ASC',$data);
+             $total = $resultado->sum('valor_total');
 
-            \Excel::create('ordem_servico', function($excel) use ($resultado) {
-                $excel->sheet('ordem_servico', function($sheet) use ($resultado) {
-                    $sheet->loadView('ordem_servico.excel',['ordens_servico'=>$resultado]);
+            \Excel::create('ordem_servico', function($excel) use ($resultado,$total) {
+                $excel->sheet('ordem_servico', function($sheet) use ($resultado,$total) {
+                    $sheet->loadView('ordem_servico.excel',['ordens_servico'=>$resultado,'total'=>$total]);
                 });
             })->download('xls');
         } catch (Exception $e) {
