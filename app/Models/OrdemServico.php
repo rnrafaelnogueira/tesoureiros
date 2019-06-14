@@ -60,8 +60,9 @@ public static $rules = array();
 
     public function cliente_servico_valor_join()
     {
-        return $this->hasMany(ClienteServicoValor::class, 'id_cliente')->where('id_servico',1)->get()->pluck('valor');
+        return $this->hasOne(ClienteServicoValor::class, 'id_cliente','id_cliente')->where('id_servico', $this->id_servico)->get()->pluck('valor');
     }
+
 
     /**
      * Get the value for a given header. Note that this will be the value
@@ -104,4 +105,5 @@ public static $rules = array();
                 return $this->cor;
         }
     }
+
 }

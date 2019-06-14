@@ -22,14 +22,14 @@ class ClienteServicoValorForm extends Form
         $this
             ->add('id_cliente', 'entity',[
                 'class' => Cliente::class,
-                'property' => 'id',
+                'property' => 'nome',
                 'empty_value' => 'Selecione o cliente',
                 'label' => 'Cliente',
                 'rules' => 'nullable|exists:cliente,id'
             ])
              ->add('id_servico', 'entity',[
                 'class' => Servico::class,
-                'property' => 'id',
+                'property' => 'nome',
                 'empty_value' => 'Selecione o servico',
                 'label' => 'Serviço',
                 'rules' => 'nullable|exists:servico,id'

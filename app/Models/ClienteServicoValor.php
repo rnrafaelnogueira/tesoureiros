@@ -32,6 +32,17 @@ class ClienteServicoValor extends Model implements TableInterface
         return ['#', 'Cliente','Serviço', 'Valor'];
     }
 
+    public function cliente_join()
+    {
+        return $this->belongsTo(Cliente::class, 'id_cliente');
+    }
+
+    public function servico_join()
+    {
+        return $this->belongsTo(Servico::class, 'id_servico');
+    }
+
+
     /**
      * Get the value for a given header. Note that this will be the value
      * passed to any callback functions that are being used.
@@ -45,9 +56,9 @@ class ClienteServicoValor extends Model implements TableInterface
             case '#':
                 return $this->id;
             case 'Cliente':
-                return $this->id_cliente;
+                return $this->cliente_join()->first()->nome;
             case 'Serviço':
-                return $this->id_servico;
+                return $this->servico_join()->first()->nome;
             case 'Valor':
                 return $this->valor;
         }

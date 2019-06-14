@@ -41,7 +41,8 @@ class OrdemServicoController extends Controller
             $this->exceOrdemServico($data);
         }
 
-        return view('ordem_servico.index', compact('ordens_servico','form'));
+        
+        return view('ordem_servico.index', compact('ordens_servico','form','total'));
     }
 
   public function exceOrdemServico($data)
@@ -93,6 +94,9 @@ class OrdemServicoController extends Controller
             }
     */
         $data = $form->getFieldValues();
+
+         //dd($data);
+
         unset($data['gerar_excel']);
 
         $this->repository->add($data);
