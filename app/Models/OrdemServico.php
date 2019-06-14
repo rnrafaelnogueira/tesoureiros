@@ -58,10 +58,7 @@ public static $rules = array();
         return $this->belongsTo(GrupoKanban::class, 'id_grupo_kanban');
     }
 
-    public function cliente_servico_valor_join()
-    {
-        return $this->hasOne(ClienteServicoValor::class, 'id_cliente','id_cliente')->where('id_servico', $this->id_servico)->get()->pluck('valor');
-    }
+    
 
 
     /**
