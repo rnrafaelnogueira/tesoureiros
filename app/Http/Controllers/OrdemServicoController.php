@@ -5,15 +5,18 @@ namespace App\Http\Controllers;
 use App\Forms\OrdemServicoForm;
 use App\Models\OrdemServico;
 use App\Repositories\OrdemServicoRepository;
+use App\Repositories\ClienteServicoValorRepository;
 use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\Form;
 use FormBuilder;
 
 class OrdemServicoController extends Controller
 {
-    public function __construct(OrdemServicoRepository $repository)
+    public function __construct(OrdemServicoRepository $repository, ClienteServicoValorRepository $repository_cliente_valor)
     {
         $this->repository = $repository;
+        $this->repository_cliente_valor = $repository_cliente_valor;
+        
     }
     /**
      * Display a listing of the resource.
@@ -27,9 +30,8 @@ class OrdemServicoController extends Controller
             'method' => 'GET'
         ]);
 
-        $form = FormBuilder::create(OrdemServicoForm::class);
-
         $data = $form->getFieldValues();
+
         $flag_gerar_excel = $data['gerar_excel'];
 
         unset($data['gerar_excel']);
@@ -86,18 +88,16 @@ class OrdemServicoController extends Controller
     {
         $form = FormBuilder::create(OrdemServicoForm::class);
 
-        /*    if(!$form->isValid()){
-                return redirect()
-                    ->back()
-                    ->withErrors($form->getErrors())
-                    ->withInput();
-            }
-    */
         $data = $form->getFieldValues();
 
-         //dd($data);
-
         unset($data['gerar_excel']);
+
+       if($data['valor_padrao'] == 'S'){
+            $data['valor_unitario'] =  $this->repository_cliente_valor->where('id_cliente',$data['id_cliente'])->where('id_servico',$data['id_servico'])->pluck('valor')->first();
+        }
+
+        $data['valor_total'] = $data['valor_unitario'] * $data['quantidade'];
+
 
         $this->repository->add($data);
 
@@ -157,6 +157,13 @@ class OrdemServicoController extends Controller
         }
 
         $data = $form->getFieldValues();
+
+        if($data['valor_padrao'] == 'S'){
+            $data['valor_unitario'] =  $this->repository_cliente_valor->where('id_cliente',$data['id_cliente'])->where('id_servico',$data['id_servico'])->pluck('valor')->first();
+        }
+
+        $data['valor_total'] = $data['valor_unitario'] * $data['quantidade'];
+
         unset($data['gerar_excel']);
 
         $this->repository->edit($id,$data);

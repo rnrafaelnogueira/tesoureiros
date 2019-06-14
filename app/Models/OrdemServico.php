@@ -19,7 +19,7 @@ public static $rules = array();
      * @var array
      */
     protected $fillable = [
-        'id','id_cliente','id_paciente','id_servico','id_situacao','id_grupo_kanban', 'data_entrada', 'data_previsao_entrega','quantidade', 'cor','hora_previsao_entrega'
+        'id','id_cliente','id_paciente','id_servico','id_situacao','id_grupo_kanban', 'data_entrada', 'data_previsao_entrega','quantidade', 'cor','hora_previsao_entrega','valor_unitario','valor_total','valor_padrao'
     ];
 
 
@@ -30,7 +30,7 @@ public static $rules = array();
      */
     public function getTableHeaders()
     {
-        return ['#', 'Cliente','Paciente','Serviço', 'Situação', 'Endereço', 'Grupo Kanban', 'Data Entrada', 'Data Previsão Entrega','Hora Previsão de Entrega','Quantidade','Valor Unitário','Valor Total','Cor'];
+        return ['#', 'Cliente','Paciente','Serviço', 'Situação', 'Endereço', 'Grupo Kanban', 'Data Entrada', 'Data Previsão Entrega','Hora Previsão de Entrega','Quantidade','Valor Unitário','Valor Total','Cor','Valor Padrão'];
     }
 
     public function cliente_join()
@@ -58,11 +58,7 @@ public static $rules = array();
         return $this->belongsTo(GrupoKanban::class, 'id_grupo_kanban');
     }
 
-    public function cliente_servico_valor_join()
-    {
-        return $this->hasOne(ClienteServicoValor::class, 'id_cliente','id_cliente')->where('id_servico', $this->id_servico)->get()->pluck('valor');
-    }
-
+   
 
     /**
      * Get the value for a given header. Note that this will be the value
@@ -98,9 +94,11 @@ public static $rules = array();
             case 'Quantidade':
                 return $this->quantidade;
             case 'Valor Unitário':
-                return $this->cliente_servico_valor_join()->first();
+                return $this->valor_unitario;
             case 'Valor Total':
-                return ($this->cliente_servico_valor_join()->first() * $this->quantidade);
+                return $this->valor_total;
+            case 'Valor Padrão':
+                return $this->valor_padrao;
             case 'Cor':
                 return $this->cor;
         }

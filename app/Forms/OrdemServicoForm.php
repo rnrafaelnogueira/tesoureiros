@@ -22,55 +22,51 @@ class OrdemServicoForm extends Form
     {
         $id = $this->getData('id');
 
-        $this
-            ->add('id_cliente', 'entity',[
+        $this->add('id_cliente', 'entity',[
                 'class' => Cliente::class,
                 'property' => 'nome',
                 'empty_value' => 'Selecione o cliente',
                 'label' => 'Cliente',
                 'rules' => 'nullable|exists:cliente,id'
-            ])
-            ->add('id_paciente', 'entity',[
+            ])->add('id_paciente', 'entity',[
                 'class' => Paciente::class,
                 'property' => 'nome',
                 'empty_value' => 'Selecione o paciente',
                 'label' => 'Paciente',
                 'rules' => 'nullable|exists:paciente,id'
-            ])
-             ->add('id_servico', 'entity',[
+            ])->add('id_servico', 'entity',[
                 'class' => Servico::class,
                 'property' => 'nome',
                 'empty_value' => 'Selecione o serviço',
                 'label' => 'Serviço',
                 'rules' => 'nullable|exists:servico,id'
-            ])
-            ->add('id_situacao', 'entity',[
+            ])->add('id_situacao', 'entity',[
                 'class' => Situacao::class,
                 'property' => 'nome',
                 'empty_value' => 'Selecione a situação',
                 'label' => 'Situação',
                 'rules' => 'nullable|exists:servico,id'
-            ])
-            ->add('id_grupo_kanban', 'entity',[
+            ])->add('id_grupo_kanban', 'entity',[
                 'class' => GrupoKanban::class,
                 'property' => 'nome',
                 'empty_value' => 'Selecione o Grupo kanban',
                 'label' => 'Grupo kanban',
                 'rules' => 'nullable|exists:grupos_kanban,id'
-            ])
-            ->add('data_previsao_entrega', 'datetime-local', [
+            ])->add('data_previsao_entrega', 'datetime-local', [
                 'label' => 'Data Previsão de Entrega'
-            ])
-            ->add('hora_previsao_entrega', 'text', [
+            ])->add('hora_previsao_entrega', 'text', [
                 'label' => 'Hora Previsão Entrega'
-            ]) 
-            ->add('cor', 'text', [
+            ])->add('cor', 'text', [
                 'label' => 'Cor'
-            ])
-            ->add('quantidade', 'text', [
+            ])->add('quantidade', 'text', [
                 'label' => 'Quantidade'
-            ])
-            ->add('gerar_excel', 'select', [
+            ])->add('valor_padrao','select', [
+                'choices' => ['S' => 'Sim', 'N' => 'Não'],
+                'label' => 'Valor Padrão',
+                'selected' => 'S',
+            ])->add('valor_unitario', 'text', [
+                'label' => 'Valor Unitário'
+            ])->add('gerar_excel', 'select', [
                 'choices' => ['S' => 'Sim', 'N' => 'Não'],
                 'label' => 'Gerar Excel',
                 'selected' => 'N',

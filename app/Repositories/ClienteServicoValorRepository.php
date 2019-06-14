@@ -19,5 +19,6 @@ class ClienteServicoValorRepository extends BaseRepository implements TableInter
     {
         $this->model = $model;
     }
+	
 
 }
