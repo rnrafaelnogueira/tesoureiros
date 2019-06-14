@@ -30,7 +30,7 @@ public static $rules = array();
      */
     public function getTableHeaders()
     {
-        return ['#', 'Cliente','Paciente','Serviço', 'Situação', 'Endereço', 'Grupo Kanban', 'Data Entrada', 'Data Previsão Entrega','Hora Previsão de Entrega','Quantidade','Valor Unitário','Cor'];
+        return ['#', 'Cliente','Paciente','Serviço', 'Situação', 'Endereço', 'Grupo Kanban', 'Data Entrada', 'Data Previsão Entrega','Hora Previsão de Entrega','Quantidade','Valor Unitário','Valor Total','Cor'];
     }
 
     public function cliente_join()
@@ -99,7 +99,8 @@ public static $rules = array();
                 return $this->quantidade;
             case 'Valor Unitário':
                 return $this->cliente_servico_valor_join()->first();
-          
+            case 'Valor Total':
+                return ($this->cliente_servico_valor_join()->first() * $this->quantidade);
             case 'Cor':
                 return $this->cor;
         }
