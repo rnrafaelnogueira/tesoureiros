@@ -58,7 +58,10 @@ public static $rules = array();
         return $this->belongsTo(GrupoKanban::class, 'id_grupo_kanban');
     }
 
-    
+    public function cliente_servico_valor_join()
+    {
+        return $this->hasOne(ClienteServicoValor::class, 'id_cliente','id_cliente')->where('id_servico', $this->id_servico)->get()->pluck('valor');
+    }
 
 
     /**
@@ -93,7 +96,10 @@ public static $rules = array();
             case 'Hora Previsão de Entrega':
                 return $this->hora_previsao_entrega;
             case 'Quantidade':
-                return $this->quantidade;            
+                return $this->quantidade;
+            case 'Valor Unitário':
+                return $this->cliente_servico_valor_join()->first();
+          
             case 'Cor':
                 return $this->cor;
         }
