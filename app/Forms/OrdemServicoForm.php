@@ -45,7 +45,7 @@ class OrdemServicoForm extends Form
                 'property' => 'nome',
                 'empty_value' => 'Selecione a situação',
                 'label' => 'Situação',
-                'rules' => 'nullable|exists:servico,id'
+                'rules' => 'nullable|exists:situacao,id'
             ])->add('id_grupo_kanban', 'entity',[
                 'class' => GrupoKanban::class,
                 'property' => 'nome',
