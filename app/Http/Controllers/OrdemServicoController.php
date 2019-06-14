@@ -42,7 +42,7 @@ class OrdemServicoController extends Controller
         }
 
         
-        return view('ordem_servico.index', compact('ordens_servico','form','total'));
+        return view('ordem_servico.index', compact('ordens_servico','form'));
     }
 
   public function exceOrdemServico($data)
