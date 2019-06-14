@@ -93,10 +93,7 @@ public static $rules = array();
             case 'Hora Previsão de Entrega':
                 return $this->hora_previsao_entrega;
             case 'Quantidade':
-                return $this->quantidade;
-            case 'Valor Unitário':
-                return $this->cliente_servico_valor_join()->first();
-          
+                return $this->quantidade;            
             case 'Cor':
                 return $this->cor;
         }
