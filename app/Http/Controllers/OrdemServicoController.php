@@ -38,13 +38,15 @@ class OrdemServicoController extends Controller
 
         $ordens_servico = $this->repository->paginateWhere(10,'data_entrada','ASC',$data);
 
+        $total = $ordens_servico->sum('valor_total');
+        
         if ($flag_gerar_excel == 'S'){
 
             $this->exceOrdemServico($data);
         }
 
         
-        return view('ordem_servico.index', compact('ordens_servico','form'));
+        return view('ordem_servico.index', compact('ordens_servico','form','total'));
     }
 
   public function exceOrdemServico($data)

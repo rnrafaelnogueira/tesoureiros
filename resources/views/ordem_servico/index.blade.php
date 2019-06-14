@@ -20,7 +20,7 @@
                 $linkShow = route('ordem_servico.show', ['ordem_servico'=> $ordem_servico->id]);
                 return Button::link(Icon::create('pencil'))->asLinkTo($linkEdit).'|'.
                        Button::link(Icon::create('remove'))->asLinkTo($linkShow);
-            });
+            })->withFooter('<tr><td>Total:</td><td>R$ '.$total.',00</td></td>');
             !!}
             </div>
         </div>
