@@ -24,6 +24,7 @@ Route::resource('categorias', 'CategoriasController');
 Route::resource('despesas', 'DespesasController');
 Route::resource('pagamentos', 'PagamentosController');
 
+//ORDEM SERVICO
 Route::resource('cliente', 'ClienteController');
 Route::resource('paciente', 'PacienteController');
 Route::resource('ordem_servico', 'OrdemServicoController');
@@ -31,6 +32,10 @@ Route::resource('cliente_servico_valor', 'ClienteServicoValorController');
 Route::resource('situacao', 'SituacaoController');
 Route::resource('grupo_kanban', 'GrupoKanbanController');
 Route::resource('servico', 'ServicoController');
+
+//FATURAMENTO
+
+Route::resource('fatura', 'FaturaController');
 
 Route::name('importxlsusers')->get('importxlsusers/{arquivo}', 'UsersController@importxls');
 Route::name('login')->get('login', 'Auth\LoginController@showLoginForm');

@@ -144,6 +144,17 @@ return [
                 ]
             ],
         ],
+        [
+            'text' => 'Faturamento',
+            'icon' => 'usd',
+            'submenu' => [
+                [
+                    'text' => 'Fatura',
+                    'url'  => 'fatura',
+                    'icon' => 'bank',
+                ]
+            ],
+        ],
     ],
 
     /*

@@ -79,7 +79,7 @@ class OrdemServicoController extends Controller
                 $excel->sheet('ordem_servico', function($sheet) use ($resultado,$total) {
                     $sheet->loadView('ordem_servico.excel',['ordens_servico'=>$resultado,'total'=>$total]);
                 });
-            })->download('pdf');
+            })->download('xls');
         } catch (Exception $e) {
             $request->session()->flash('message',['title'=>'Erro','msg'=>'Erro ao realizar download do excell. '.$resultado,'color'=>'error']);
         }
