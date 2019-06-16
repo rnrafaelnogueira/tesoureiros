@@ -207,36 +207,36 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
                     <div class="col company-details">
                         <h2 class="name">
                             <a target="_blank" href="https://lobianijs.com">
-                            Arboshiki
+                            Necy Vieira
                             </a>
                         </h2>
-                        <div>455 Foggy Heights, AZ 85004, US</div>
-                        <div>(123) 456-789</div>
-                        <div>company@example.com</div>
+                        <div>Rua Irmãos Fontenele, 280, Jangurussu</div>
+                        <div>(85) 987659604</div>
+                        <div>rnrafaelnogueira@gmail.com</div>
                     </div>
                 </div>
             </header>
             <main>
                 <div class="row contacts">
                     <div class="col invoice-to">
-                        <div class="text-gray-light">INVOICE TO:</div>
-                        <h2 class="to">John Doe</h2>
-                        <div class="address">796 Silver Harbour, TX 79273, US</div>
-                        <div class="email"><a href="mailto:john@example.com">john@example.com</a></div>
+                        <div class="text-gray-light">Cliente:</div>
+                        <h2 class="to">Diego</h2>
+                        <div class="address">R. Vitória Régia, 732 - Parque Santa Rosa (Apolo XI)</div>
+                        <div class="email">(85)987659604</div>
                     </div>
                     <div class="col invoice-details">
-                        <h1 class="invoice-id">INVOICE 3-2-1</h1>
-                        <div class="date">Date of Invoice: 01/10/2018</div>
-                        <div class="date">Due Date: 30/10/2018</div>
+                        <h1 class="invoice-id">FATURA 1</h1>
+                        <div class="date">Data: 01/10/2018</div>
+                        <div class="date">Vencimento: 30/10/2018</div>
                     </div>
                 </div>
                 <table border="0" cellspacing="0" cellpadding="0">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th class="text-left">DESCRIPTION</th>
-                            <th class="text-right">HOUR PRICE</th>
-                            <th class="text-right">HOURS</th>
+                            <th class="text-left">DESCRIÇÃO</th>
+                            <th class="text-right">VALOR</th>
+                            <th class="text-right">QUANTIDADE</th>
                             <th class="text-right">TOTAL</th>
                         </tr>
                     </thead>
@@ -297,10 +297,10 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
                         </tr>
                     </tfoot>
                 </table>
-                <div class="thanks">Thank you!</div>
+                <div class="thanks">Obrigado!</div>
                 <div class="notices">
-                    <div>NOTICE:</div>
-                    <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+                    <div>OBSERVAÇÃO:</div>
+                    <div class="notice">Pagar via boleto ou transferência bancária para o Banco Santander, Conta Corrente, Agencia: 4585, Conta: 01025789-6 , CPF : 63081644372, Nome: Rafael da Silva Nogueira.</div>
                 </div>
             </main>
             <footer>

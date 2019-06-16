@@ -54,7 +54,7 @@ class FaturaController extends Controller
     {
         try {
 
-            $pdf = PDF::loadView('fatura.pdf', ['faturas'=>$faturas])->setPaper('a4', 'landscape')->setWarnings(false);
+            $pdf = PDF::loadView('fatura.pdf', ['faturas'=>$faturas]);
 
             return $pdf->download('invoice.pdf');
 
