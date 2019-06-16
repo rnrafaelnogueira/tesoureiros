@@ -59,7 +59,7 @@ class FaturaController extends Controller
             return $pdf->download('invoice.pdf');
 
         } catch (Exception $e) {
-            $request->session()->flash('message',['title'=>'Erro','msg'=>'Erro ao realizar download do pdf. '.$resultado,'color'=>'error']);
+            $request->session()->flash('message',['title'=>'Erro','msg'=>'Erro ao realizar download do pdf.','color'=>'error']);
         }
     }
 
