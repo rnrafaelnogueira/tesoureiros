@@ -20,7 +20,8 @@
         "nikic/fast-route": "^1.3",
         "nwidart/laravel-modules": "^2.7",
         "patricktalmadge/bootstrapper": "^5.11",
-        "tymon/jwt-auth": "dev-develop"
+        "tymon/jwt-auth": "dev-develop",
+        "ext-gd": "*"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
