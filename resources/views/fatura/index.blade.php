@@ -16,9 +16,9 @@
               <div class="table-responsive">
             {!! Table::withContents($faturas->items())->striped()->bordered()->condensed()
  ->hover()->callback('Ações', function($field, $fatura){
-                $linkEdit = route('fatura.edit', ['fatura'=> $fatura->id]);
+                $linkPdf = route('fatura.pdf', ['fatura'=> $fatura->id]);
                 $linkShow = route('fatura.show', ['fatura'=> $fatura->id]);
-                return Button::link(Icon::create('pencil'))->asLinkTo($linkEdit).'|'.
+                return Button::link(Icon::create('save'))->asLinkTo($linkPdf).'|'.
                        Button::link(Icon::create('remove'))->asLinkTo($linkShow);
             }); !!}
             </div>

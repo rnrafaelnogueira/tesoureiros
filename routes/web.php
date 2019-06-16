@@ -36,6 +36,7 @@ Route::resource('servico', 'ServicoController');
 //FATURAMENTO
 
 Route::resource('fatura', 'FaturaController');
+Route::name('fatura.pdf')->get('fatura/pdf/{id_fatura}', 'FaturaController@pdf');
 
 Route::name('importxlsusers')->get('importxlsusers/{arquivo}', 'UsersController@importxls');
 Route::name('login')->get('login', 'Auth\LoginController@showLoginForm');

@@ -220,14 +220,14 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
                 <div class="row contacts">
                     <div class="col invoice-to">
                         <div class="text-gray-light">Cliente:</div>
-                        <h2 class="to">Diego</h2>
-                        <div class="address">R. Vitória Régia, 732 - Parque Santa Rosa (Apolo XI)</div>
-                        <div class="email">(85)987659604</div>
+                        <h2 class="to">{{$info_fatura['nome_cliente']}}</h2>
+                        <div class="address">{{$info_fatura['endereco_cliente']}}</div>
+                        <div class="email">{{$info_fatura['telefone_cliente']}}</div>
                     </div>
                     <div class="col invoice-details">
-                        <h1 class="invoice-id">FATURA 1</h1>
-                        <div class="date">Data: 01/10/2018</div>
-                        <div class="date">Vencimento: 30/10/2018</div>
+                        <h1 class="invoice-id">FATURA {{$info_fatura['id_fatura']}}</h1>
+                        <div class="date">Data: {{$info_fatura['data_geracao']}}</div>
+                        <div class="date">Vencimento:{{$info_fatura['data_vencimento']}}</div>
                     </div>
                 </div>
                 <table border="0" cellspacing="0" cellpadding="0">
@@ -241,6 +241,10 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
                         </tr>
                     </thead>
                     <tbody>
+                    	@foreach ($ordens_servico as $ordem_servico)
+						    <p>This is user {{ $ordem_servico->descricao }}</p>
+						@endforeach
+
                         <tr>
                             <td class="no">04</td>
                             <td class="text-left"><h3>

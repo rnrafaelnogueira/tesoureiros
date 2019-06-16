@@ -55,6 +55,20 @@ class BaseRepository implements TableInterface
         }
     }
 
+    public function whereRaw($column,$valor)
+    {
+        
+        try {
+            $query = $this->model->query();
+
+            $query->whereRaw('MONTH('.$column.') = ?', [$valor]);
+
+            return $query->get();
+        } catch(Exception $e) {
+            return [''=>$e->getMessage()];
+        }
+    }
+
     public function add($data)
     {
         try {
@@ -63,6 +77,20 @@ class BaseRepository implements TableInterface
             $object->save();
 
             return TRUE;
+        } catch(Exception $e) {
+            dd($e->getMessage());
+            return $e->getMessage();
+        }
+    }
+
+    public function addWithId($data)
+    {
+        try {
+
+            $object = new $this->model($data);
+            $object->save();
+
+            return $object->id;
         } catch(Exception $e) {
             dd($e->getMessage());
             return $e->getMessage();

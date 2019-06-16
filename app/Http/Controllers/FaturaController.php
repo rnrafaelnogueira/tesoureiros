@@ -4,16 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Forms\FaturaForm;
 use App\Repositories\FaturaRepository;
+use App\Repositories\ClienteRepository;
+use App\Repositories\FaturaOrdemServicoRepository;
+use App\Repositories\OrdemServicoRepository;
 use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\Form;
 use PDF;
+use DB;
 use FormBuilder;
+use DateTime;
 
 class FaturaController extends Controller
 {
-    public function __construct(FaturaRepository $repository)
+    public function __construct(FaturaRepository $repository, FaturaOrdemServicoRepository $repository_fatura_ordem_servico, OrdemServicoRepository $repository_ordem_servico)
     {
         $this->repository = $repository;
+        $this->repository_fatura_ordem_servico = $repository_fatura_ordem_servico;
+        $this->repository_ordem_servico = $repository_ordem_servico;
         
     }
     /**
@@ -50,11 +57,39 @@ class FaturaController extends Controller
         
     }
 
-  public function pdfFatura($faturas)
+  public function pdf($fatura)
     {
         try {
 
-            $pdf = PDF::loadView('fatura.pdf', ['faturas'=>$faturas])->setPaper('a4', 'landscape')->setWarnings(false);
+            $fatura = $this->repository->where('id',$fatura)->first();
+            $info_fatura['id_fatura'] = $fatura->id;
+            $data_geracao = new DateTime($fatura->data_geracao);
+            $info_fatura['data_geracao'] = $data_geracao->format('d/m/Y');
+            $data_vencimento = new DateTime($fatura->data_geracao);
+            $info_fatura['data_vencimento'] = $data_vencimento->modify('+3 Days')->format('d/m/Y');
+            $info_fatura['nome_cliente'] = $fatura->cliente_join()->first()->nome;
+            $info_fatura['telefone_cliente'] = $fatura->cliente_join()->first()->telefone;
+            $info_fatura['endereco_cliente'] = $fatura->cliente_join()->first()->endereco;
+            $info_fatura['valor_total'] = 0;
+
+            $items = $this->repository_fatura_ordem_servico->where('id_fatura',$fatura->id);
+            
+            
+
+            $ordens_servico = array();
+            
+            foreach ($items as $key => $value) {
+                $ordens_servico[$key]['id'] = $value->id_ordem_servico;
+                $ordens_servico[$key]['paciente'] = $this->repository_ordem_servico->where('id',$value->id_ordem_servico)->first()->paciente_join()->first()->nome;
+                $ordens_servico[$key]['servico'] = $this->repository_ordem_servico->where('id'
+                    ,$value->id_ordem_servico)->first()->servico_join()->first()->nome;
+                $ordens_servico[$key]['quantidade'] = $this->repository_ordem_servico->where('id',$value->id_ordem_servico)->first()->quantidade;
+                $ordens_servico[$key]['valor_unitario'] = $this->repository_ordem_servico->where('id',$value->id_ordem_servico)->first()->valor_unitario;
+                $ordens_servico[$key]['valor_total'] = $this->repository_ordem_servico->where('id',$value->id_ordem_servico)->first()->valor_total;
+                $info_fatura['valor_total'] = $info_fatura['valor_total']+$this->repository_ordem_servico->where('id',$value->id_ordem_servico)->first()->valor_total;
+            }
+            
+            $pdf = PDF::loadView('fatura.pdf', ['info_fatura'=>$info_fatura,'ordens_servico'=>$ordens_servico])->setPaper('a4', 'landscape')->setWarnings(false);
 
             return $pdf->download('invoice.pdf');
 
@@ -92,11 +127,19 @@ class FaturaController extends Controller
 
         $data['referencia'] = $data['mes_referencia'].'/'.$data['ano_referencia'];
 
+        $ordem_servico = $this->repository_ordem_servico->where(DB::raw("to_char(created_at, 'MM/YYYY')"),$data['referencia'])->where('id_cliente',$data['id_cliente'])->where('id_situacao', 2)->where('id_grupo_kanban',1);
+
+
         unset($data['gerar_pdf']);
         unset($data['ano_referencia']);
         unset($data['mes_referencia']);
 
-        $this->repository->add($data);
+        $id_fatura = $this->repository->addWithId($data);
+
+        foreach ($ordem_servico as $key => $value) {
+            
+            $this->repository_fatura_ordem_servico->add(['id_fatura' => $id_fatura, 'id_ordem_servico' => $value->id]);    
+        }
 
         $request->session()->flash('message','Fatura adicionada com sucesso.');
 
@@ -179,3 +222,4 @@ class FaturaController extends Controller
         return redirect()->route('fatura.index');
     }
 }
+

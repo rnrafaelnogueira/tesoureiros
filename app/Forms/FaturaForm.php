@@ -24,15 +24,15 @@ class FaturaForm extends Form
                 'label' => 'Cliente',
                 'rules' => 'nullable|exists:cliente,id'
             ])->add('mes_referencia','select', [
-                'choices' => ['1' => 'Janeiro',
-                                '2' => 'Fevereiro',
-                                '3' => 'Março',
-                                '4' => 'Abril',
-                                '5' => 'Maio',
-                                '6' => 'Junho',
-                                '7' => 'Julho',
-                                '8' => 'Agosto',
-                                '9' => 'Setembro',
+                'choices' => ['01' => 'Janeiro',
+                                '02' => 'Fevereiro',
+                                '03' => 'Março',
+                                '04' => 'Abril',
+                                '05' => 'Maio',
+                                '06' => 'Junho',
+                                '07' => 'Julho',
+                                '08' => 'Agosto',
+                                '09' => 'Setembro',
                                 '10' => 'Outubro',
                                 '11' => 'Novembro',
                                 '12' => 'Dezembro'],
@@ -47,7 +47,7 @@ class FaturaForm extends Form
             ])->add('enviada','select', [
                 'choices' => ['S' => 'Sim', 'N' => 'Não'],
                 'label' => 'Enviada',
-                'selected' => 'S',
+                'selected' => 'N',
             ])->add('baixada', 'select', [
                 'choices' => ['S' => 'Sim', 'N' => 'Não'],
                 'label' => 'Baixada',

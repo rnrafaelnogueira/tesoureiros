@@ -26,23 +26,6 @@ class OrdemServicoController extends Controller
      */
     public function index()
     {
-        $form = FormBuilder::create(OrdemServicoForm::class,[
-            'url' => route('ordem_servico.index'),
-            'method' => 'GET'
-        ]);
-
-        $data = $form->getFieldValues();
-
-        $flag_gerar_excel = $data['gerar_excel'];
-
-        unset($data['gerar_excel']);
-        $ordens_servico = $this->repository->paginateWhere(10,'data_entrada','ASC',$data);
-
-        $total = $ordens_servico->sum('valor_total');
-
-        $pdf = PDF::loadView('ordem_servico.excel', ['ordens_servico'=>$ordens_servico,'total'=>$total]);
-
-        return $pdf->download('invoice.pdf');
 
         $form = FormBuilder::create(OrdemServicoForm::class,[
             'url' => route('ordem_servico.index'),
