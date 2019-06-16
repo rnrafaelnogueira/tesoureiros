@@ -54,18 +54,12 @@ class FaturaController extends Controller
     {
         try {
 
-ini_set('max_execution_time', 300);
-ini_set("memory_limit","512M");
-
-            $pdf = PDF::loadView('fatura.pdf', ['faturas'=>$faturas]);
+            $pdf = PDF::loadView('fatura.pdf', ['faturas'=>$faturas])->setPaper('a4', 'landscape')->setWarnings(false);
 
             return $pdf->download('invoice.pdf');
 
         } catch (Exception $e) {
-
-            dd($e->getMessege());
-
-            $request->session()->flash('message',['title'=>'Erro','msg'=>'Erro ao realizar download do pdf.','color'=>'error']);
+            $request->session()->flash('message',['title'=>'Erro','msg'=>'Erro ao realizar download do pdf. '.$resultado,'color'=>'error']);
         }
     }
 
