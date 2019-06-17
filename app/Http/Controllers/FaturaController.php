@@ -127,7 +127,7 @@ class FaturaController extends Controller
 
         $data['referencia'] = $data['mes_referencia'].'/'.$data['ano_referencia'];
 
-        $ordem_servico = $this->repository_ordem_servico->where(DB::raw("to_char(created_at, 'MM/YYYY')"),$data['referencia'])->where('id_cliente',$data['id_cliente'])->where('id_situacao', 2)->where('id_grupo_kanban',1);
+        $ordem_servico = $this->repository_ordem_servico->where(DB::raw("to_char(created_at, 'MM/YYYY')"),$data['referencia'])->where('id_cliente',$data['id_cliente'])->where('id_situacao', 2)->where('id_grupo_kanban',4);
 
 
         unset($data['gerar_pdf']);
