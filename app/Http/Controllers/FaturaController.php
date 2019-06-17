@@ -9,6 +9,7 @@ use App\Repositories\FaturaOrdemServicoRepository;
 use App\Repositories\OrdemServicoRepository;
 use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\Form;
+use App\Models\Fatura;
 use PDF;
 use DB;
 use FormBuilder;

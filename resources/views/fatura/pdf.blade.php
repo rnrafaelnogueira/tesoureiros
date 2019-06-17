@@ -263,7 +263,7 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
                         </tr>
                         <tr>
                             <td colspan="2"></td>
-                            <td colspan="2">TAX 0%</td>
+                            <td colspan="2">TAXA 0%</td>
                             <td>0</td>
                         </tr>
                         <tr>

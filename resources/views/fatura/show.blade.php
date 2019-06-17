@@ -7,14 +7,14 @@
         
 
         <?php $iconEdit = Icon::create('pencil'); ?>
-        {!! Button::primary($iconEdit)->asLinkTo(route('categorias.edit',['categoria' => $categoria->id])) !!}
+        {!! Button::primary($iconEdit)->asLinkTo(route('fatura.edit',['fatura' => $fatura->id])) !!}
         <?php $iconDestroy = Icon::create('remove'); ?>
         {!! Button::danger($iconDestroy)
-            ->asLinkTo(route('categorias.destroy',['categoria' => $categoria->id]))
+            ->asLinkTo(route('fatura.destroy',['fatura' => $fatura->id]))
              ->addAttributes(['onclick' => "event.preventDefault();document.getElementById(\"form-delete\").submit();"])!!}
         <?php $formDelete = FormBuilder::plain([
             'id' => 'form-delete',
-            'route' => ['categorias.destroy' , 'categoria'=> $categoria->id],
+            'route' => ['fatura.destroy' , 'fatura'=> $fatura->id],
             'method' => 'DELETE',
             'style' => 'display:none'
         ])?>
@@ -25,15 +25,19 @@
             <tbody>
             <tr>
                 <th scope="row">#</th>
-                <td>{{$categoria->id}}</td>
+                <td>{{$fatura->id}}</td>
             </tr>
             <tr>
-                <th scope="row">Nome</th>
-                <td>{{$categoria->nome}}</td>
+                <th scope="row">Data Geração</th>
+                <td>{{$fatura->data_geracao}}</td>
             </tr>   
             <tr>
-                <th scope="row">Detalhes</th>
-                <td>{{$categoria->detalhes}}</td>
+                <th scope="row">Cliente</th>
+                <td>{{$fatura->cliente_join()->first()->nome}}</td>
+            </tr>  
+            <tr>
+                <th scope="row">Referência</th>
+                <td>{{$fatura->referencia}}</td>
             </tr>                     
             </tbody>
         </table>
