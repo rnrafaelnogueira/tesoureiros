@@ -246,7 +246,8 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
 						    <tr>
 	                            <td class="no">{{$ordem_servico['id']}}</td>
 	                            <td class="text-left">
-	                            	{{$ordem_servico['servico']." - ".$ordem_servico['paciente'] }}
+	                            	{{$ordem_servico['servico']." - ".$ordem_servico['paciente'] }}<br>
+	                            	{{$ordem_servico['observacao']}}
 	                            </td>
 	                            <td class="unit">{{$ordem_servico['valor_unitario'].",00"}}</td>
 	                            <td class="qty">{{$ordem_servico['quantidade']}}</td>

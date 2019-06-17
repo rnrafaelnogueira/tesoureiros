@@ -80,6 +80,7 @@ class FaturaController extends Controller
             foreach ($items as $key => $value) {
                 $ordens_servico[$key]['id'] = $value->id_ordem_servico;
                 $ordens_servico[$key]['paciente'] = $this->repository_ordem_servico->where('id',$value->id_ordem_servico)->first()->paciente_join()->first()->nome;
+                $ordens_servico[$key]['observacao'] = $this->repository_ordem_servico->where('id',$value->id_ordem_servico)->first()->paciente_join()->first()->observacao;
                 $ordens_servico[$key]['servico'] = $this->repository_ordem_servico->where('id'
                     ,$value->id_ordem_servico)->first()->servico_join()->first()->nome;
                 $ordens_servico[$key]['quantidade'] = $this->repository_ordem_servico->where('id',$value->id_ordem_servico)->first()->quantidade;
