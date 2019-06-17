@@ -67,6 +67,7 @@ class FaturaController extends Controller
             $info_fatura['data_geracao'] = $data_geracao->format('d/m/Y');
             $data_vencimento = new DateTime($fatura->data_geracao);
             $info_fatura['data_vencimento'] = $data_vencimento->modify('+3 Days')->format('d/m/Y');
+            $info_fatura['referencia'] = $fatura->referencia;
             $info_fatura['nome_cliente'] = $fatura->cliente_join()->first()->nome;
             $info_fatura['telefone_cliente'] = $fatura->cliente_join()->first()->telefone;
             $info_fatura['endereco_cliente'] = $fatura->cliente_join()->first()->endereco;
@@ -74,8 +75,6 @@ class FaturaController extends Controller
 
             $items = $this->repository_fatura_ordem_servico->where('id_fatura',$fatura->id);
             
-            
-
             $ordens_servico = array();
             
             foreach ($items as $key => $value) {
@@ -88,10 +87,11 @@ class FaturaController extends Controller
                 $ordens_servico[$key]['valor_total'] = $this->repository_ordem_servico->where('id',$value->id_ordem_servico)->first()->valor_total;
                 $info_fatura['valor_total'] = $info_fatura['valor_total']+$this->repository_ordem_servico->where('id',$value->id_ordem_servico)->first()->valor_total;
             }
-            
+
+
             $pdf = PDF::loadView('fatura.pdf', ['info_fatura'=>$info_fatura,'ordens_servico'=>$ordens_servico])->setPaper('a4', 'landscape')->setWarnings(false);
 
-            return $pdf->download('invoice.pdf');
+            return $pdf->download('fatura'.$info_fatura['referencia'].$info_fatura['nome_cliente'].'.pdf');
 
         } catch (Exception $e) {
             $request->session()->flash('message',['title'=>'Erro','msg'=>'Erro ao realizar download do pdf. '.$resultado,'color'=>'error']);

@@ -228,6 +228,7 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
                         <h1 class="invoice-id">FATURA {{$info_fatura['id_fatura']}}</h1>
                         <div class="date">Data: {{$info_fatura['data_geracao']}}</div>
                         <div class="date">Vencimento:{{$info_fatura['data_vencimento']}}</div>
+                        <div class="date">Referênte:{{$info_fatura['referencia']}}</div>
                     </div>
                 </div>
                 <table border="0" cellspacing="0" cellpadding="0">
@@ -242,62 +243,32 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
                     </thead>
                     <tbody>
                     	@foreach ($ordens_servico as $ordem_servico)
-						    <p>This is user {{ $ordem_servico->descricao }}</p>
+						    <tr>
+	                            <td class="no">{{$ordem_servico['id']}}</td>
+	                            <td class="text-left">
+	                            	{{$ordem_servico['servico']." - ".$ordem_servico['paciente'] }}
+	                            </td>
+	                            <td class="unit">{{$ordem_servico['valor_unitario'].",00"}}</td>
+	                            <td class="qty">{{$ordem_servico['quantidade']}}</td>
+	                            <td class="total">{{$ordem_servico['valor_total'].",00"}}</td>
+	                        </tr>
 						@endforeach
-
-                        <tr>
-                            <td class="no">04</td>
-                            <td class="text-left"><h3>
-                                <a target="_blank" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                Youtube channel
-                                </a>
-                                </h3>
-                               <a target="_blank" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                   Useful videos
-                               </a> 
-                               to improve your Javascript skills. Subscribe and stay tuned :)
-                            </td>
-                            <td class="unit">$0.00</td>
-                            <td class="qty">100</td>
-                            <td class="total">$0.00</td>
-                        </tr>
-                        <tr>
-                            <td class="no">01</td>
-                            <td class="text-left"><h3>Website Design</h3>Creating a recognizable design solution based on the company's existing visual identity</td>
-                            <td class="unit">$40.00</td>
-                            <td class="qty">30</td>
-                            <td class="total">$1,200.00</td>
-                        </tr>
-                        <tr>
-                            <td class="no">02</td>
-                            <td class="text-left"><h3>Website Development</h3>Developing a Content Management System-based Website</td>
-                            <td class="unit">$40.00</td>
-                            <td class="qty">80</td>
-                            <td class="total">$3,200.00</td>
-                        </tr>
-                        <tr>
-                            <td class="no">03</td>
-                            <td class="text-left"><h3>Search Engines Optimization</h3>Optimize the site for search engines (SEO)</td>
-                            <td class="unit">$40.00</td>
-                            <td class="qty">20</td>
-                            <td class="total">$800.00</td>
-                        </tr>
                     </tbody>
                     <tfoot>
                         <tr>
                             <td colspan="2"></td>
                             <td colspan="2">SUBTOTAL</td>
-                            <td>$5,200.00</td>
+                            <td>R$ {{$info_fatura['valor_total'].",00"}}</td>
                         </tr>
                         <tr>
                             <td colspan="2"></td>
-                            <td colspan="2">TAX 25%</td>
-                            <td>$1,300.00</td>
+                            <td colspan="2">TAX 0%</td>
+                            <td>0</td>
                         </tr>
                         <tr>
                             <td colspan="2"></td>
-                            <td colspan="2">GRAND TOTAL</td>
-                            <td>$6,500.00</td>
+                            <td colspan="2">TOTAL</td>
+                            <td>R$ {{$info_fatura['valor_total'].",00"}}</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -308,7 +279,7 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
                 </div>
             </main>
             <footer>
-                Invoice was created on a computer and is valid without the signature and seal.
+               "Tudo posso naquele que me fortalece." - Filipenses 4:13
             </footer>
         </div>
         <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
