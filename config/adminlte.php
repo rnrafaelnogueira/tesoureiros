@@ -30,9 +30,10 @@ return [
     |
     */
 
-    'logo' => '<i class="fa fa-fw fa-fire"></i><b>Notify</b>GRACE',
 
-    'logo_mini' => '<i class="fa fa-fw fa-fire"></i>',
+    'logo' => '<i class="fas fa-tooth"></i><i> Necy Vieira</i>',
+
+    'logo_mini' => '<i class="fas fa-tooth"></i>',
 
     /*
     |--------------------------------------------------------------------------
@@ -111,47 +112,47 @@ return [
         'Tesouraria',       
        [
             'text' => 'Ordem de Serviço',
-            'icon' => 'usd',
+            'icon' => 'file-invoice-dollar',
             'submenu' => [
                 [
                     'text' => 'Cliente',
                     'url'  => 'cliente',
-                    'icon' => 'bank',
+                    'icon' => 'user',
                 ],[
                     'text' => 'Paciente',
                     'url'  => 'paciente',
-                    'icon' => 'bank',
+                    'icon' => 'user-injured',
                 ],[
                     'text' => 'Cliente Serviço Valor',
                     'url'  => 'cliente_servico_valor',
-                    'icon' => 'bank',
+                    'icon' => 'money-bill',
                 ],[
                     'text' => 'Grupo kanban',
                     'url'  => 'grupo_kanban',
-                    'icon' => 'bank',
+                    'icon' => 'object-group',
                 ],[
                     'text' => 'Situacao',
                     'url'  => 'situacao',
-                    'icon' => 'bank',
+                    'icon' => 'people-carry',
                 ],[
                     'text' => 'Serviço',
                     'url'  => 'servico',
-                    'icon' => 'bank',
+                    'icon' => 'hands-helping',
                 ],[
                     'text' => 'Ordem Serviço',
                     'url'  => 'ordem_servico',
-                    'icon' => 'bank',
+                    'icon' => 'file-invoice-dollar',
                 ]
             ],
         ],
         [
             'text' => 'Faturamento',
-            'icon' => 'usd',
+            'icon' => 'file-invoice',
             'submenu' => [
                 [
                     'text' => 'Fatura',
                     'url'  => 'fatura',
-                    'icon' => 'bank',
+                    'icon' => 'file-invoice',
                 ]
             ],
         ],
