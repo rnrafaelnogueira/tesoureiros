@@ -28,12 +28,10 @@ class OrdemServicoForm extends Form
                 'empty_value' => 'Selecione o cliente',
                 'label' => 'Cliente',
                 'rules' => 'nullable|exists:cliente,id'
-            ])->add('id_paciente', 'entity',[
-                'class' => Paciente::class,
-                'property' => 'nome',
-                'empty_value' => 'Selecione o paciente',
-                'label' => 'Paciente',
-                'rules' => 'nullable|exists:paciente,id'
+            ])->add('nome_paciente', 'text', [
+                'label' => 'Paciente'
+            ])->add('obs_paciente', 'text', [
+                'label' => 'Observação'
             ])->add('id_servico', 'entity',[
                 'class' => Servico::class,
                 'property' => 'nome',

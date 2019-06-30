@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Forms\OrdemServicoForm;
 use App\Models\OrdemServico;
+use App\Models\Paciente;
+use App\Repositories\PacienteRepository;
 use App\Repositories\OrdemServicoRepository;
 use App\Repositories\ClienteServicoValorRepository;
 use Illuminate\Http\Request;
@@ -13,10 +15,11 @@ use FormBuilder;
 
 class OrdemServicoController extends Controller
 {
-    public function __construct(OrdemServicoRepository $repository, ClienteServicoValorRepository $repository_cliente_valor)
+    public function __construct(OrdemServicoRepository $repository, ClienteServicoValorRepository $repository_cliente_valor, PacienteRepository $repository_paciente)
     {
         $this->repository = $repository;
         $this->repository_cliente_valor = $repository_cliente_valor;
+        $this->repository_paciente = $repository_paciente;
         
     }
     /**
@@ -30,7 +33,14 @@ class OrdemServicoController extends Controller
         $form = FormBuilder::create(OrdemServicoForm::class,[
             'url' => route('ordem_servico.index'),
             'method' => 'GET'
-        ]);
+        ])->remove('nome_paciente')
+          ->remove('obs_paciente')
+          ->remove('data_previsao_entrega')
+          ->remove('hora_previsao_entrega')
+          ->remove('quantidade')
+          ->remove('valor_padrao')
+          ->remove('valor_unitario')
+          ->remove('cor');
 
         $data = $form->getFieldValues();
 
@@ -43,7 +53,6 @@ class OrdemServicoController extends Controller
         $total = $ordens_servico->sum('valor_total');
 
         if ($flag_gerar_excel == 'S'){
-
             $this->exceOrdemServico($data);
         }
 
@@ -78,7 +87,7 @@ class OrdemServicoController extends Controller
         $form = FormBuilder::create(OrdemServicoForm::class,[
             'url' => route('ordem_servico.store'),
             'method' => 'POST'
-        ]);
+        ])->remove('gerar_excel');
 
         return view('ordem_servico.create', compact('form'));
     }
@@ -104,6 +113,15 @@ class OrdemServicoController extends Controller
         $data['valor_total'] = $data['valor_unitario'] * $data['quantidade'];
 
 
+        $arr_paciente['nome'] = $data['nome_paciente'];
+        $arr_paciente['observacao'] = $data['obs_paciente'];
+
+        unset($data['nome_paciente']);
+        unset($data['obs_paciente']);
+
+        $id_paciente = $this->repository_paciente->addWithId($arr_paciente);
+
+        $data['id_paciente'] = $id_paciente;
         $this->repository->add($data);
 
         $request->session()->flash('message','Ordem de Serviço adicionado com sucesso.');
