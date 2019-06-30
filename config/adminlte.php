@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'NotifyGRACE',
+    'title' => 'NecyVIEIRA',
 
     'title_prefix' => '',
 
