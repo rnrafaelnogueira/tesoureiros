@@ -12,7 +12,7 @@ class OrdemServico extends Model implements TableInterface
     protected $table = 'ordem_servico';
     //public $timestamps = true;
     protected $guarded = [];
-public static $rules = array();
+    public static $rules = array();
     /**
      * The attributes that are mass assignable.
      *
@@ -30,7 +30,7 @@ public static $rules = array();
      */
     public function getTableHeaders()
     {
-        return ['#', 'Cliente','Paciente','Serviço', 'Situação', 'Endereço', 'Grupo Kanban', 'Data Entrada', 'Data Previsão Entrega','Hora Previsão de Entrega','Quantidade','Valor Unitário','Valor Total','Cor','Valor Padrão'];
+        return ['Ações','Grupo Kanban','Situação','Data Entrada','Paciente','Cliente','Quantidade','Valor Unitário','Valor Total'];
     }
 
     public function cliente_join()
@@ -71,36 +71,24 @@ public static $rules = array();
     {
 
         switch ($header){
-            case '#':
-                return $this->id;
+            case 'Ações':
+                return '';
             case 'Cliente':
                 return $this->cliente_join()->first()->nome;
             case 'Paciente':
                 return $this->paciente_join()->first()->nome;
-            case 'Serviço':
-                return $this->servico_join()->first()->nome;
             case 'Situação':
                 return $this->situacao_join()->first()->nome;
-            case 'Endereço':
-                return $this->cliente_join()->first()->endereco;
             case 'Grupo Kanban':
                 return $this->grupo_kanban_join()->first()->nome;
             case 'Data Entrada':
                 return $this->data_entrada;
-            case 'Data Previsão de Entrega':
-                return $this->data_previsao_entrega;
-            case 'Hora Previsão de Entrega':
-                return $this->hora_previsao_entrega;
             case 'Quantidade':
                 return $this->quantidade;
             case 'Valor Unitário':
                 return $this->valor_unitario;
             case 'Valor Total':
                 return $this->valor_total;
-            case 'Valor Padrão':
-                return $this->valor_padrao;
-            case 'Cor':
-                return $this->cor;
         }
     }
 
