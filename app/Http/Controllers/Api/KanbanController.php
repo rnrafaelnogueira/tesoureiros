@@ -31,6 +31,7 @@ class KanbanController extends Controller
         foreach ($ordem_servico  as $key => $value){
             $arr_os = [];
             $kanban[$value->grupo_kanban_join()->first()->nome]['title'] = $value->grupo_kanban_join()->first()->nome;
+            $kanban[$value->grupo_kanban_join()->first()->nome]['id'] = $value->grupo_kanban_join()->first()->id;
             $kanban[$value->grupo_kanban_join()->first()->nome]['note'] = $value->grupo_kanban_join()->first()->nome;
             $arr_os['nome'] = $value->cliente_join()->first()->nome;
             $arr_os['paciente'] = $value->paciente_join()->first()->nome;
