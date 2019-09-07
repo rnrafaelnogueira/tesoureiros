@@ -46,7 +46,7 @@ class AuthController extends Controller
 
         //$token = JWTAuth::fromUser($user);
 
-        return ['token' => $token];
+        return $token;
     }
 
     protected function sendFailedLoginResponse(Request $request)
