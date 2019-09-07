@@ -6,6 +6,7 @@ use App\Models\OrdemServico;
 use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Support\Facades\DB;
 use App\Models\ClienteServicoValor;
+use App\Models\Cliente;
 
 
 class OrdemServicoRepository extends BaseRepository implements TableInterface
@@ -22,8 +23,18 @@ class OrdemServicoRepository extends BaseRepository implements TableInterface
 
     }
 
+    public function all(){
+        return $this->model->all();
+    }   
 
-     public function valor_cliente_servico($data)
+    public function valor_cliente_servico($data)
+    {
+
+    	
+        return  $this->model->hasOne($this->model_cliente_valor, 'id_cliente',$data['id_cliente'])->where('id_servico', $data['id_servico'])->get()->pluck('valor')->first();
+    }
+
+    public function cliente($data)
     {
 
     	

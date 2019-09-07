@@ -36,10 +36,11 @@ ApiRoute::version('v1',function(){
         ApiRoute::post('/register', 'RegisterUsersController@store');
 
         ApiRoute::group(['middleware' => [/*'api.throttle',*/ 'api.auth']
-            , 'limit' => 100
-            , 'expires' =>3
+            /*, 'limit' => 10000
+            , 'expires' =>300000*/
         ], function(){
             ApiRoute::post('/receita', 'ReceitaController@index');
+            ApiRoute::get('/kanban', 'KanbanController@index');
             ApiRoute::get('/calendar/{day}', 'CalendarController@getEventsDay');
         });
     });
