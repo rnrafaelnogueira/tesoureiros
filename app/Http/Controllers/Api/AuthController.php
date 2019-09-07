@@ -46,7 +46,7 @@ class AuthController extends Controller
 
         //$token = JWTAuth::fromUser($user);
 
-        return $token;
+        return ['access_token' => $token , 'token_type'=> 'Bearer'];
     }
 
     protected function sendFailedLoginResponse(Request $request)
