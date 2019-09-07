@@ -46,4 +46,30 @@ class KanbanController extends Controller
         return response()->json($kanban);
     }
 
+    public function ordens_servico(Request $request,$grupo_kanban)
+    {
+        
+        $ordens_servico = $this->ordem_servico_repository->where('id_grupo_kanban',1);
+
+        
+        $json = [];
+        $kanban = [];
+        foreach ($ordens_servico as $key => $value){
+            $arr_os = [];
+            $kanban[$value->situacao_join()->first()->nome]['title'] = $value->situacao_join()->first()->nome;
+            $kanban[$value->situacao_join()->first()->nome]['note'] = $value->situacao_join()->first()->nome;
+            $arr_os['nome'] = $value->cliente_join()->first()->nome;
+            $arr_os['paciente'] = $value->paciente_join()->first()->nome;
+            $kanban[$value->situacao_join()->first()->nome]['ordens_servico'][] = $arr_os;
+        }
+
+        $kanban =array_values($kanban);
+
+
+        foreach($kanban as $key => $value){
+            $kanban[$key]['ordens_servico'] = array_values($kanban[$key]['ordens_servico']);
+        }
+        return response()->json($kanban);
+    }
+
 }
