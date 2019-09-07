@@ -49,7 +49,7 @@ class KanbanController extends Controller
     public function ordens_servico(Request $request,$grupo_kanban)
     {
         
-        $ordens_servico = $this->ordem_servico_repository->where('id_grupo_kanban',1);
+        $ordens_servico = $this->ordem_servico_repository->where('id_grupo_kanban',$grupo_kanban);
 
         
         $json = [];
