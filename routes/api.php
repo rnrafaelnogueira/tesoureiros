@@ -40,6 +40,7 @@ ApiRoute::version('v1',function(){
             , 'expires' =>300000*/
         ], function(){
             ApiRoute::post('/receita', 'ReceitaController@index');
+            ApiRoute::post('/ordem_servico', 'OrdemServicoController@store');
             ApiRoute::get('/kanban', 'KanbanController@index');
             ApiRoute::get('/kanban/ordens_servico/{grupo_kanban}', 'KanbanController@ordens_servico');
             ApiRoute::get('/calendar/{day}', 'CalendarController@getEventsDay');
