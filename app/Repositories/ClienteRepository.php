@@ -20,4 +20,8 @@ class ClienteRepository extends BaseRepository implements TableInterface
         $this->model = $model;
     }
 
+    public function all(){
+        return $this->model->all();
+    }   
+
 }

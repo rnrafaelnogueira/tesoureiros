@@ -41,6 +41,7 @@ ApiRoute::version('v1',function(){
         ], function(){
             ApiRoute::post('/receita', 'ReceitaController@index');
             ApiRoute::post('/ordem_servico', 'OrdemServicoController@store');
+            ApiRoute::get('/ordem_servico/componentes', 'OrdemServicoController@componentes_ordem_servico');
             ApiRoute::get('/kanban', 'KanbanController@index');
             ApiRoute::get('/kanban/ordens_servico/{grupo_kanban}', 'KanbanController@ordens_servico');
             ApiRoute::get('/calendar/{day}', 'CalendarController@getEventsDay');

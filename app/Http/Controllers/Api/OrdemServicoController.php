@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Repositories\OrdemServicoRepository;
 use App\Repositories\ClienteServicoValorRepository;
 use App\Repositories\PacienteRepository;
+use App\Repositories\ClienteRepository;
+use App\Repositories\ServicoRepository;
+use App\Repositories\SituacaoRepository;
+use App\Repositories\GrupoKanbanRepository;
 use App\Http\Controllers\Controller;
 
 class OrdemServicoController extends Controller
@@ -15,12 +19,20 @@ class OrdemServicoController extends Controller
     public function __construct(
         OrdemServicoRepository $ordem_servico_repository,
         ClienteServicoValorRepository $cliente_servico_valor_repository,
-        PacienteRepository $paciente_repository
+        PacienteRepository $paciente_repository,
+        ClienteRepository $cliente_repository,
+        ServicoRepository $servico_repository,
+        SituacaoRepository $situacao_repository,
+        GrupoKanbanRepository $grupo_kanban_repository
     )
     {
         $this->ordem_servico_repository = $ordem_servico_repository;
         $this->cliente_servico_valor_repository = $cliente_servico_valor_repository;
         $this->paciente_repository = $paciente_repository;
+        $this->cliente_repository = $cliente_repository;
+        $this->servico_repository = $servico_repository;
+        $this->situacao_repository = $situacao_repository;
+        $this->grupo_kanban_repository = $grupo_kanban_repository;
     }
 
     /**
@@ -60,6 +72,16 @@ class OrdemServicoController extends Controller
         $this->ordem_servico_repository->add($data);
 
         return  response()->json($data);
+    }
+
+    public function componentes_ordem_servico()
+    {
+        $clientes = $this->cliente_repository->all();
+        $servicos = $this->servico_repository->all();
+        $situacoes = $this->situacao_repository->all();
+        $grupos_kanban = $this->grupo_kanban_repository->all();
+
+        return response()->json(['clientes' => $clientes , 'servicos' => $servicos, 'situacoes' => $situacoes, 'grupos_kanban'=> $grupos_kanban]);
     }
 
 }
