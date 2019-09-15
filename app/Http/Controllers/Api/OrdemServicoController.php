@@ -84,4 +84,12 @@ class OrdemServicoController extends Controller
         return response()->json(['clientes' => $clientes , 'servicos' => $servicos, 'situacoes' => $situacoes, 'grupos_kanban'=> $grupos_kanban]);
     }
 
+    public function get(Request $request,$id)
+    {
+
+        $ordens_servico = $this->ordem_servico_repository->where('id',$id)->all();
+
+        return response()->json($ordens_servico);
+    }
+
 }
