@@ -60,6 +60,7 @@ class KanbanController extends Controller
             $arr_os = [];
             $kanban[$value->situacao_join()->first()->nome]['title'] = $value->situacao_join()->first()->nome;
             $kanban[$value->situacao_join()->first()->nome]['note'] = $value->situacao_join()->first()->nome;
+            $arr_os['id'] = $value->id;
             $arr_os['nome'] = $value->cliente_join()->first()->nome;
             $arr_os['paciente'] = $value->paciente_join()->first()->nome;
             $kanban[$value->situacao_join()->first()->nome]['ordens_servico'][] = $arr_os;
