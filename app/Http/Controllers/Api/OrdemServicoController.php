@@ -89,13 +89,14 @@ class OrdemServicoController extends Controller
 
         $ordens_servico = $this->ordem_servico_repository->where('id',$id)->all();
             
-        
+
         $ordens_servico[0]['cliente'] = $ordens_servico[0]->cliente_join()->first()->nome;
         $ordens_servico[0]['nome_paciente'] = $ordens_servico[0]->paciente_join()->first()->nome;
         $ordens_servico[0]['observacao'] = $ordens_servico[0]->paciente_join()->first()->observacao;
         $ordens_servico[0]['situacao'] = $ordens_servico[0]->situacao_join()->first()->nome;
         $ordens_servico[0]['grupo_kanban'] = $ordens_servico[0]->grupo_kanban_join()->first()->nome;
         $ordens_servico[0]['servico'] = $ordens_servico[0]->servico_join()->first()->nome;
+        $ordens_servico[0]['valor_padrao'] = ($ordens_servico[0]->valor_padrao == 'S') ? 'Sim' : 'Não';
         
 
         return response()->json($ordens_servico);
