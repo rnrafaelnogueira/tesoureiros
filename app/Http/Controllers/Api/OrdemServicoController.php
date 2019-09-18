@@ -112,10 +112,20 @@ class OrdemServicoController extends Controller
             $data['valor_unitario'] =  $this->cliente_servico_valor_repository->where('id_cliente',$data['id_cliente'])->where('id_servico',$data['id_servico'])->pluck('valor')->first();
         }
 
+        $arr_paciente['nome'] = $data['nome_paciente'];
+        $arr_paciente['observacao'] = $data['obs_paciente'];
+
         $data['valor_total'] = $data['valor_unitario'] * $data['quantidade'];
         $id = $data['id'];
         
         unset($data['id']);
+
+
+        unset($data['nome_paciente']);
+        unset($data['obs_paciente']);
+
+        $id_paciente = $this->paciente_repository->edit($data['id_paciente'], $arr_paciente);
+
 
         $this->ordem_servico_repository->edit($id,$data);
 
