@@ -118,7 +118,10 @@ class BaseRepository implements TableInterface
     public function delete($id)
     {
         try {
+            
+
             $object = $this->model->find($id);
+            
             $object->delete();
 
             return TRUE;

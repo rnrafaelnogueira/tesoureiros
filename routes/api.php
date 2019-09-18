@@ -41,6 +41,8 @@ ApiRoute::version('v1',function(){
         ], function(){
             ApiRoute::post('/receita', 'ReceitaController@index');
             ApiRoute::post('/ordem_servico', 'OrdemServicoController@store');
+            ApiRoute::put('/ordem_servico', 'OrdemServicoController@update');
+            ApiRoute::delete('/ordem_servico/{id}', 'OrdemServicoController@destroy');
             ApiRoute::get('/ordem_servico/by_id/{id}', 'OrdemServicoController@get');
             ApiRoute::get('/ordem_servico/componentes', 'OrdemServicoController@componentes_ordem_servico');
 

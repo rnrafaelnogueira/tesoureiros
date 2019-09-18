@@ -102,4 +102,32 @@ class OrdemServicoController extends Controller
         return response()->json($ordens_servico);
     }
 
+    public function update(Request $request)
+    {
+        $data = $request->input();
+
+        unset($data['data_previsao_entrega']);
+
+        if($data['valor_padrao'] == 'S'){
+            $data['valor_unitario'] =  $this->cliente_servico_valor_repository->where('id_cliente',$data['id_cliente'])->where('id_servico',$data['id_servico'])->pluck('valor')->first();
+        }
+
+        $data['valor_total'] = $data['valor_unitario'] * $data['quantidade'];
+        $id = $data['id'];
+        
+        unset($data['id']);
+
+        $this->ordem_servico_repository->edit($id,$data);
+
+        return  response()->json($data);
+    }
+
+    public function destroy(Request $request,$id)
+    {
+
+        $this->ordem_servico_repository->delete($id);
+
+        return  response()->json(["success" => true]);
+    }
+
 }
