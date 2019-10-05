@@ -30,18 +30,11 @@ class ResumoValorController extends Controller
 
     	$cliente = $this->cliente_repository->all();
 
-    	$ordem_servico = $this->ordem_servico_repository->where('id_grupo_kanban',1)->where('id_situacao',1)->all();
-    	
-		$json = [];
-        $resumo_valor = [];
-
         foreach ($cliente as $key => $value) {
         	$arr_principal['labels'][] = $value->nome;
         	$arr_data[] = $this->ordem_servico_repository->where('id_cliente', $value->id)
-        	->where('id_grupo_kanban',1)
-        	->where('id_situacao',1)
+        	->where('id_grupo_kanban',4)
         	->sum('valor_total');
-
         }
 
 		$arr_backgound_color =  [
