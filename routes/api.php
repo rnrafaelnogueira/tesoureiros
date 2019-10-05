@@ -48,6 +48,8 @@ ApiRoute::version('v1',function(){
 
             ApiRoute::get('/kanban', 'KanbanController@index');
             ApiRoute::get('/kanban/ordens_servico/{grupo_kanban}', 'KanbanController@ordens_servico');
+            ApiRoute::get('/resumo_valor', 'ResumoValorController@index');
+
             ApiRoute::get('/calendar/{day}', 'CalendarController@getEventsDay');
         });
     });
