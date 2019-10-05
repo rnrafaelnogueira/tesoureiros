@@ -34,6 +34,8 @@ class ResumoValorController extends Controller
         	$arr_principal['labels'][] = $value->nome;
         	$arr_data[] = $this->ordem_servico_repository->where('id_cliente', $value->id)
         	->where('id_grupo_kanban',4)
+        	->where('id_situacao',2)
+        	->where('id_situacao',5)
         	->sum('valor_total');
         }
 
