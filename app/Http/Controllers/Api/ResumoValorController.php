@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Repositories\OrdemServicoRepository;
+use App\Repositories\ClienteRepository;
 use App\Http\Controllers\Controller;
 
 class ResumoValorController extends Controller
@@ -11,10 +12,12 @@ class ResumoValorController extends Controller
     protected $ordem_servico_repository;
 
     public function __construct(
-        OrdemServicoRepository $ordem_servico_repository
+        OrdemServicoRepository $ordem_servico_repository,
+        ClienteRepository $cliente_repository
     )
     {
         $this->ordem_servico_repository = $ordem_servico_repository;
+        $this->cliente_repository = $cliente_repository;
     }
 
     /**
@@ -24,29 +27,23 @@ class ResumoValorController extends Controller
      */
     public function index(Request $request)
     {
-        /*$cpf = $request->get('cpf');
-        $ordem_servico = $this->ordem_servico_repository->all();
-        $json = [];
-        $kanban = [];
-        foreach ($ordem_servico  as $key => $value){
-            $arr_os = [];
-            $kanban[$value->grupo_kanban_join()->first()->nome]['title'] = $value->grupo_kanban_join()->first()->nome;
-            $kanban[$value->grupo_kanban_join()->first()->nome]['id'] = $value->grupo_kanban_join()->first()->id;
-            $kanban[$value->grupo_kanban_join()->first()->nome]['note'] = $value->grupo_kanban_join()->first()->nome;
-            $arr_os['id'] = $value->id;
-            $arr_os['nome'] = $value->cliente_join()->first()->nome;
-            $arr_os['paciente'] = $value->paciente_join()->first()->nome;
-            $kanban[$value->grupo_kanban_join()->first()->nome]['situacao'][$value->situacao_join()->first()->nome][] = $arr_os;
+
+    	$cliente = $this->cliente_repository->all();
+
+    	$ordem_servico = $this->ordem_servico_repository->where('id_grupo_kanban',1)->where('id_situacao',1)->all();
+    	
+		$json = [];
+        $resumo_valor = [];
+
+        foreach ($cliente as $key => $value) {
+        	$arr_principal['labels'][] = $value->nome;
+        	$arr_data[] = $this->ordem_servico_repository->where('id_cliente', $value->id)
+        	->where('id_grupo_kanban',1)
+        	->where('id_situacao',1)
+        	->sum('valor_total');
+
         }
 
-        $kanban =array_values($kanban);
-
-        foreach($kanban as $key => $value){
-            $kanban[$key]['situacao'] = array_values($kanban[$key]['situacao']);
-        }*/
-
-		$arr_principal['labels'] = ['Diego', 'Otávio', 'Wryel'];
-		$arr_data = [50, 29, 15];
 		$arr_backgound_color =  [
 		            'rgba(255, 159, 64)',
 		            'rgba(255, 99, 132)',
