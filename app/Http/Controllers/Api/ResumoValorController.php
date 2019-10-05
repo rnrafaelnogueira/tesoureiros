@@ -52,6 +52,9 @@ class ResumoValorController extends Controller
 		$arr_principal['datasets'][0]['backgroundColor'] = $arr_backgound_color;
 		$arr_principal['datasets'][0]['hoverBackgroundColor'] = $arr_hover_background_color;
 
+        $arr_principal['options']['labels']['render'] = 'label';
+
+
         return response()->json($arr_principal);
     }
 
