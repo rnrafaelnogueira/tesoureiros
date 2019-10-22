@@ -14,7 +14,7 @@ class AlterOrdemCompraParcelas extends Migration
     public function up()
     {
          Schema::table('ordem_compra_parcelas', function (Blueprint $table) {
-            $table->text('id_ordem_compra');
+            $table->text('id_ordem_compra')->nullable();
         });
     }
 
