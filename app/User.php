@@ -80,11 +80,11 @@ class User extends Authenticatable implements TableInterface,JWTSubject
     public function getJWTCustomClaims()
     {
         return [ 'https://hasura.io/jwt/claims' => [
-                'x-hasura-allowed-roles' => ['editor','user', 'mod'],
-                'x-hasura-default-role'=>'user',
-                'x-hasura-user-id'=> '1234567890',
-                'x-hasura-org-id'=> '123',
-                'x-hasura-custom'=> 'custom-value'
+                'x-hasura-allowed-roles' => ['admin'],
+                'x-hasura-default-role'=>'admin',
+                'x-hasura-user-id'=> '1',
+                'x-hasura-org-id'=> '1',
+                'x-hasura-custom'=> 'teste'
               ],
             'user' => [
                 'id' => $this->id,
