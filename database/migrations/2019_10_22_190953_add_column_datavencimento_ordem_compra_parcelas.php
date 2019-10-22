@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrdemCompraParcelas extends Migration
+class AddColumnDatavencimentoOrdemCompraParcelas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateOrdemCompraParcelas extends Migration
      */
     public function up()
     {
-        Schema::create('ordem_compra_parcelas', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('parcela');
-            $table->integer('valor');
+        Schema::table('ordem_compra_parcelas', function (Blueprint $table) {
             $table->timestamp('data_vencimento');
-            $table->timestamps();
         });
     }
 
@@ -29,6 +25,6 @@ class CreateOrdemCompraParcelas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ordem_compra_parcelas');
+        //
     }
 }
