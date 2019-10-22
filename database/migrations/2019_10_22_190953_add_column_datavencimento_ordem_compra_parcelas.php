@@ -14,7 +14,7 @@ class AddColumnDatavencimentoOrdemCompraParcelas extends Migration
     public function up()
     {
         Schema::table('ordem_compra_parcelas', function (Blueprint $table) {
-            $table->timestamp('data_vencimento')>nullable();
+            $table->timestamp('data_vencimento')->nullable();
         });
     }
 
