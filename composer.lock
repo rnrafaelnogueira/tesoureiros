@@ -117,6 +117,7 @@
                 "cors",
                 "crossdomain",
                 "laravel"
+                
             ],
             "time": "2018-09-06T13:20:53+00:00"
         },
