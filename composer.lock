@@ -117,7 +117,7 @@
                 "cors",
                 "crossdomain",
                 "laravel"
-                
+
             ],
             "time": "2018-09-06T13:20:53+00:00"
         },
@@ -136,7 +136,7 @@
                 "shasum": ""
             },
             "require": {
-                "dompdf/dompdf": "^0.8",
+                "dompdf/dompdf": "0.8.5",
                 "illuminate/support": "5.5.x|5.6.x|5.7.x|5.8.x",
                 "php": ">=7"
             },
