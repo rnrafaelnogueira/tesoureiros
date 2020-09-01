@@ -8,6 +8,7 @@
     <p><b>Prezado (a)</b> {{ Rafael Nogueira }} </p>
     <p> Você recebeu uma solicitação de contato através do site <b>LAB NECY VIEIRA</b>.</p>
     <p>
+        
         <b>DADOS DO CLIENTE:</b><br>
         <b>Nome: </b> {{ $nome }} <br>
         <b>Telefone: </b> {{ $telefone}} <br>
