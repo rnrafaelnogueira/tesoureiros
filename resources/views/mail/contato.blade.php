@@ -10,7 +10,7 @@
     .white { background: #ffffff;min-width: 380px }
 </style>
 <body class="corpo">
-    <table class='bg-email' style="height: 100%;width: 100%; margin:0px;border-top:8px solid rgb(81,81,81);background:rgb(241,241,241);color:rgb(0,0,0);font-size:medium">
+    <table class='bg-email' style="height: 100%;width: 100%; margin:0px;border-top:8px solid #E08E7A;background:rgb(241,241,241);color:rgb(0,0,0);font-size:medium">
         <tr>
             <td style="padding: 2em 0">
                 <div class='main' style="max-width: 800px;margin: 0 auto">
