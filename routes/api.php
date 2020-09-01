@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-use App\Mail\MailtrapContato;
+use App\Mail\Contate;
 
 ApiRoute::version('v1',function(){
     ApiRoute::group([
