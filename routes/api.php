@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 */
 
 use App\Mail\Contate;
+use App\Mail\Solicitacao;
 
 ApiRoute::version('v1',function(){
     ApiRoute::group([
@@ -39,7 +40,7 @@ ApiRoute::version('v1',function(){
 
             $params = $request->input();
 
-            Mail::to('rnrafaelnogueira@gmail.com')->send(new Contate($params['servico'],$params['nome'], $params['telefone'],$params['mensagem'])); 
+            Mail::to('rnrafaelnogueira@gmail.com')->send(new Solicitacao($params['servico'],$params['nome'], $params['telefone'],$params['mensagem'])); 
 
             return 'A solicitação foi enviada, aguarde entraremos em contato.';
 
