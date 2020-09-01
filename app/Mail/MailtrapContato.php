@@ -35,6 +35,10 @@ class MailtrapContato extends Mailable
      */
     public function build()
     {
-        return $this->view("mail.contato");   
+        return $this->view("mail.contato")->with([
+            'name' => $this->nome,
+            'telefone' => $this->telefone,
+            'mensagem' => $this->mensagem
+        ]);   
     }
 }
