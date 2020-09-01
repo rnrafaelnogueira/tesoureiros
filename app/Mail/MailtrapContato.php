@@ -39,7 +39,7 @@ class MailtrapContato extends Mailable
         $telefone =  $this->_telefone;
         $mensagem =  $this->_mensagem;
 
-        return $this->send('mail.contato', ["nome" => $nome, 'telefone' =>  $telefone, 'mensagem' => $mensagem], function ($mail) use ($nome, $telefone, $mensagem){
+        return $this->view("mail.contato")->send('mail.contato', ["nome" => $nome, 'telefone' =>  $telefone, 'mensagem' => $mensagem], function ($mail) use ($nome, $telefone, $mensagem){
             $mail->from('rnrafaelnogueira@gmail.com', 'Cliente entranto em contato - LAB NECY VIEIRA');
             $mail->to('rnrafaelnogueira@gmail.com' , 'Web Site')->subject('Cliente entranto em contato - LAB NECY VIEIRA');
             $mail->bcc("necyvnogueira@gmail.br");
