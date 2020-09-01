@@ -35,6 +35,16 @@ ApiRoute::version('v1',function(){
 
         });
 
+        ApiRoute::post('/solicitacao', function (Request $request) {
+
+            $params = $request->input();
+
+            Mail::to('rnrafaelnogueira@gmail.com')->send(new Contate($params['servico'],$params['nome'], $params['telefone'],$params['mensagem'])); 
+
+            return 'A solicitação foi enviada, aguarde entraremos em contato.';
+
+        });
+
         ApiRoute::post('/access_token', [
             'uses' => 'AuthController@accessToken'/*,
             'middleware' => ['api.throttle'],

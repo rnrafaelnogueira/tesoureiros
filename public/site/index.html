@@ -103,7 +103,25 @@
           <span  style="font-size: 14px;font-weight: 100 !important; !important;color: #8a8a8a;">Por elemento</span>  
           <br><span  style="font-size: 14px;font-weight: 100 !important; !important;color: #8a8a8a;">Prazo de 8 dias</span>  
           <p>R$ 100,00</p>
-          <a href="#" class="button expanded">Solicitar</a>
+          <div class="reveal" id="solicitacao_ceromero" data-reveal>
+            <span id="mensagem_solicitacao_ceromero" style="font-size: 15px;font-weight: 100 !important;color: #fd9902;"></span>
+            <br>
+            <form id="solicitacao_ceromero_form"> 
+              <h5>Solicitação de Cerômero</h5>
+              <input type="hidden" name="servico" value="ceromero">
+              <label>Nome</label>
+              <input type="text" placeholder="Nome" name="nome" >
+              <label for="">Telefone (WhatsApp)</label>
+              <input class="input" type="text" name="telefone" placeholder="Telefone(WhatZapp)">
+              <label for="">Detalhes</label>
+              <textarea class="input" name="detalhe" placeholder="Detalhes"  form="solicitacao_ceromero_form"></textarea>
+              <button class="button " type="button" id="submit_ceromero">Finalizar</button>
+            </form>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <p><button class="button expanded" data-open="solicitacao_ceromero">Solicitar</button></p>
         </div>
         <div class="cell">
           <img class="thumbnail" src="porcelanas.png">
@@ -112,7 +130,25 @@
           <br><span  style="font-size: 14px;font-weight: 100 !important; !important;color: #8a8a8a;">Prazo de 8 dias</span>  
 
           <p>R$ 100,00</p>
-          <a href="#" class="button expanded">Solicitar</a>
+          <div class="reveal" id="solicitacao_porcelana" data-reveal>
+            <span id="mensagem_solicitacao_porcelana" style="font-size: 15px;font-weight: 100 !important;color: #fd9902;"></span>
+            <br>
+            <form id="solicitacao_porcelana_form"> 
+              <h5>Solicitação de Aplicação de Porcelana</h5>
+              <input type="hidden" name="servico" value="porcelana">
+              <label>Nome</label>
+              <input type="text" placeholder="Nome" name="nome" >
+              <label for="">Telefone (WhatsApp)</label>
+              <input class="input" type="text" name="telefone" placeholder="Telefone(WhatZapp)">
+              <label for="">Detalhes</label>
+              <textarea class="input" name="detalhe" placeholder="Detalhes"  form="solicitacao_porcelana_form"></textarea>
+              <button class="button " type="button" id="submit_porcelana">Finalizar</button>
+            </form>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <p><button class="button expanded" data-open="solicitacao_porcelana">Solicitar</button></p>
         </div>
         <div class="cell">
           <img class="thumbnail" src="coppingmetal.png">
@@ -121,7 +157,25 @@
           <span  style="font-size: 14px;font-weight: 100 !important; !important;color: #8a8a8a;">Por elemento</span>
           <br><span  style="font-size: 14px;font-weight: 100 !important; !important;color: #8a8a8a;">Prazo de 8 dias</span>  
           <p>R$ 80,00</p>
-          <a href="#" class="button expanded">Solicitar</a>
+          <div class="reveal" id="solicitacao_metal" data-reveal>
+            <span id="mensagem_solicitacao_porcelana" style="font-size: 15px;font-weight: 100 !important;color: #fd9902;"></span>
+            <br>
+            <form id="solicitacao_metal_form"> 
+              <h5>Solicitação de Cooping Metálico</h5>
+              <input type="hidden" name="servico" value="metal">
+              <label>Nome</label>
+              <input type="text" placeholder="Nome" name="nome" >
+              <label for="">Telefone (WhatsApp)</label>
+              <input class="input" type="text" name="telefone" placeholder="Telefone(WhatZapp)">
+              <label for="">Detalhes</label>
+              <textarea class="input" name="detalhe" placeholder="Detalhes"  form="solicitacao_metal_form"></textarea>
+              <button class="button " type="button" id="submit_metal">Finalizar</button>
+            </form>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <p><button class="button expanded" data-open="solicitacao_metal">Solicitar</button></p>
         </div>
         <div class="cell">
           <img class="thumbnail" src="enceramento.png">
@@ -129,120 +183,29 @@
           <span  style="font-size: 14px;font-weight: 100 !important; !important;color: #8a8a8a;">Por elemento</span>  
           <br><span  style="font-size: 14px;font-weight: 100 !important; !important;color: #8a8a8a;">Prazo de 8 dias</span>  
           <p>R$ 20,00</p>
-          <a href="#" class="button expanded">Solicitar</a>
+          <div class="reveal" id="solicitacao_enceramento" data-reveal>
+            <span id="mensagem_solicitacao_porcelana" style="font-size: 15px;font-weight: 100 !important;color: #fd9902;"></span>
+            <br>
+            <form id="solicitacao_enceramento_form"> 
+              <h5>Solicitação de Enceramento Diagnóstico</h5>
+              <input type="hidden" name="servico" value="metal">
+              <label>Nome</label>
+              <input type="text" placeholder="Nome" name="nome" >
+              <label for="">Telefone (WhatsApp)</label>
+              <input class="input" type="text" name="telefone" placeholder="Telefone(WhatZapp)">
+              <label for="">Detalhes</label>
+              <textarea class="input" name="detalhe" placeholder="Detalhes"  form="solicitacao_enceramento_form"></textarea>
+              <button class="button " type="button" id="submit_enceramento">Finalizar</button>
+            </form>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <p><button class="button expanded" data-open="solicitacao_enceramento">Solicitar</button></p>
         </div>
         <hr>
         <hr>
     </article>
-  
-    <!--
-    <div class="row column text-center">
-      <h2>Últimos Serviços</h2>  
-    </div>
-    <hr>
-    <article class="grid-container">
-    <div class="grid-x align-bottom">
-          <div class="medium-4 cell">
-            
-            <div class="media-object">
-             <div class="media-object-section">
-                <img class="thumbnail" src="bloco.jpg" style="width: 110px;height: 110px;">
-              </div>
-              <div class="media-object-section">
-                <h5>Cerômero</h5>
-                <p>Cor: A3<br>Dente: 3<BR>
-                Tempo de entrega: 2 dias</p>
-              </div>
-            </div>
-            <div class="media-object">
-             <div class="media-object-section">
-                <img class="thumbnail" src="bloco.jpg" style="width: 110px;height: 110px;">
-              </div>
-              <div class="media-object-section">
-                <h5>Cerômero</h5>
-                <p>Cor: A3<br>Dente: 3<BR>
-                Tempo de entrega: 2 dias</p>
-              </div>
-            </div>
-            <div class="media-object">
-             <div class="media-object-section">
-                <img class="thumbnail" src="bloco.jpg" style="width: 110px;height: 110px;">
-              </div>
-              <div class="media-object-section">
-                <h5>Cerômero</h5>
-                <p>Cor: A3<br>Dente: 3<BR>
-                Tempo de entrega: 2 dias</p>
-              </div>
-            </div>
-          </div>
-          <div class="medium-4 cell">
-          <div class="media-object">
-             <div class="media-object-section">
-                <img class="thumbnail" src="bloco.jpg" style="width: 110px;height: 110px;">
-              </div>
-              <div class="media-object-section">
-                <h5>Cerômero</h5>
-                <p>Cor: A3<br>Dente: 3<BR>
-                Tempo de entrega: 2 dias</p>
-              </div>
-            </div>
-            <div class="media-object">
-             <div class="media-object-section">
-                <img class="thumbnail" src="bloco.jpg" style="width: 110px;height: 110px;">
-              </div>
-              <div class="media-object-section">
-                <h5>Cerômero</h5>
-                <p>Cor: A3<br>Dente: 3<BR>
-                Tempo de entrega: 2 dias</p>
-              </div>
-            </div>
-            <div class="media-object">
-             <div class="media-object-section">
-                <img class="thumbnail" src="bloco.jpg" style="width: 110px;height: 110px;">
-              </div>
-              <div class="media-object-section">
-                <h5>Cerômero</h5>
-                <p>Cor: A3<br>Dente: 3<BR>
-                Tempo de entrega: 2 dias</p>
-              </div>
-            </div>
-          </div>
-          <div class="medium-4 cell">
-          <div class="media-object">
-              <div class="media-object-section">
-                <img class="thumbnail" src="bloco.jpg" style="width: 110px;height: 110px;">
-              </div>
-              <div class="media-object-section">
-                <h5>Cerômero</h5>
-                <p>Cor: A3<br>Dente: 3<BR>
-                Tempo de entrega: 2 dias</p>
-              </div>
-            </div>
-            <div class="media-object">
-             <div class="media-object-section">
-                <img class="thumbnail" src="bloco.jpg" style="width: 110px;height: 110px;">
-              </div>
-              <div class="media-object-section">
-                <h5>Cerômero</h5>
-                <p>Cor: A3<br>Dente: 3<BR>
-                Tempo de entrega: 2 dias</p>
-              </div>
-            </div>
-            <div class="media-object">
-             <div class="media-object-section">
-                <img class="thumbnail" src="bloco.jpg" style="width: 110px;height: 110px;">
-              </div>
-              <div class="media-object-section">
-                <h5>Cerômero</h5>
-                <p>Cor: A3<br>Dente: 3<BR>
-                Tempo de entrega: 2 dias</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-</article>
--->
         <br>
 
     <div class="row column text-center">
@@ -334,6 +297,8 @@
                   <button class="button" type="button" id="submit"> Enviar </button>
                 </form>
               </div>
+            
+
           </div>
       </article>
    </footer>
@@ -362,6 +327,62 @@
             });
        });
      
+       $('#submit_ceromero').click(function() {
+            $.ajax({
+                  type: "POST",
+                  url: 'https://necyvieira.herokuapp.com/public/api/solicitacao',
+                  // serialize your form's elements.
+                  data: $("#solicitacao_ceromero").serialize(), 
+                  success: function(data)
+                  {
+                      // "something" is the class of your form wrapper
+                      $('#mensagem').html(data);
+                  }
+            });
+       });
+
+       $('#submit_porcelana').click(function() {
+            $.ajax({
+                  type: "POST",
+                  url: 'https://necyvieira.herokuapp.com/public/api/solicitacao',
+                  // serialize your form's elements.
+                  data: $("#solicitacao_porcelana").serialize(), 
+                  success: function(data)
+                  {
+                      // "something" is the class of your form wrapper
+                      $('#mensagem').html(data);
+                  }
+            });
+       });
+
+       $('#submit_metal').click(function() {
+            $.ajax({
+                  type: "POST",
+                  url: 'https://necyvieira.herokuapp.com/public/api/solicitacao',
+                  // serialize your form's elements.
+                  data: $("#solicitacao_metal").serialize(), 
+                  success: function(data)
+                  {
+                      // "something" is the class of your form wrapper
+                      $('#mensagem').html(data);
+                  }
+            });
+       });
+
+       $('#submit_enceramento').click(function() {
+            $.ajax({
+                  type: "POST",
+                  url: 'https://necyvieira.herokuapp.com/public/api/solicitacao',
+                  // serialize your form's elements.
+                  data: $("#solicitacao_enceramento").serialize(), 
+                  success: function(data)
+                  {
+                      // "something" is the class of your form wrapper
+                      $('#mensagem').html(data);
+                  }
+            });
+       });
+
     </script>
   
 
