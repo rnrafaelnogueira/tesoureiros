@@ -43,8 +43,7 @@ class MailtrapContato extends Mailable
             $mail->from('rnrafaelnogueira@gmail.com', 'Cliente entranto em contato - LAB NECY VIEIRA');
             $mail->to('rnrafaelnogueira@gmail.com' , 'Web Site')->subject('Cliente entranto em contato - LAB NECY VIEIRA');
             $mail->bcc("necyvnogueira@gmail.br");
-            $mail->view("mail.contato");
-        });
+        })->view("mail.contato");
         
     }
 }
