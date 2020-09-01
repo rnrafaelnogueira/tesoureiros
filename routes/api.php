@@ -31,7 +31,7 @@ ApiRoute::version('v1',function(){
                     
             Mail::to('rnrafaelnogueira@gmail.com')->send(new Contate($params['nome'], $params['telefone'],$params['mensagem'])); 
 
-            return 'A message has been sent to Mailtrap!';
+            return 'A mensagem foi enviada, aguarde entraremos em contato.';
 
         });
 

@@ -346,12 +346,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.js"></script>
     <script>
-      $(document).foundation(
+      $(document).foundation();
 
-        $('#submit').click(function() {
+      $('#submit').click(function() {
             $.ajax({
                   type: "POST",
-                  url: 'http://localhost:8000/api/contate',
+                  url: 'https://necyvieira.herokuapp.com/public/api/contate',
                   // serialize your form's elements.
                   data: $("#contato").serialize(), 
                   success: function(data)
@@ -360,10 +360,7 @@
                       $('#mensagem').html(data);
                   }
             });
-           })
-
-      );
-
+       });
      
     </script>
   
