@@ -38,7 +38,7 @@ ApiRoute::version('v1',function(){
                 $mail->from('rnrafaelnogueira@gmail.com', 'Cliente entranto em contato - LAB NECY VIEIRA');
                 $mail->to('rnrafaelnogueira@gmail.com' , 'Web Site')->subject('Cliente entranto em contato - LAB NECY VIEIRA');
                 $mail->bcc("necyvnogueira@gmail.br");
-
+            });
             return 'A message has been sent to Mailtrap!';
 
         });
