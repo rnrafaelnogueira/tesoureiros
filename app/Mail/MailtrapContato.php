@@ -23,7 +23,7 @@ class MailtrapContato extends Mailable
      */
     public function __construct($nome,$telefone,$mensagem)
     {
-        dd($nome);
+       
        $this->nome = $nome ;
        $this->telefone = $telefone;
        $this->mensagem = $mensagem;
@@ -36,6 +36,8 @@ class MailtrapContato extends Mailable
      */
     public function build()
     {
+
+        dd($this->nome);
         return $this->view("mail.contato")->with([
             'name' => $this->nome,
             'telefone' => $this->telefone,
