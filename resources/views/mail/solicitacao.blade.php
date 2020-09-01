@@ -23,16 +23,16 @@
                     <!-- Conteúdo -->
                     <div class="conteudo" style="box-sizing: border-box;float: left;display: block;width: 100%;background: #ffffff;padding: 2em; font-size: 13px ">
                     <h2 style="text-align: center">Lab Necy Vieira</h2> 
-                            <h3 style="text-align: center">Cliente entrando em contato</h3>
+                            <h3 style="text-align: center">Nova solicitação</h3>
                             <p><b>Prezado (a)</b> Rafael Nogueira </p>
                             <p> Você recebeu uma solicitação de serviço através do site <b>LAB NECY VIEIRA</b>.</p>
                             <p>
                                 
-                                <b>DADOS DO CLIENTE:</b><br>
+                                <b>DADOS DA SLICITAÇÃO:</b><br>
                                 <b>Serviço: </b> {{ $servico }} <br>
                                 <b>Nome: </b> {{ $nome }} <br>
                                 <b>Telefone: </b> {{ $telefone}} <br>
-                                <b>Mensagem: </b> {{ $mensagem }} <br>
+                                <b>Detalhes: </b> {{ $detalhes }} <br>
                             </p>
                             <br>
                             <p>Atenciosamente,</p>

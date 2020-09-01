@@ -40,7 +40,7 @@ ApiRoute::version('v1',function(){
 
             $params = $request->input();
 
-            Mail::to('rnrafaelnogueira@gmail.com')->send(new Solicitacao($params['servico'],$params['nome'], $params['telefone'],$params['mensagem'])); 
+            Mail::to('rnrafaelnogueira@gmail.com')->send(new Solicitacao($params['servico'],$params['nome'], $params['telefone'],$params['detalhes'])); 
 
             return 'A solicitação foi enviada, aguarde entraremos em contato.';
 

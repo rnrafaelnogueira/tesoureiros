@@ -13,7 +13,7 @@ class Solicitacao extends Mailable
 
     public $servico;
     public $nome;
-    public $mensagem;
+    public $detalhes;
     public $telefone;
 
     /**
@@ -21,12 +21,12 @@ class Solicitacao extends Mailable
      *
      * @return void
      */
-    public function __construct($servico, $nome,$telefone,$mensagem )
+    public function __construct($servico, $nome,$telefone,$detalhes )
     {
         $this->servico = $servico ;
         $this->nome = $nome ;
         $this->telefone = $telefone;
-        $this->mensagem = $mensagem;
+        $this->detalhes = $detalhes;
     }
 
     /**
