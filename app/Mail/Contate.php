@@ -34,6 +34,6 @@ class Contate extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.contato');
+        return $this->view('mail.contato')->toHtml();
     }
 }
