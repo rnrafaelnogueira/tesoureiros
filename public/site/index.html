@@ -158,7 +158,7 @@
           <br><span  style="font-size: 14px;font-weight: 100 !important; !important;color: #8a8a8a;">Prazo de 8 dias</span>  
           <p>R$ 80,00</p>
           <div class="reveal" id="solicitacao_metal" data-reveal>
-            <span id="mensagem_solicitacao_porcelana" style="font-size: 15px;font-weight: 100 !important;color: #fd9902;"></span>
+            <span id="mensagem_solicitacao_metal" style="font-size: 15px;font-weight: 100 !important;color: #fd9902;"></span>
             <br>
             <form id="solicitacao_metal_form"> 
               <h5>Solicitação de Cooping Metálico</h5>
@@ -184,7 +184,7 @@
           <br><span  style="font-size: 14px;font-weight: 100 !important; !important;color: #8a8a8a;">Prazo de 8 dias</span>  
           <p>R$ 20,00</p>
           <div class="reveal" id="solicitacao_enceramento" data-reveal>
-            <span id="mensagem_solicitacao_porcelana" style="font-size: 15px;font-weight: 100 !important;color: #fd9902;"></span>
+            <span id="mensagem_solicitacao_enceramento" style="font-size: 15px;font-weight: 100 !important;color: #fd9902;"></span>
             <br>
             <form id="solicitacao_enceramento_form"> 
               <h5>Solicitação de Enceramento Diagnóstico</h5>
@@ -332,11 +332,11 @@
                   type: "POST",
                   url: 'https://necyvieira.herokuapp.com/public/api/solicitacao',
                   // serialize your form's elements.
-                  data: $("#solicitacao_ceromero").serialize(), 
+                  data: $("#solicitacao_ceromero_form").serialize(), 
                   success: function(data)
                   {
                       // "something" is the class of your form wrapper
-                      $('#mensagem').html(data);
+                      $('#mensagem_solicitacao_ceromero').html(data);
                   }
             });
        });
@@ -346,11 +346,11 @@
                   type: "POST",
                   url: 'https://necyvieira.herokuapp.com/public/api/solicitacao',
                   // serialize your form's elements.
-                  data: $("#solicitacao_porcelana").serialize(), 
+                  data: $("#solicitacao_porcelana_form").serialize(), 
                   success: function(data)
                   {
                       // "something" is the class of your form wrapper
-                      $('#mensagem').html(data);
+                      $('#mensagem_solicitacao_porcelana').html(data);
                   }
             });
        });
@@ -360,11 +360,11 @@
                   type: "POST",
                   url: 'https://necyvieira.herokuapp.com/public/api/solicitacao',
                   // serialize your form's elements.
-                  data: $("#solicitacao_metal").serialize(), 
+                  data: $("#solicitacao_metal_form").serialize(), 
                   success: function(data)
                   {
                       // "something" is the class of your form wrapper
-                      $('#mensagem').html(data);
+                      $('#mensagem_solicitacao_metal').html(data);
                   }
             });
        });
@@ -374,11 +374,11 @@
                   type: "POST",
                   url: 'https://necyvieira.herokuapp.com/public/api/solicitacao',
                   // serialize your form's elements.
-                  data: $("#solicitacao_enceramento").serialize(), 
+                  data: $("#solicitacao_enceramento_form").serialize(), 
                   success: function(data)
                   {
                       // "something" is the class of your form wrapper
-                      $('#mensagem').html(data);
+                      $('#mensagem_solicitacao_enceramento').html(data);
                   }
             });
        });
