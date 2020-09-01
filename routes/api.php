@@ -13,12 +13,33 @@ use Illuminate\Http\Request;
 |
 */
 
+use App\Mail\MailtrapExample;
+
+
 ApiRoute::version('v1',function(){
     ApiRoute::group([
         'namespace' => 'App\Http\Controllers\Api' ,
         'as' => 'api' ,
         'middleware' => ['bindings']
     ], function(){
+
+     
+
+
+        ApiRoute::post('/contate', function () {
+
+            $name = 'Teste';
+            try{
+                Mail::to('rnrafaelnogueira@gmail.com')->send(new MailtrapExample($name));
+            }catch(Exeption $e ){
+                dd($e->getMessage());
+            }
+          
+            
+            return 'Email sent Successfully';
+         
+        });
+
         ApiRoute::post('/access_token', [
             'uses' => 'AuthController@accessToken'/*,
             'middleware' => ['api.throttle'],

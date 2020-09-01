@@ -322,15 +322,16 @@
               <div class="large-3 large-offset-2 cell">
                 <span style="font-size: 15px;font-weight: 100 !important;">Contate-nos</span><br>
                 <br> 
-
-                <form id="contato">
+                <span id="mensagem" style="font-size: 15px;font-weight: 100 !important;color: #fd9902;"></span>
+                <br>
+                <form id="contato"> 
                   <label>Nome</label>
-                  <input type="text" placeholder="Nome">
+                  <input type="text" placeholder="Nome" name="nome" >
                   <label for="">Telefone (WhatsApp)</label>
                   <input class="input" type="text" name="telefone" placeholder="Telefone(WhatZapp)">
                   <label for="">Mensagem</label>
-                  <textarea class="input" name="telefone" placeholder="Mensagem" form="usrform"></textarea>
-                  <button class="button" type="submit"> Enviar </button>
+                  <textarea class="input" name="mensagem" placeholder="Mensagem"  form="contato"></textarea>
+                  <button class="button" type="button" id="submit"> Enviar </button>
                 </form>
               </div>
           </div>
@@ -345,7 +346,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.js"></script>
     <script>
-      $(document).foundation();
+      $(document).foundation(
+
+        $('#submit').click(function() {
+            $.ajax({
+                  type: "POST",
+                  url: 'http://localhost:8000/api/contate',
+                  // serialize your form's elements.
+                  data: $("#contato").serialize(), 
+                  success: function(data)
+                  {
+                      // "something" is the class of your form wrapper
+                      $('#mensagem').html(data);
+                  }
+            });
+           })
+
+      );
+
+     
     </script>
   
 
