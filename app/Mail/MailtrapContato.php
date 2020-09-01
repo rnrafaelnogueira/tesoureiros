@@ -12,9 +12,9 @@ class MailtrapContato extends Mailable
 {
     use Queueable, SerializesModels;
 
-    private $nome;
-    private $mensagem;
-    private $telefone;
+    public $nome;
+    public $mensagem;
+    public $telefone;
 
     /**
      * Create a new message instance.
@@ -23,9 +23,9 @@ class MailtrapContato extends Mailable
      */
     public function __construct($nome,$telefone,$mensagem)
     {
-       $this->_nome = $nome ;
-       $this->_telefone = $telefone;
-       $this->_mensagem = $mensagem;
+       $this->nome = $nome ;
+       $this->telefone = $telefone;
+       $this->mensagem = $mensagem;
     }
 
     /**
@@ -35,10 +35,6 @@ class MailtrapContato extends Mailable
      */
     public function build()
     {
-       
-
-        return $this->view("mail.contato");
-        });
-        
+        return $this->view("mail.contato");   
     }
 }

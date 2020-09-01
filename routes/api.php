@@ -28,18 +28,9 @@ ApiRoute::version('v1',function(){
         ApiRoute::post('/contate', function (Request $request) {
 
             $params = $request->input();
-
-            $nome =  $params['nome']; 
-            $telefone =  $params['telefone'];
-            $mensagem =  $params['mensagem'];
-       
                     
-            Mail::send('mail.contato', ["nome" => $nome, 'telefone' =>  $telefone, 'mensagem' => $mensagem], function ($mail) use ($nome, $telefone, $mensagem){
-                $mail->from('rnrafaelnogueira@gmail.com', 'Cliente entranto em contato - LAB NECY VIEIRA');
-                $mail->to('rnrafaelnogueira@gmail.com' , 'Web Site')->subject('Cliente entranto em contato - LAB NECY VIEIRA');
-                $mail->bcc("necyvnogueira@gmail.br");
-            });
-            
+            Mail::to('rnrafaelnogueira@gmail.com')->send(new MailtrapContato($params['nome'], $params['telefone'],$params['mensagem'])); 
+
             return 'A message has been sent to Mailtrap!';
 
         });
