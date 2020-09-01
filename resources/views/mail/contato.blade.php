@@ -17,14 +17,14 @@
     
                     <!-- Corpo -->
                     <div class="banner">
-                        <img src="https://arquivos.sfiec.org.br/imagens/app-email-bg.png" alt="Sfiec Email" style="max-width: 100%;display: table">
+                        <img src="https://necyvieira.herokuapp.com/public/site/imagem_carrocel2.jpg" alt="Sfiec Email" style="max-width: 100%;display: table">
                     </div>
 
                     <!-- Conteúdo -->
                     <div class="conteudo" style="box-sizing: border-box;float: left;display: block;width: 100%;background: #ffffff;padding: 2em; font-size: 13px ">
                     <h2 style="text-align: center">Lab Necy Vieira</h2> 
                             <h3 style="text-align: center">Cliente entrando em contato</h3>
-                            <p><b>Prezado (a)</b> {{ Rafael Nogueira }} </p>
+                            <p><b>Prezado (a)</b> Rafael Nogueira </p>
                             <p> Você recebeu uma solicitação de contato através do site <b>LAB NECY VIEIRA</b>.</p>
                             <p>
                                 
