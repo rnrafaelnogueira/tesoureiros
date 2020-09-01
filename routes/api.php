@@ -13,8 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-use App\Mail\MailtrapExample;
-
+use App\Mail\MailtrapContato;
 
 ApiRoute::version('v1',function(){
     ApiRoute::group([
@@ -26,18 +25,14 @@ ApiRoute::version('v1',function(){
      
 
 
-        ApiRoute::post('/contate', function () {
+        ApiRoute::post('/contate', function (Request $request) {
 
-            $name = 'Teste';
-            try{
-                Mail::to('rnrafaelnogueira@gmail.com')->send(new MailtrapExample($name));
-            }catch(Exeption $e ){
-                dd($e->getMessage());
-            }
-          
-            
-            return 'Email sent Successfully';
-         
+            $params = $request->input();
+
+            Mail::to('rnrafaelnogueira@gmail.com')->send(new MailtrapContato($params['nome'], $params['telefone'],$params['mensagem'])); 
+
+            return 'A message has been sent to Mailtrap!';
+
         });
 
         ApiRoute::post('/access_token', [
