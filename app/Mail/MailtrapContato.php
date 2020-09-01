@@ -23,6 +23,7 @@ class MailtrapContato extends Mailable
      */
     public function __construct($nome,$telefone,$mensagem)
     {
+        dd($nome);
        $this->nome = $nome ;
        $this->telefone = $telefone;
        $this->mensagem = $mensagem;
