@@ -17,7 +17,7 @@
     
                     <!-- Corpo -->
                     <div class="banner">
-                        <img src="https://necyvieira.herokuapp.com/public/site/imagem_carrocel2.jpg" alt="Sfiec Email" style="max-width: 100%;display: table">
+                        <img src="https://necyvieira.herokuapp.com/imagem_carrocel2.jpg" alt="Sfiec Email" style="max-width: 100%;display: table">
                     </div>
 
                     <!-- Conteúdo -->
