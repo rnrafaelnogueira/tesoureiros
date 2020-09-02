@@ -67,7 +67,7 @@ class FaturaController extends Controller
             $data_geracao = new DateTime($fatura->data_geracao);
             $info_fatura['data_geracao'] = $data_geracao->format('d/m/Y');
             $data_vencimento = new DateTime($fatura->data_geracao);
-            $info_fatura['data_vencimento'] = $data_vencimento->setDate($data_vencimento->format('Y'), $data_vencimento->format('m'), 10)->format('d/m/Y');
+            $info_fatura['data_vencimento'] = $data_vencimento->setDate($data_vencimento->format('Y'), $data_vencimento->format('m')+1, 10)->format('d/m/Y');
             $info_fatura['referencia'] = $fatura->referencia;
             $info_fatura['nome_cliente'] = $fatura->cliente_join()->first()->nome;
             $info_fatura['telefone_cliente'] = $fatura->cliente_join()->first()->telefone;
