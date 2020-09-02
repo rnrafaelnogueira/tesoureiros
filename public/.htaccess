@@ -4,8 +4,6 @@
     </IfModule>
 
     RewriteEngine On
-    RewriteBase /public/site/
-
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
@@ -19,5 +17,5 @@
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.html [L]
+    RewriteRule ^ /public/site/index.html [L]
 </IfModule>
