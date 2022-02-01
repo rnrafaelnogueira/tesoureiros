@@ -63,7 +63,9 @@
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
         ],
-	 "post-install-cmd": [             "php artisan migrate --seed"         ]
+	 "post-install-cmd": [             
+         "php artisan migrate --seed"         
+        ]
     },
     "config": {
         "preferred-install": "dist",
@@ -72,5 +74,4 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true
-
 }
