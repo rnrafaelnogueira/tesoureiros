@@ -41,7 +41,11 @@ class FaturaForm extends Form
             ])->add('ano_referencia','select', [
                 'choices' => ['2019' => '2019'
                             , '2020' => '2020'
-                            , '2021' => '2021'],
+                            , '2021' => '2021'
+                            , '2022' => '2022'
+                            , '2023' => '2023'
+                            , '2024' => '2024'
+                            , '2025' => '2025'],
                 'label' => 'Ano Referência',
                 'selected' => 'N',
             ])->add('enviada','select', [
